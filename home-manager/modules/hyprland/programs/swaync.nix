@@ -1,0 +1,5 @@
+{
+  services.swaync.settings = {
+    
+  };
+}
