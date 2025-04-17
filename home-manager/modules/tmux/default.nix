@@ -10,9 +10,9 @@
     mouse = true;
     escapeTime = 0;
     keyMode = "vi";
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
 
-    extraConfig = "./tmux.conf";
+    extraConfig = builtins.readFile ./tmux.conf;
   };
   xdg.configFile."tmux/plugins/catppuccin/tmux".source = "${inputs.catppuccin-tmux}";
 }

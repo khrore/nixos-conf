@@ -40,4 +40,3 @@
     extraConfig = builtins.readFile "${inputs.catppuccin-kitty}/themes/mocha.conf";
   };
 }
-
