@@ -1,13 +1,7 @@
-{
-  pkgs-unstable,
-  inputs,
-  ...
-}: {
+{pkgs-unstable, ...}: {
   programs.fish = {
     enable = true;
     package = pkgs-unstable.fish;
-    shellInit =
-      builtins.readFile "${inputs.catppuccin-fish}/themes/Catppuccin Mocha.theme"
-      // builtins.readFile "./conf.fish";
+    shellInit = builtins.readFile ./conf.fish;
   };
 }

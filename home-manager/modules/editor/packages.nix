@@ -1,4 +1,5 @@
-{pkgs-unstable, ...}: {
+{ pkgs-unstable, ... }:
+{
   home.packages = with pkgs-unstable; [
     # lua
     lua-language-server # lsp
@@ -19,12 +20,7 @@
 
     # nix
     nil # lsp with features
-    statix # lints
-    alejandra # formatter
-
-    # GNU C/C++
-    # gcc
-    # gdb
+    nixfmt-rfc-style # formatter
 
     # LLVM C/C++
     clang_19 # compiler
@@ -52,16 +48,17 @@
     rust-analyzer # lsp
     rustfmt # formatting
     clippy # linter
-    wasm-pack # utility that builds rust-generated WebAssembly package
-    cargo-generate # tool to generate a new Rust project by leveraging a pre-existing git repository as a template
+    bacon # background rust checker
 
     # JS
     nodejs_23 # JS runtime
 
     # Python
+    # TODO: check if pyright is needed
     pyright # language server
-    yapf # formatter
-    pylint # linter
+    ruff # formatter
+    basedpyright # type checker
+    ruff-lsp # lsp
 
     # Markdown
     marksman # lsp

@@ -4,8 +4,8 @@ return {
 	opts = {
 		servers = {
 			-- lua is already configured
-			pyright = {}, -- python
-			nil_ls = {}, -- nix
+			-- pyright = {}, -- python
+			-- nil_ls = {}, -- nix
 			rust_analyzer = { -- rust
 				settings = {
 					["rust_analyzer"] = {
@@ -26,12 +26,13 @@ return {
 					},
 				},
 			},
-			clangd = {}, -- c/c++
-			cmake = {}, -- cmake
+			-- clangd = {}, -- c/c++
+			-- cmake = {}, -- cmake
 			fish_lsp = {}, -- fish
 			bashls = {}, -- bash
-			marksman = {}, -- markdown
-			yamlls = {}, -- yaml
+			-- marksman = {}, -- markdown
+			-- yamlls = {}, -- yaml
+			hyprls = {}, -- hyprlang
 		},
 	},
 }

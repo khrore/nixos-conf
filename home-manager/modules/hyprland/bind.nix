@@ -1,4 +1,10 @@
-{ terminal, terminalFileManager, browser, terminalEditor, ... }: {
+{
+  terminal,
+  terminalFileManager,
+  browser,
+  terminalEditor,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = {
     # See https://wiki.hyprland.org/Configuring/Keywords/
     # setuping default apps
