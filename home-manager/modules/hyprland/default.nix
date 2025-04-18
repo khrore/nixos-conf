@@ -1,4 +1,5 @@
-{mylib, ...}: {
+{ mylib, ... }:
+{
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -9,6 +10,7 @@
       # auto launch apps
       exec-once = [
         "waybar"
+        "hypridle"
         # "clipse -listen"
       ];
 
@@ -57,6 +59,8 @@
       };
     };
   };
+
+  xdg.configFile."hypr/assets".source = "${../../../assets}";
 
   imports = mylib.scanPaths ./.;
 }

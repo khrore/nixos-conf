@@ -1,4 +1,5 @@
-{pkgs-unstable, ...}: {
+{ pkgs-unstable, ... }:
+{
   home.packages = with pkgs-unstable; [
     # Packages that don't require configuration. If you're looking to configure a program see the /modules dir
     # TODO: move configurable apps to specific files
@@ -104,6 +105,7 @@
     nwg-look # GTK3 settings editor
 
     rofi-wayland # window switcher
+    hyprpicker # Wlroots-compatible Wayland color picker
     # bibata-cursors
     # flat-remix-gtk
     # gnome.adwaita-icon-theme

@@ -44,7 +44,6 @@
     # Rust
     cargo # package manager
     rustc # compiler
-    # rustup # toolchain installer
     rust-analyzer # lsp
     rustfmt # formatting
     clippy # linter
@@ -54,11 +53,10 @@
     nodejs_23 # JS runtime
 
     # Python
-    # TODO: check if pyright is needed
-    pyright # language server
+    # pyright # language server
     ruff # formatter
     basedpyright # type checker
-    ruff-lsp # lsp
+    # ruff-lsp # lsp
 
     # Markdown
     marksman # lsp
@@ -68,6 +66,8 @@
 
     pandoc # document converter
     hugo # static site generator
+
+    hyprls # hyprland lsp
 
     libgcc
 

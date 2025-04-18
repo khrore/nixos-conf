@@ -1,6 +1,7 @@
 # A monitor of resources
 # replacement of htop/nmon
-{inputs, ...}: {
+{ inputs, ... }:
+{
   programs.btop = {
     enable = true;
     settings = {

@@ -4,7 +4,8 @@
   browser,
   terminalEditor,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland.settings = {
     # See https://wiki.hyprland.org/Configuring/Keywords/
     # setuping default apps
@@ -22,14 +23,13 @@
       "$mainMod, W, togglefloating" # toggle the window on focus to float
       "$mainMod SHIFT, G, togglegroup" # toggle the window on focus to float
       "ALT, return, fullscreen" # toggle the window on focus to fullscreen
-      "$mainMod, SPACE, exec, hyprctl switchxkblayout current next"
+      "$mainMod, SPACE, exec, hyprctl switchxkblayout current next" # change language input
 
       "$mainMod, T, exec, $terminal"
       "$mainMod, C, exec, $editor"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, F, exec, $browser"
       "$mainMod, M, exec, telegram-desktop"
-      "$mainMod, Y, exec, yandex-music"
       "$mainMod, V, exec, vesktop"
 
       # Moving focus
