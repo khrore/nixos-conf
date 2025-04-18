@@ -233,4 +233,3 @@
     catppuccin-cursors.mochaDark
   ];
 }
-

@@ -106,6 +106,8 @@
 
     rofi-wayland # window switcher
     hyprpicker # Wlroots-compatible Wayland color picker
+    clipse # clipboard manager
+    wl-clipboard # Command-line copy/paste utilities for Wayland
     # bibata-cursors
     # flat-remix-gtk
     # gnome.adwaita-icon-theme

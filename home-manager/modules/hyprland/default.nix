@@ -11,7 +11,7 @@
       exec-once = [
         "waybar"
         "hypridle"
-        # "clipse -listen"
+        "clipse -listen"
       ];
 
       # systemd = {

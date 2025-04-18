@@ -25,12 +25,18 @@
       "ALT, return, fullscreen" # toggle the window on focus to fullscreen
       "$mainMod, SPACE, exec, hyprctl switchxkblayout current next" # change language input
 
+      # Some Hyprland utilities
+      "$mainMod, P, exec, hyprpicker" # pick a color
+      "$mainMod, L, exec, hyprlock" # lock screen
+      "$mainMod, V, exec, ${terminal} --class clipse -e clipse" # clipboard manager
+
+      # Command to open main apps
       "$mainMod, T, exec, $terminal"
       "$mainMod, C, exec, $editor"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, F, exec, $browser"
       "$mainMod, M, exec, telegram-desktop"
-      "$mainMod, V, exec, vesktop"
+      "$mainMod, D, exec, vesktop"
 
       # Moving focus
       "$mainMod, H, movefocus, l"
