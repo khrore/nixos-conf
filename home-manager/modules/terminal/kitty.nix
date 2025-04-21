@@ -11,8 +11,10 @@
 {
   inputs,
   pkgs-unstable,
+  browser,
   ...
-}: {
+}:
+{
   programs.kitty = {
     enable = true;
     package = pkgs-unstable.kitty;
@@ -29,12 +31,16 @@
     };
 
     settings = {
+      show_hyperlink_targets = true;
+      open_url_with = browser;
+      copy_on_select = true;
       background_opacity = "0.93";
-      macos_option_as_alt = true; # Option key acts as Alt on macOS
       enable_audio_bell = false;
       tab_bar_edge = "top"; # tab bar on top
-      shell = "${pkgs-unstable.bash}/bin/bash --login -c 'fish'";
+      shell = "bash --login -c 'fish'";
     };
+
+    shellIntegration.enableFishIntegration = true;
 
     # Set catppuccin mocha theme
     extraConfig = builtins.readFile "${inputs.catppuccin-kitty}/themes/mocha.conf";

@@ -3,7 +3,8 @@
   config,
   pkgs-unstable,
   ...
-}: {
+}:
+{
   # Setupping proxy and ipv4 to our network
   networking.interfaces.enp2s0.ipv4.addresses = [
     {
@@ -25,11 +26,9 @@
     };
   };
 
-  # boot.extraModulePackages = [config.boot.kernelPackages.wireguard];
-
   # networking.wg-quick.interfaces.wg0.configFile = "/home/user/Downloads/v/VPNTYPE-FRA6.conf";
-  #
+
   # Setupping DNS
-  networking.nameservers = ["130.100.7.253" "8.8.8.8" "8.8.4.4" "1.1.1.1" "1.0.0.1"];
+  networking.nameservers = [ "130.100.7.253" ];
   networking.resolvconf.enable = true;
 }

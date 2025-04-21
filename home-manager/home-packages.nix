@@ -30,7 +30,6 @@
     git-credential-manager
     git-lfs # used by huggingface models
     git-graph # Command line tool to show clear git graphs
-    # TODO: configure gh through home-manager
 
     # CLI utils
     innoextract # extract files from windows installer
@@ -57,10 +56,10 @@
     unzip
     p7zip
 
+    # Tools for TUI
     wtype # Fake keyboard/mouse input, window management, and more for wayland
     file # Program that shows the type of files
     jd-diff-patch # Commandline utility and Go library for diffing and patching JSON values
-    # popper
     imagemagick # Software suite to create, edit, compose, or convert bitmap images
 
     brightnessctl # allows you read and control device brightness
@@ -108,9 +107,6 @@
     hyprpicker # Wlroots-compatible Wayland color picker
     clipse # clipboard manager
     wl-clipboard # Command-line copy/paste utilities for Wayland
-    # bibata-cursors
-    # flat-remix-gtk
-    # gnome.adwaita-icon-theme
 
     # TODO: move themes in specific dir
     # Catppuccin themes for different apps
