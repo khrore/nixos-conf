@@ -1,7 +1,6 @@
 {
   terminal,
   pkgs-unstable,
-  inputs,
   ...
 }:
 {
@@ -16,5 +15,4 @@
 
     extraConfig = builtins.readFile ./tmux.conf;
   };
-  xdg.configFile."tmux/plugins/catppuccin/tmux".source = "${inputs.catppuccin-tmux}";
 }

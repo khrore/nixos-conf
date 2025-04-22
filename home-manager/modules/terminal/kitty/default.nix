@@ -44,8 +44,5 @@
     };
 
     shellIntegration.enableFishIntegration = true;
-
-    # Set catppuccin mocha theme
-    extraConfig = builtins.readFile "${inputs.catppuccin-kitty}/themes/mocha.conf";
   };
 }

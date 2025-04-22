@@ -118,8 +118,6 @@
     group = {
       "col.border_active" = "$blue";
       "col.border_inactive" = "$surface0";
-      #   "col.border_locked_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-      #   "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
     };
 
     # https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules
@@ -203,6 +201,7 @@
     # Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
     # "Smart gaps" / "No gaps when only"
     # uncomment all if you wish to use that.
+
     # workspace = w[tv1], gapsout:0, gapsin:0
     # workspace = f[1], gapsout:0, gapsin:0
     # windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]

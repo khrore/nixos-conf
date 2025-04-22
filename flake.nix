@@ -22,6 +22,7 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    catppuccin.url = "github:catppuccin/nix";
 
     # Home-manager
     home-manager = {
@@ -83,6 +84,7 @@
       self,
       nixpkgs,
       home-manager,
+      catppuccin,
       ...
     }@inputs:
     let
@@ -168,7 +170,6 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-
           {
             # given the users in this list the right to specify additional substituters via:
             #    1. `nixConfig.substituters` in `flake.nix`
@@ -192,7 +193,10 @@
           {
             home-manager = {
               useUserPackages = true;
-              users.${username} = import ./home.nix;
+              users.${username}.imports = [
+                ./home.nix
+                catppuccin.homeModules.catppuccin
+              ];
 
               extraSpecialArgs = {
                 inherit
