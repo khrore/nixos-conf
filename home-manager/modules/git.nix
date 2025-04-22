@@ -2,6 +2,6 @@
   programs.git = {
     enable = true;
     userName = "qrore";
-    userEmail = "129329817+qrore@users.noreply.github.com";
+    userEmail = "129329817+khrore@users.noreply.github.com";
   };
 }

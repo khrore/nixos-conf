@@ -111,7 +111,7 @@
       # Configuration for user settings
       # TODO: make functionality of variables
       username = "user";
-      terminal = "kitty";
+      terminal = "ghostty";
       terminalFileManager = "yazi";
       terminalEditor = "nvim";
       browser = "firefox";

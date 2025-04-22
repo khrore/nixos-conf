@@ -27,8 +27,11 @@
 
       # Some Hyprland utilities
       "$mainMod, P, exec, hyprpicker" # pick a color
-      "$mainMod, L, exec, hyprlock" # lock screen
-      "$mainMod, V, exec, ${terminal} --class clipse -e clipse" # clipboard manager
+      "$mainMod ALT, L, exec, hyprlock" # lock screen
+
+      # TODO: make if termainal == "ghostty" { this } else { standart }
+      # "$mainMod, V, exec, ${terminal} --class clipse -e clipse" # clipboard manager
+      "$mainMod, V, exec, ${terminal} --class=com.example.clipse -e clipse" # clipboard manager
 
       # Command to open main apps
       "$mainMod, T, exec, $terminal"

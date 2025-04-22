@@ -7,6 +7,8 @@
 #   2. Decrease Font Size: `ctrl + shift + -` | `ctrl + shift + _`
 #   3. And Other common shortcuts such as Copy, Paste, Cursor Move, etc.
 #
+#   TODO: make copy to clipboard with tmux
+#
 ###########################################################
 {
   inputs,
@@ -38,6 +40,7 @@
       enable_audio_bell = false;
       tab_bar_edge = "top"; # tab bar on top
       shell = "bash --login -c 'fish'";
+      clipboard_control = "write-primary write-clipboard no-append";
     };
 
     shellIntegration.enableFishIntegration = true;

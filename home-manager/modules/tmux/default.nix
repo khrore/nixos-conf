@@ -1,8 +1,10 @@
 {
+  terminal,
   pkgs-unstable,
   inputs,
   ...
-}: {
+}:
+{
   programs.tmux = {
     enable = true;
     package = pkgs-unstable.tmux;
@@ -10,7 +12,7 @@
     mouse = true;
     escapeTime = 0;
     keyMode = "vi";
-    terminal = "tmux-256color";
+    terminal = "xterm-${terminal}";
 
     extraConfig = builtins.readFile ./tmux.conf;
   };
