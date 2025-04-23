@@ -1,5 +1,5 @@
 {
-  description = "System configuration by KOTOWARU";
+  description = "System configuration by khrore";
 
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
@@ -31,52 +31,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ########################## NONE FLAKE ##########################
-
-    # Themes for yazi
-    catppuccin-yazi = {
-      url = "github:catppuccin/yazi";
-      flake = false;
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    # Themes for bat
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-
-    # Theme for btop
-    catppuccin-btop = {
-      url = "github:catppuccin/btop";
-      flake = false;
-    };
-
-    catppuccin-kitty = {
-      url = "github:catppuccin/kitty";
-      flake = false;
-    };
-
-    catppuccin-hyprland = {
-      url = "github:catppuccin/hyprland";
-      flake = false;
-    };
-
-    catppuccin-fish = {
-      url = "github:catppuccin/fish";
-      flake = false;
-    };
-
-    catppuccin-starship = {
-      url = "github:catppuccin/starship";
-      flake = false;
-    };
-
-    catppuccin-tmux = {
-      url = "github:catppuccin/tmux";
-      flake = false;
-    };
-
-    #################################################################
   };
 
   outputs =
@@ -84,7 +44,6 @@
       self,
       nixpkgs,
       home-manager,
-      catppuccin,
       ...
     }@inputs:
     let
@@ -194,8 +153,8 @@
             home-manager = {
               useUserPackages = true;
               users.${username}.imports = [
+                inputs.catppuccin.homeModules.catppuccin
                 ./home.nix
-                catppuccin.homeModules.catppuccin
               ];
 
               extraSpecialArgs = {

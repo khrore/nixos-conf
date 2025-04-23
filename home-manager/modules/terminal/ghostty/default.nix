@@ -6,7 +6,7 @@
     enableFishIntegration = true;
     clearDefaultKeybinds = true;
     settings = {
-      font-family = "JetBrains Mono";
+      font-family = "Fira Code";
       font-size = 11;
 
       background-opacity = 0.95;

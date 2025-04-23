@@ -18,134 +18,6 @@
         "type": "github"
       }
     },
-    "catppuccin-bat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734996624,
-        "narHash": "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=",
-        "owner": "catppuccin",
-        "repo": "bat",
-        "rev": "699f60fc8ec434574ca7451b444b880430319941",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "bat",
-        "type": "github"
-      }
-    },
-    "catppuccin-btop": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727050041,
-        "narHash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
-        "owner": "catppuccin",
-        "repo": "btop",
-        "rev": "f437574b600f1c6d932627050b15ff5153b58fa3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "btop",
-        "type": "github"
-      }
-    },
-    "catppuccin-fish": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740843741,
-        "narHash": "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=",
-        "owner": "catppuccin",
-        "repo": "fish",
-        "rev": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "fish",
-        "type": "github"
-      }
-    },
-    "catppuccin-hyprland": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718784939,
-        "narHash": "sha256-xSa/z0Pu+ioZ0gFH9qSo9P94NPkEMovstm1avJ7rvzM=",
-        "owner": "catppuccin",
-        "repo": "hyprland",
-        "rev": "c388ac55563ddeea0afe9df79d4bfff0096b146b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "hyprland",
-        "type": "github"
-      }
-    },
-    "catppuccin-kitty": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1731214416,
-        "narHash": "sha256-59ON7CzVgfZUo7F81qQZQ1r6kpcjR3OPvTl99gzDP8E=",
-        "owner": "catppuccin",
-        "repo": "kitty",
-        "rev": "b14e8385c827f2d41660b71c7fec1e92bdcf2676",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "kitty",
-        "type": "github"
-      }
-    },
-    "catppuccin-starship": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733541952,
-        "narHash": "sha256-1w0TJdQP5lb9jCrCmhPlSexf0PkAlcz8GBDEsRjPRns=",
-        "owner": "catppuccin",
-        "repo": "starship",
-        "rev": "e99ba6b210c0739af2a18094024ca0bdf4bb3225",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "starship",
-        "type": "github"
-      }
-    },
-    "catppuccin-tmux": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742721829,
-        "narHash": "sha256-Is0CQ1ZJMXIwpDjrI5MDNHJtq+R3jlNcd9NXQESUe2w=",
-        "owner": "catppuccin",
-        "repo": "tmux",
-        "rev": "b2f219c00609ea1772bcfbdae0697807184743e4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "tmux",
-        "type": "github"
-      }
-    },
-    "catppuccin-yazi": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741231685,
-        "narHash": "sha256-nEF3gs8JAipZK8Ut67EVHw6zW1zCeFse4b2LxOwRIlc=",
-        "owner": "catppuccin",
-        "repo": "yazi",
-        "rev": "0c274adb1e128bbc3355363703759a0842be620c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "yazi",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -163,6 +35,27 @@
       "original": {
         "owner": "nix-community",
         "ref": "release-24.11",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "zen-browser",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743604125,
+        "narHash": "sha256-ZD61DNbsBt1mQbinAaaEqKaJk2RFo9R/j+eYWeGMx7A=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "180fd43eea296e62ae68e079fcf56aba268b9a1a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
         "repo": "home-manager",
         "type": "github"
       }
@@ -234,18 +127,32 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
-        "catppuccin-bat": "catppuccin-bat",
-        "catppuccin-btop": "catppuccin-btop",
-        "catppuccin-fish": "catppuccin-fish",
-        "catppuccin-hyprland": "catppuccin-hyprland",
-        "catppuccin-kitty": "catppuccin-kitty",
-        "catppuccin-starship": "catppuccin-starship",
-        "catppuccin-tmux": "catppuccin-tmux",
-        "catppuccin-yazi": "catppuccin-yazi",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "zen-browser": "zen-browser"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745382202,
+        "narHash": "sha256-idR8y6WmZ9eLpxUJqSXtZznAkVlan4luRSvzEIc/6LQ=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "6b11cfc1cae680049a6d5108fb90a72e2786f24f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "type": "github"
       }
     }
   },
