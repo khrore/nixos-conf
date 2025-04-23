@@ -108,17 +108,12 @@
     clipse # clipboard manager
     wl-clipboard # Command-line copy/paste utilities for Wayland
 
+    qbittorrent # torrent client
+
     # TODO: move themes in specific dir
     # Catppuccin themes for different apps
-    catppuccin
-    catppuccin-sddm
-    catppuccin-gtk
     catppuccin-grub
     catppuccin-kde
     catppuccin-fcitx5
-    catppuccin-kvantum
-    catppuccin-qt5ct
-    # vscode-extensions.catppuccin.catppuccin-vsc
-    # vscode-extensions.catppuccin.catppuccin-vsc-icons
   ];
 }

@@ -37,6 +37,11 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    catppuccin-zen = {
+      url = "github:catppuccin/zen-browser";
+      flake = false;
+    };
   };
 
   outputs =
@@ -75,7 +80,7 @@
       terminal = "ghostty";
       terminalFileManager = "yazi";
       terminalEditor = "nvim";
-      browser = "firefox";
+      browser = "zen";
       shell = "fish"; # fish, bash or zsh (nushell dont contained in base NixOS)
 
       wallpaper = "~/.config/hypr/assets/nixos-bg-fhd.jpg"; # see assets
@@ -91,6 +96,11 @@
       # stateVersion = "25.05";
 
       configurationLimit = 10;
+
+      catppuccin = {
+        flavor = "mocha";
+        accent = "blue";
+      };
 
       #################################################################
     in
@@ -174,6 +184,7 @@
                   pkgs-unstable
                   wallpaper
                   mylib
+                  catppuccin
                   ;
               };
             };

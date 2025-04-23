@@ -18,6 +18,22 @@
         "type": "github"
       }
     },
+    "catppuccin-zen": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745374281,
+        "narHash": "sha256-+Nf7TUairZBnhYCFVBqiQW9QodV/xWSOnH6X9o6S7rM=",
+        "owner": "catppuccin",
+        "repo": "zen-browser",
+        "rev": "0893393f721facb884365a318111c4a7fce96b45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zen-browser",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -127,6 +143,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "catppuccin-zen": "catppuccin-zen",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
