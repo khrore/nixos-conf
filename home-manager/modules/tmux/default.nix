@@ -12,7 +12,7 @@
     escapeTime = 0;
     keyMode = "vi";
     terminal = "xterm-${terminal}";
-
+    disableConfirmationPrompt = true;
     extraConfig = builtins.readFile ./tmux.conf;
   };
 }

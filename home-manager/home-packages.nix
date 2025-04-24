@@ -14,7 +14,7 @@
     gimp # image Manipulation Program
     retroarch-full # frontend for system emulators
     wine64 # is not emulator for windows apps
-    flatpak
+    qbittorrent # torrent client
     # wireguard
     # wireguard-tools
 
@@ -103,12 +103,15 @@
     kdePackages.qt6ct # Qt6 Configuration Tool
     nwg-look # GTK3 settings editor
 
+    # Hyprland stuff
     rofi-wayland # window switcher
     hyprpicker # Wlroots-compatible Wayland color picker
     clipse # clipboard manager
     wl-clipboard # Command-line copy/paste utilities for Wayland
 
-    qbittorrent # torrent client
+    ninja # small build system with focus on speed
+
+    graphviz
 
     # TODO: move themes in specific dir
     # Catppuccin themes for different apps

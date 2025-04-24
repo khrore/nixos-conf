@@ -4,7 +4,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			-- lua, fish and bash is already configured
-			-- python = { "yapf" },
+			python = { "ruff_format" },
 			-- nix = { "alejandra" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			-- c = { "clang-format" },

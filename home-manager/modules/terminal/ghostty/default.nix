@@ -6,13 +6,15 @@
     enableFishIntegration = true;
     clearDefaultKeybinds = true;
     settings = {
-      font-family = "Fira Code";
+      font-family = "JetBrains Mono";
       font-size = 11;
 
       background-opacity = 0.95;
       background-blur-radius = 20;
 
       mouse-hide-while-typing = true;
+
+      copy-on-select = true;
 
       keybind = [
         "super+shift+r=reload_config"

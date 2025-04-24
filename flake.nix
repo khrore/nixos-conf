@@ -77,7 +77,7 @@
       # Configuration for user settings
       # TODO: make functionality of variables
       username = "user";
-      terminal = "ghostty";
+      terminal = "kitty";
       terminalFileManager = "yazi";
       terminalEditor = "nvim";
       browser = "zen";
