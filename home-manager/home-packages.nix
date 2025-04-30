@@ -112,10 +112,11 @@
     ninja # small build system with focus on speed
 
     graphviz
+    chisel
+    nemo
 
     # TODO: move themes in specific dir
     # Catppuccin themes for different apps
-    catppuccin-grub
     catppuccin-kde
     catppuccin-fcitx5
   ];

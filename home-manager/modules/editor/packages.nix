@@ -69,7 +69,7 @@
 
     hyprls # hyprland lsp
 
-    libgcc
+    # libgcc
 
     # other stuff
     mold-wrapped # modern fast linker for C/C++/Rust projects

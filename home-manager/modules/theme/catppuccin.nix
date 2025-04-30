@@ -5,7 +5,7 @@
     flavor = "mocha";
     accent = "blue";
 
-    gtk.enable = true;
+    # gtk.enable = true;
   };
 
   home.pointerCursor = {

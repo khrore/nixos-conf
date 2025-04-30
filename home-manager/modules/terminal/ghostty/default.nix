@@ -3,8 +3,7 @@
   programs.ghostty = {
     enable = true;
     package = pkgs-unstable.ghostty;
-    enableFishIntegration = true;
-    clearDefaultKeybinds = true;
+    # clearDefaultKeybinds = true;
     settings = {
       font-family = "JetBrains Mono";
       font-size = 11;

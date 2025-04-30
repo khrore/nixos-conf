@@ -1,8 +1,15 @@
-{ terminal, browser, terminalEditor,... }: {
+{
+  terminal,
+  shell,
+  browser,
+  terminalEditor,
+  ...
+}:
+{
   environment.sessionVariables = rec {
-    TERMINAL = terminal; 
+    TERMINAL = terminal;
     EDITOR = terminalEditor;
-    BROWSER = browser; 
+    BROWSER = browser;
     XDG_BIN_HOME = "$HOME/.local/bin";
     PATH = [
       "${XDG_BIN_HOME}"

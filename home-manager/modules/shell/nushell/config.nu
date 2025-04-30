@@ -4,7 +4,6 @@
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
-  color_config: $catppuccin_theme  # <-- this is the theme
   use_ansi_coloring: true
 
   # true or false to enable or disable the welcome banner at startup
@@ -31,10 +30,6 @@ $env.config = {
       max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
       completer: null # check 'carapace_completer' above as an example
     }
-  }
-  filesize: {
-    metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-    format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, zb, zib, auto
   }
   cursor_shape: {
     emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line (line is the default)
