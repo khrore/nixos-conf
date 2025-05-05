@@ -1,4 +1,5 @@
-{ pkgs-unstable, ... }: { 
+{ pkgs-unstable, terminalEditor, ... }:
+{
   programs.nushell = {
     enable = true;
     package = pkgs-unstable.nushell;

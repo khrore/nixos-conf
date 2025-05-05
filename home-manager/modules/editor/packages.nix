@@ -12,6 +12,9 @@
     shellcheck # Shell script analysis tool
     shfmt # Shell parser and formatter
 
+    # nu
+    nufmt # formater
+
     # fish
     fish-lsp # lsp
 
@@ -27,10 +30,11 @@
     lld_19 # linker
     clang-tools # almost all llvm tools
     lldb # debuger
+    # vscode-extensions.vadimcn.vscode-lldb # native debug extension for VSCode (need for nvim-dap)
 
     # CMake system generator
     cmake # app
-    cmake-language-server # lsp
+    neocmakelsp # lsp
     cmake-format # formater
     cmake-lint # linter
 
@@ -61,8 +65,8 @@
     # Markdown
     marksman # lsp
     mdformat # formatter
-    vale # linter
     glow # previewer
+    markdownlint-cli2 # command-line interface for linting
 
     pandoc # document converter
     hugo # static site generator
