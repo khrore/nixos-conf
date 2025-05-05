@@ -1,6 +1,4 @@
 # Nushell Config File
-#
-# version = 0.81.1
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
@@ -70,4 +68,12 @@ $env.config = {
         reset_application_mode: true
     }
   render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
+}
+
+if not ($env.DISPLAY | is-empty) and ($env.TMUX | is-empty) {
+    try {
+        tmux attach-session -t default
+    } catch {
+        tmux new-session -s default
+    }
 }

@@ -6,6 +6,3 @@ set -g fish_greeting ""
 if test -z "$TMUX"; and test -n "$DISPLAY"
     tmux attach-session -t default; or tmux new-session -s default
 end
-
-# disable fish hello
-set -g fish_greeting ""

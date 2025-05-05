@@ -81,7 +81,7 @@
       terminalFileManager = "yazi";
       terminalEditor = "nvim";
       browser = "zen";
-      shell = "fish";
+      shell = "nushell";
 
       wallpaper = "~/.config/hypr/assets/nixos-bg-fhd.jpg"; # see assets
 

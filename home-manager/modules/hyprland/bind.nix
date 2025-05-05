@@ -35,9 +35,8 @@
 
       # Command to open main apps
       "$mainMod, T, exec, $terminal"
-      "$mainMod, C, exec, $editor"
       "$mainMod, E, exec, $fileManager"
-      "$mainMod, F, exec, $browser"
+      "$mainMod, B, exec, proxychain4 $browser"
       "$mainMod, M, exec, telegram-desktop"
       "$mainMod, D, exec, vesktop"
 
