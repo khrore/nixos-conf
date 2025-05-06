@@ -20,7 +20,7 @@
       # Opening apps
       "$mainMod, Q, killactive" # closes (not kills) the active window
       "$mainMod, delete, exit" # kill hyperland session
-      "$mainMod, W, togglefloating" # toggle the window on focus to float
+      "$mainMod SHIFT, W, togglefloating" # toggle the window on focus to float
       "$mainMod SHIFT, G, togglegroup" # toggle the window on focus to float
       "ALT, return, fullscreen" # toggle the window on focus to fullscreen
       "$mainMod, SPACE, exec, hyprctl switchxkblayout current next" # change language input
@@ -28,9 +28,6 @@
       # Some Hyprland utilities
       "$mainMod, P, exec, hyprpicker" # pick a color
       "$mainMod ALT, L, exec, hyprlock" # lock screen
-
-      # TODO: make if termainal == "ghostty" { this } else { standart }
-      # "$mainMod, V, exec, ${terminal} --class clipse -e clipse" # clipboard manager
       "$mainMod, V, exec, ${terminal} --class=com.example.clipse -e clipse" # clipboard manager
 
       # Command to open main apps
@@ -39,6 +36,7 @@
       "$mainMod, B, exec, proxychain4 $browser"
       "$mainMod, M, exec, telegram-desktop"
       "$mainMod, D, exec, vesktop"
+      "$mainMod, W, exec, waybar"
 
       # Moving focus
       "$mainMod, H, movefocus, l"
@@ -86,9 +84,6 @@
       "$mainMod SHIFT, up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
       "$mainMod SHIFT, down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       "$mainMod SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-
-      # binding clipboard manager
-      # "$mainMod, V, exec, kitty --class clipse -e clipse"
     ];
 
     # aditional settings for clipboard manager

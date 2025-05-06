@@ -11,7 +11,7 @@ return {
 			cpp = { "clang-format" },
 			cmake = { "cmake_format" },
 			markdown = { "mdformat" },
-			nu = { "nufmt" },
+			-- nu = { "nufmt" },
 		},
 	},
 }
