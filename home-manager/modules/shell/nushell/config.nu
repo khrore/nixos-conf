@@ -31,10 +31,6 @@ alias upd = nh os switch --update
 alias hms = nh home switch
 
 # launching tmux automaticaly
-if ($env.DISPLAY | is-empty) and not ($env.TMUX | is-empty) {
-    try {
-        tmux attach-session -t default
-    } catch {
-        tmux new-session -s default
-    }
+if not ($env.DISPLAY? | is-empty) and ($env.TMUX? | is-empty) {
+  tmux
 }

@@ -53,15 +53,6 @@
     }@inputs:
     let
       inherit (self) outputs;
-      # Supported systems for your flake packages, shell, etc.
-      systems = [
-        "x86_64-linux"
-      ];
-      # Personaly dont tested for i686, aarch64 and for darwon
-
-      # This is a function that generates an attribute by calling a function you
-      # pass to it, with each system as an argument
-      forAllSystems = nixpkgs.lib.genAttrs systems;
 
       pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system; # refer the `system` parameter form outer scope recursively
@@ -75,7 +66,6 @@
       ######################### USER LEVEL ##########################
 
       # Configuration for user settings
-      # TODO: make functionality of variables
       username = "user";
       terminal = "ghostty";
       terminalFileManager = "yazi";
@@ -105,16 +95,8 @@
       #################################################################
     in
     {
-      # Your custom packages
-      # Accessible through 'nix build', 'nix shell', etc
-      # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      # Formatter for your nix files, available through 'nix fmt'
-      # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      # TODO: make no duplicate on special args for system and home-manager
+      # you can use nix-fast-build --flake {path-to-flake}#nixosConfigurations."nixos".config.system.build.toplevel
+      # to speed up building processes, but my pc crushes when i loadup 100% cpu
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -143,19 +125,6 @@
             # given the users in this list the right to specify additional substituters via:
             #    1. `nixConfig.substituters` in `flake.nix`
             nix.settings.trusted-users = [ "user" ];
-
-            # the system-level substituters & trusted-public-keys
-            nix.settings = {
-              substituters = [
-                "https://cache.nixos.org"
-              ];
-
-              trusted-public-keys = [
-                # the default public key of cache.nixos.org, it's built-in, no need to add it here
-                "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-              ];
-            };
           }
 
           home-manager.nixosModules.home-manager

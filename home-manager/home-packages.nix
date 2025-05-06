@@ -96,6 +96,9 @@
     cifs-utils # managing Linux CIFS client filesystems
     smbclient-ng # access to smb file system from console
 
+    nix-fast-build
+    nix-eval-jobs
+
     # Other
     bemoji # Emoji picker with support for bemenu/wofi/rofi/dmenu and wayland/X11
     nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
