@@ -32,7 +32,6 @@ alias upd = nh os switch --update
 alias hms = nh home switch
 
 alias v = nvim
-alias y = yy
 
 # launching tmux automaticaly
 if not ($env.DISPLAY? | is-empty) and ($env.TMUX? | is-empty) {
