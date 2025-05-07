@@ -3,8 +3,6 @@
 * https://github.com/ryan4yin/nix-config/blob/main/home/linux/gui/hyprland/conf/waybar/style.css
 */
 
-/*@import "mocha.css";*/
-
 * {
   /* https://docs.gtk.org/gtk3/css-overview.html#colors */
   color: @text;
