@@ -1,6 +1,9 @@
 {
   nix.settings = {
     # Enables flakes
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 }

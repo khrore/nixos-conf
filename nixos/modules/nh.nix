@@ -1,7 +1,8 @@
 # Enables Nix CLI helper.
-{ username, ... }: {
+{ username, ... }:
+{
   programs.nh = {
     enable = true;
-    flake = "/home/${username}/flake";
+    flake = "/home/${username}/current-conf";
   };
 }

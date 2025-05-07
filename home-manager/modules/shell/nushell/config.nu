@@ -16,6 +16,7 @@ $env.config.table.trim = {
 # aliases 
 alias l = ls
 alias ll = ls -l
+alias la = ls -a
 alias lla = ls -la
 
 alias c = clear
@@ -29,6 +30,9 @@ alias nrs = nixos-rebuild switch
 alias sw = nh os switch
 alias upd = nh os switch --update
 alias hms = nh home switch
+
+alias v = nvim
+alias y = yy
 
 # launching tmux automaticaly
 if not ($env.DISPLAY? | is-empty) and ($env.TMUX? | is-empty) {

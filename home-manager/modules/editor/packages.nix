@@ -21,6 +21,8 @@
     # yaml
     yaml-language-server
 
+    vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers extracted from vscode
+
     # nix
     nil # lsp with features
     nixfmt-rfc-style # formatter
