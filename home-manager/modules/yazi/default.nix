@@ -20,8 +20,7 @@
         linemode = "size_and_mtime";
       };
     };
-  };
 
-  # script to show custom size_and_mtime info
-  xdg.configFile."yazi/init.lua".source = ./init.lua;
+    initLua = ./init.lua;
+  };
 }
