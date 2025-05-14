@@ -4,16 +4,16 @@
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
     # will be appended to the system-level substituters
-    # extra-substituters = [
-    #   # nix community's cache server
-    #   "https://nix-community.cachix.org"
-    # ];
-    #
-    # # will be appended to the system-level trusted-public-keys
-    # extra-trusted-public-keys = [
-    #   # nix community's cache server public key
-    #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    # ];
+    extra-substituters = [
+      # nix community's cache server
+      "https://nix-community.cachix.org"
+    ];
+
+    # will be appended to the system-level trusted-public-keys
+    extra-trusted-public-keys = [
+      # nix community's cache server public key
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
   };
 
   inputs = {
@@ -21,15 +21,13 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    catppuccin.url = "github:catppuccin/nix";
 
-    # Home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      # url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -42,6 +40,7 @@
       url = "github:catppuccin/zen-browser";
       flake = false;
     };
+
   };
 
   outputs =
@@ -82,8 +81,8 @@
       kbdLayout = "us, ru"; # CHOOSE YOUR KEYBOARD LAYOUT (for now do nothing)
 
       system = "x86_64-linux";
-      stateVersion = "24.11";
-      # stateVersion = "25.05";
+      # stateVersion = "24.11";
+      stateVersion = "25.05";
 
       configurationLimit = 10;
 
@@ -95,8 +94,6 @@
       #################################################################
     in
     {
-      # you can use nix-fast-build --flake {path-to-flake}#nixosConfigurations."nixos".config.system.build.toplevel
-      # to speed up building processes, but my pc crushes when i loadup 100% cpu
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -121,11 +118,6 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-          {
-            # given the users in this list the right to specify additional substituters via:
-            #    1. `nixConfig.substituters` in `flake.nix`
-            nix.settings.trusted-users = [ "user" ];
-          }
 
           home-manager.nixosModules.home-manager
           {

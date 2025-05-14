@@ -1,11 +1,6 @@
 { pkgs-unstable, ... }:
 {
   fonts = {
-    # use fonts specified by user rather than default ones
-    enableDefaultPackages = false;
-    # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
-    fontDir.enable = true;
-
     packages = with pkgs-unstable; [
       # icon fonts
       material-design-icons
@@ -30,6 +25,7 @@
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
+    fontconfig.enable = true;
     fontconfig.defaultFonts = {
       serif = [
         "Source Han Serif SC"

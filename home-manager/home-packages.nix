@@ -12,13 +12,10 @@
     telegram-desktop # messenger
     vesktop # custom Discord app
     gimp # image Manipulation Program
-    retroarch-full # frontend for system emulators
-    wine64 # is not emulator for windows apps
-    qbittorrent # torrent client
-    # wireguard
-    # wireguard-tools
 
     # games (need original bin)
+    wine64 # is not emulator for windows apps
+    retroarch-full # frontend for system emulators
     arx-libertatis # Arx Fatalis
     openmw # TES 3: Morrowind
 
@@ -67,7 +64,6 @@
     yt-dlp # Command-line tool to download videos from YouTube.com and other sites
 
     # networking tools
-    openvpn # vpn app
     proxychains-ng # tool to set multiple proxis to target app
     wget # Tool for retrieving files using HTTP, HTTPS, and FTP
     mtr # A network diagnostic tool
@@ -112,15 +108,28 @@
     clipse # clipboard manager
     wl-clipboard # Command-line copy/paste utilities for Wayland
 
-    ninja # small build system with focus on speed
-
-    graphviz
-    chisel
-    nemo
-
     # TODO: move themes in specific dir
     # Catppuccin themes for different apps
     catppuccin-kde
     catppuccin-fcitx5
+
+    # icon fonts
+    material-design-icons
+    font-awesome
+
+    source-sans
+    source-serif
+    source-han-sans
+    source-han-serif
+
+    # nerdfonts
+    # https://github.com/NixOS/nixpkgs/blob/nixos-unstable-small/pkgs/data/fonts/nerd-fonts/manifests/fonts.json
+    nerd-fonts.symbols-only # symbols icon only
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
+
+    julia-mono
+    dejavu_fonts
   ];
 }

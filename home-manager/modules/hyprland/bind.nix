@@ -13,7 +13,6 @@
     "$browser" = browser;
     "$fileManager" = "$terminal '${terminalFileManager}'";
     "$editor" = "$terminal '${terminalEditor}'";
-    "$menu" = "rofi";
     "$mainMod" = "SUPER";
 
     bind = [
@@ -23,17 +22,18 @@
       "$mainMod SHIFT, W, togglefloating" # toggle the window on focus to float
       "$mainMod SHIFT, G, togglegroup" # toggle the window on focus to float
       "ALT, return, fullscreen" # toggle the window on focus to fullscreen
-      "$mainMod, SPACE, exec, hyprctl switchxkblayout current next" # change language input
 
       # Some Hyprland utilities
+      "$mainMod, SPACE, exec, hyprctl switchxkblayout current next" # change language input
       "$mainMod, P, exec, hyprpicker" # pick a color
       "$mainMod ALT, L, exec, hyprlock" # lock screen
       "$mainMod, V, exec, ${terminal} --class=com.example.clipse -e clipse" # clipboard manager
+      "$mainMod, F, exec, rofi -show run" # app launcher
 
       # Command to open main apps
       "$mainMod, T, exec, $terminal"
       "$mainMod, E, exec, $fileManager"
-      "$mainMod, B, exec, proxychain4 $browser"
+      "$mainMod, B, exec, $browser"
       "$mainMod, M, exec, telegram-desktop"
       "$mainMod, D, exec, vesktop"
       "$mainMod, W, exec, waybar"
@@ -84,12 +84,6 @@
       "$mainMod SHIFT, up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
       "$mainMod SHIFT, down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       "$mainMod SHIFT, M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    ];
-
-    # aditional settings for clipboard manager
-    windowrulev2 = [
-      "float, class:(clipse)"
-      "size 622 652, class:(clipse)"
     ];
   };
 }

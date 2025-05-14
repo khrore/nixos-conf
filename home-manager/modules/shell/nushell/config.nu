@@ -25,6 +25,7 @@ alias gs = git status
 alias ga = git add
 alias gc = git commit
 alias gp = git push
+alias gl = git log
 
 alias nrs = nixos-rebuild switch
 alias sw = nh os switch

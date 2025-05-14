@@ -1,3 +1,4 @@
+{ username, ... }:
 {
   nix.settings = {
     # Enables flakes
@@ -5,5 +6,6 @@
       "nix-command"
       "flakes"
     ];
+    trusted-users = [ "${username}" ];
   };
 }

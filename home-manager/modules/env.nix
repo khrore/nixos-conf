@@ -1,12 +1,12 @@
 {
   terminal,
-  shell,
-  browser,
   terminalEditor,
+  browser,
   ...
 }:
 {
-  environment.sessionVariables = rec {
+  sessionVariables = rec {
+
     TERMINAL = terminal;
     EDITOR = terminalEditor;
     BROWSER = browser;

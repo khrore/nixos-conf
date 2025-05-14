@@ -1,7 +1,14 @@
-{ mylib, ... }:
+{
+  mylib,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
+
+    package = null;
+    portalPackage = null;
+
     settings = {
       # See https://wiki.hyprland.org/Configuring/Monitors/
       # automatic monitor, resolution and refresh rate
