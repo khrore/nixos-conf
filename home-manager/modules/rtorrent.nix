@@ -1,5 +1,5 @@
 {
   programs.rtorrent = {
-    enable = true;
+    enable = false;
   };
 }

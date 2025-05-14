@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ catppuccin, pkgs, ... }:
 {
   catppuccin = {
     enable = true;
