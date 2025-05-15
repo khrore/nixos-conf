@@ -10,7 +10,6 @@
     obsidian # writing app CONFIG
     telegram-desktop # messenger
     vesktop # custom Discord app
-    gimp # image Manipulation Program
 
     # games (need original bin)
     wine64 # is not emulator for windows apps
@@ -42,7 +41,6 @@
 
     showmethekey # Show keys you typed on screen
     bottom # graphical process/system monitor
-    htop # Interactive process viewer
     w3m # text-mode web browser
 
     # archives
@@ -91,6 +89,7 @@
     smbclient-ng # access to smb file system from console
     udisks # Daemon, tools and libraries to access and manipulate disks, storage devices and technologies
     udiskie # Removable disk automounter for udisks
+    dua
 
     # nix stuff
     nix-eval-jobs # tool for multithreaded nix package build
@@ -99,7 +98,6 @@
     # Other
     bemoji # Emoji picker with support for bemenu/wofi/rofi/dmenu and wayland/X11
     nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
-    libreoffice-qt6-fresh # office productivity software suite
     kdePackages.qt6ct # Qt6 Configuration Tool
     nwg-look # GTK3 settings editor
 

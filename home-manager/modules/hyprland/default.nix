@@ -17,6 +17,7 @@
         "waybar"
         "hypridle"
         "clipse -listen"
+        "udiskie"
       ];
 
       # systemd = {

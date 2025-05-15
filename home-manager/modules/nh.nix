@@ -1,9 +1,8 @@
 # Enables Nix CLI helper.
-{ pkgs-unstable, ... }:
+{ pkgs-unstable, username, ... }:
 {
   programs.nh = {
     enable = true;
     package = pkgs-unstable.nh;
-    flake = "~/current-conf";
   };
 }

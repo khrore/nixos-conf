@@ -2,7 +2,7 @@
 {
   programs.eza = {
     enable = true;
-    packages = pkgs-unstable.eza;
+    package = pkgs-unstable.eza;
     enableNushellIntegration = false;
     enableBashIntegration = true;
     enableZshIntegration = true;
