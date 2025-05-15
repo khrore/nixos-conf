@@ -5,13 +5,12 @@
 {
   programs.yazi = {
     enable = true;
+    package = pkgs-unstable.yazi;
 
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
     enableFishIntegration = true;
-
-    package = pkgs-unstable.yazi;
 
     settings = {
       manager = {

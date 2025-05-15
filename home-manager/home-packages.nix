@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs-unstable; [
     # Packages that don't require configuration. If you're looking to configure a program see the /modules dir
-    # TODO: move configurable apps to specific files
 
     # Desktop apps
     imv # image viewer
@@ -38,7 +37,6 @@
     microfetch # Microscopic fetch script in Rust, for NixOS systems
     ripgrep # Utility that combines the usability of The Silver Searcher with the raw speed of grep
     silicon # render your source code into a beautiful image
-    udisks # Daemon, tools and libraries to access and manipulate disks, storage devices and technologies
     ueberzugpp # draw images on terminals
     fd # Simple, fast and user-friendly alternative to find
 
@@ -91,9 +89,12 @@
     ntfs3g # ntfs file system mount tool
     cifs-utils # managing Linux CIFS client filesystems
     smbclient-ng # access to smb file system from console
+    udisks # Daemon, tools and libraries to access and manipulate disks, storage devices and technologies
+    udiskie # Removable disk automounter for udisks
 
-    nix-fast-build
-    nix-eval-jobs
+    # nix stuff
+    nix-eval-jobs # tool for multithreaded nix package build
+    nix-fast-build # more pretty build tool
 
     # Other
     bemoji # Emoji picker with support for bemenu/wofi/rofi/dmenu and wayland/X11
@@ -107,29 +108,5 @@
     hyprpicker # Wlroots-compatible Wayland color picker
     clipse # clipboard manager
     wl-clipboard # Command-line copy/paste utilities for Wayland
-
-    # TODO: move themes in specific dir
-    # Catppuccin themes for different apps
-    catppuccin-kde
-    catppuccin-fcitx5
-
-    # icon fonts
-    material-design-icons
-    font-awesome
-
-    source-sans
-    source-serif
-    source-han-sans
-    source-han-serif
-
-    # nerdfonts
-    # https://github.com/NixOS/nixpkgs/blob/nixos-unstable-small/pkgs/data/fonts/nerd-fonts/manifests/fonts.json
-    nerd-fonts.symbols-only # symbols icon only
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.iosevka
-
-    julia-mono
-    dejavu_fonts
   ];
 }

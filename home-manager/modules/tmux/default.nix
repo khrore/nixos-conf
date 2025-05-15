@@ -7,6 +7,7 @@
   programs.tmux = {
     enable = true;
     package = pkgs-unstable.tmux;
+
     baseIndex = 1;
     mouse = true;
     escapeTime = 0;

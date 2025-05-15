@@ -1,6 +1,8 @@
+{ pkgs-unstable, ... }:
 {
   programs.eza = {
     enable = true;
+    packages = pkgs-unstable.eza;
     enableNushellIntegration = false;
     enableBashIntegration = true;
     enableZshIntegration = true;
@@ -10,4 +12,3 @@
     icons = "auto";
   };
 }
-

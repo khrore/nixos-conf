@@ -87,7 +87,7 @@
     general = {
       gaps_in = 10;
       gaps_out = 5;
-      border_size = 2;
+      border_size = 1;
 
       # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
       "col.active_border" = "$sapphire";
@@ -99,7 +99,7 @@
 
     # https://wiki.hyprland.org/Configuring/Variables/#decoration
     decoration = {
-      rounding = 5;
+      rounding = 3;
 
       # https://wiki.hyprland.org/Configuring/Variables/#shadow
       shadow = {

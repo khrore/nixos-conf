@@ -1,6 +1,9 @@
+{ pkgs-unstable, ... }:
 {
   programs.waybar = {
     enable = true;
+    packages = pkgs-unstable.waybar;
+
     style = builtins.readFile ./style.css;
   };
 

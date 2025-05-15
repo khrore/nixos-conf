@@ -7,9 +7,8 @@
 #     "gimp.desktop"
 #   ];
 # }
-{ terminalFileManager, terminal, ... }:
 {
-  xdg.mime.defaultApplications = {
-    "inode/directory" = "${terminal} ${terminalFileManager}";
+  xdg.mime = {
+    enable = true;
   };
 }

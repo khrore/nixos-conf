@@ -1,10 +1,12 @@
 {
+  pkgs-unstable,
   mylib,
   ...
 }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = pkgs-unstable.hyprland;
     settings = {
       # See https://wiki.hyprland.org/Configuring/Monitors/
       # automatic monitor, resolution and refresh rate
