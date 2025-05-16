@@ -18,6 +18,8 @@
         "hypridle"
         "clipse -listen"
         "udiskie"
+        "systemctl --user start hyprpolkitagent"
+        "dunst"
       ];
 
       # systemd = {

@@ -27,6 +27,8 @@
       "$mainMod, SPACE, exec, hyprctl switchxkblayout current next" # change language input
       "$mainMod, P, exec, hyprpicker" # pick a color
       "$mainMod ALT, L, exec, hyprlock" # lock screen
+      "$mainMod CTRL, L, exec, wlogout" # lock menu
+      "$mainMod SHIFT, L, exec, poweroff" # bind to poweroff
       "$mainMod, V, exec, ${terminal} --class=com.example.clipse -e clipse" # clipboard manager
       "$mainMod, F, exec, rofi -show run" # app launcher
 

@@ -12,9 +12,5 @@
       gp = "git push";
       gl = "git log";
     };
-    extraConfig = {
-      # git config --global --add safe.directory /etc/nixos
-      safe.dirrectory = "/etc/nixos";
-    };
   };
 }
