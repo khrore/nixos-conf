@@ -7,10 +7,9 @@
   programs.atuin = {
     enable = true;
     package = pkgs-unstable.atuin;
-    enableBashIntegration = true;
+
     enableZshIntegration = true;
     enableNushellIntegration = true;
     enableFishIntegration = true;
   };
 }
-

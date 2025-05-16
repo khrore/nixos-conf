@@ -41,7 +41,7 @@
 
     showmethekey # Show keys you typed on screen
     bottom # graphical process/system monitor
-    w3m # text-mode web browser
+    # w3m # text-mode web browser
 
     # archives
     zip
