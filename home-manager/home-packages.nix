@@ -100,11 +100,5 @@
     nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
     kdePackages.qt6ct # Qt6 Configuration Tool
     nwg-look # GTK3 settings editor
-
-    # Hyprland stuff
-    rofi-wayland # window switcher
-    hyprpicker # Wlroots-compatible Wayland color picker
-    clipse # clipboard manager
-    wl-clipboard # Command-line copy/paste utilities for Wayland
   ];
 }

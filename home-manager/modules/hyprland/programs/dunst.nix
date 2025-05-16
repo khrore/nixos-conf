@@ -1,6 +1,6 @@
 { pkgs-unstable, ... }:
 {
-  programs.dunst = {
+  services.dunst = {
     enable = true;
     package = pkgs-unstable.dunst;
   };
