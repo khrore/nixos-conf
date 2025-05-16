@@ -4,10 +4,8 @@
     # Packages that don't require configuration. If you're looking to configure a program see the /modules dir
 
     # Desktop apps
-    imv # image viewer
-    mpv # media player
-    obs-studio # screencasting and streaming app
-    obsidian # writing app CONFIG
+    siyuan # open source note manager
+    obsidian # TODO: write app CONFIG
     telegram-desktop # messenger
     vesktop # custom Discord app
 
@@ -57,7 +55,6 @@
 
     brightnessctl # allows you read and control device brightness
     playerctl # Command-line utility and library for controlling media players that implement MPRIS
-    yt-dlp # Command-line tool to download videos from YouTube.com and other sites
 
     # networking tools
     proxychains-ng # tool to set multiple proxis to target app

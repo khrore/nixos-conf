@@ -3,7 +3,6 @@
   programs.ghostty = {
     enable = true;
     package = pkgs-unstable.ghostty;
-    # clearDefaultKeybinds = true;
     settings = {
       font-family = "JetBrains Mono";
       font-size = 11;

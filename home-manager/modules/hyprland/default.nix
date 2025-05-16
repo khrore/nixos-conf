@@ -17,7 +17,7 @@
         "clipse -listen"
         "udiskie"
         "systemctl --user start hyprpolkitagent"
-        "dunst"
+        "dunst -startup_notification"
       ];
 
       # systemd = {

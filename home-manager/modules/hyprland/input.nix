@@ -8,7 +8,7 @@
       sensitivity = 1.0;
       accel_profile = "custom 0 3.0"; # flat acceleration with x3 sensitivity
       repeat_rate = 30;
-      repeat_delay = 200;
+      repeat_delay = 250;
     };
 
     # https://wiki.hyprland.org/Configuring/Variables/#gestures
