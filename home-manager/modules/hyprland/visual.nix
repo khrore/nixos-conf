@@ -85,8 +85,8 @@
 
     # https://wiki.hyprland.org/Configuring/Variables/#general
     general = {
-      gaps_in = 10;
-      gaps_out = 5;
+      gaps_in = 2;
+      gaps_out = 3;
       border_size = 1;
 
       # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors

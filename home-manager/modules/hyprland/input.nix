@@ -1,4 +1,5 @@
-{kbdLayout, ...}: {
+{ kbdLayout, ... }:
+{
   wayland.windowManager.hyprland.settings = {
     # https://wiki.hyprland.org/Configuring/Variables/#input
     input = {
@@ -6,6 +7,8 @@
       kb_options = "grp:caps_toggle";
       sensitivity = 1.0;
       accel_profile = "custom 0 3.0"; # flat acceleration with x3 sensitivity
+      repeat_rate = 30;
+      repeat_delay = 200;
     };
 
     # https://wiki.hyprland.org/Configuring/Variables/#gestures
