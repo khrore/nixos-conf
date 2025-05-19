@@ -16,6 +16,10 @@
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
+    nerd-fonts.roboto-mono
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-sans
+    nerd-fonts.ubuntu-mono
 
     julia-mono
     dejavu_fonts
@@ -28,18 +32,13 @@
     fontconfig.enable = true;
     fontconfig.defaultFonts = {
       serif = [
-        "Source Han Serif SC"
-        "Source Han Serif TC"
-        "Noto Color Emoji"
+        "Ubuntu Nerd Font"
       ];
       sansSerif = [
-        "Source Han Sans SC"
-        "Source Han Sans TC"
-        "Noto Color Emoji"
+        "UbuntuSans Nerd Font"
       ];
       monospace = [
-        "JetBrainsMono Nerd Font"
-        "Noto Color Emoji"
+        "UbuntuMono Nerd Font"
       ];
       emoji = [ "Noto Color Emoji" ];
     };

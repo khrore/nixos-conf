@@ -19,17 +19,12 @@
     enable = true;
     package = pkgs-unstable.kitty;
 
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 11;
-    };
-
     # consistent with other terminal emulators
-    keybindings = {
-      "ctrl+shift+m" = "toggle_maximized";
-      "ctrl+shift+f" = "show_scrollback"; # search in the current window
-    };
-
+    # keybindings = {
+    #   "ctrl+shift+m" = "toggle_maximized";
+    #   "ctrl+shift+f" = "show_scrollback"; # search in the current window
+    # };
+    #
     settings = {
       show_hyperlink_targets = true;
       open_url_with = browser;
@@ -37,10 +32,9 @@
       background_opacity = "0.93";
       enable_audio_bell = false;
       tab_bar_edge = "top"; # tab bar on top
-      shell = "bash --login -c 'fish'";
       clipboard_control = "write-primary write-clipboard no-append";
     };
 
-    shellIntegration.enableFishIntegration = true;
+    extraConfig = builtins.readFile ./kitty.conf;
   };
 }

@@ -34,11 +34,6 @@ alias hms = nh home switch
 
 alias v = nvim
 
-# launching tmux automaticaly
-if not ($env.DISPLAY? | is-empty) and ($env.TMUX? | is-empty) {
-  tmux
-}
-
 def --env y [...args] {
   let tmp = (mktemp -t "yazi-cwd.XXXXX")
   yazi ...$args --cwd-file $tmp
