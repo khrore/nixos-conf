@@ -7,6 +7,7 @@ in
   programs.ghostty = {
     enable = true;
     package = pkgs-unstable.ghostty;
+    clearDefaultKeybinds = true;
     settings = {
       font-family = "FiraCode Nerd Font";
       font-size = 13;
@@ -14,7 +15,6 @@ in
       background-opacity = 0.95;
 
       mouse-hide-while-typing = true;
-      copy-on-select = true;
       maximize = true;
       confirm-close-surface = false;
       auto-update = "off";
@@ -28,15 +28,16 @@ in
       keybind = [
         "${main-bind}>r=reload_config"
 
-        # "${main-bind}>+=increase_font_size"
-        # "${main-bind}>-=decrease_font_size"
-        # "${main-bind}>'=reset_font_size"
+        "${main-bind}>equal=increase_font_size:1"
+        "${main-bind}>plus=increase_font_size:1"
+        "${main-bind}>minus=decrease_font_size:1"
+        "${main-bind}>ctrl+r=reset_font_size"
 
         "${main-bind}>g>g=scroll_to_top"
         "${main-bind}>shift+g=scroll_to_bottom"
 
-        "${main-bind}>u=scroll_page_up"
-        "${main-bind}>d=scroll_page_down"
+        "${main-bind}>b=scroll_page_up"
+        "${main-bind}>f=scroll_page_down"
 
         "${main-bind}>]=next_tab"
         "${main-bind}>[=previous_tab"
@@ -53,6 +54,7 @@ in
         "${main-bind}>7=goto_tab:7"
         "${main-bind}>8=goto_tab:8"
         "${main-bind}>9=goto_tab:9"
+        "${main-bind}>0=last_tab"
 
         "${main-bind}>k=goto_split:up"
         "${main-bind}>j=goto_split:down"
@@ -72,7 +74,16 @@ in
         "${main-bind}>e=equalize_splits"
         "${main-bind}>q=close_surface"
 
-        "${main-bind}>n=toggle_quick_terminal" # works only on macOS
+        "${main-bind}>y=copy_to_clipboard"
+        "${main-bind}>p=paste_from_clipboard"
+        "${main-bind}>ctrl+p=paste_from_selection"
+
+        "${main-bind}>s>b>p=write_scrollback_file:paste"
+        "${main-bind}>s>b>o=write_scrollback_file:open"
+        "${main-bind}>s>s>p=write_selection_file:paste"
+        "${main-bind}>s>s>o=write_selection_file:open"
+        "${main-bind}>s>c>p=write_screen_file:paste"
+        "${main-bind}>s>c>o=write_screen_file:open"
 
         "${main-bind}>i=inspector:toggle"
         "${main-bind}>t=toggle_tab_overview"

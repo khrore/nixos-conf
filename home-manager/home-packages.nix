@@ -84,9 +84,6 @@
     ntfs3g # ntfs file system mount tool
     cifs-utils # managing Linux CIFS client filesystems
     smbclient-ng # access to smb file system from console
-    udisks # Daemon, tools and libraries to access and manipulate disks, storage devices and technologies
-    udiskie # Removable disk automounter for udisks
-    dua
 
     # nix stuff
     nix-eval-jobs # tool for multithreaded nix package build

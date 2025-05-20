@@ -15,7 +15,7 @@
         "waybar"
         "hypridle"
         "clipse -listen"
-        "udiskie"
+        # "udiskie"
         "systemctl --user start hyprpolkitagent"
         "dunst -startup_notification"
       ];
