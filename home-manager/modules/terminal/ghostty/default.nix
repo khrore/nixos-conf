@@ -9,7 +9,7 @@ in
     package = pkgs-unstable.ghostty;
     clearDefaultKeybinds = true;
     settings = {
-      font-family = "FiraCode Nerd Font";
+      font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
 
       background-opacity = 0.95;
@@ -36,8 +36,8 @@ in
         "${main-bind}>g>g=scroll_to_top"
         "${main-bind}>shift+g=scroll_to_bottom"
 
-        "${main-bind}>b=scroll_page_up"
-        "${main-bind}>f=scroll_page_down"
+        "${main-bind}>u=scroll_page_up"
+        "${main-bind}>d=scroll_page_down"
 
         "${main-bind}>]=next_tab"
         "${main-bind}>[=previous_tab"

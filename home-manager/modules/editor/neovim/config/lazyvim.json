@@ -12,7 +12,7 @@
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.util.dot",
-    "lazyvim.plugins.extras.lsp.neoconf"
+    "lazyvim.plugins.extras.coding.nvim-cmp"
   ],
   "install_version": 8,
   "news": {
