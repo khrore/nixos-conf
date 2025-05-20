@@ -13,9 +13,6 @@ return {
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
-		"hrsh7th/nvim-cmp",
-
-		-- see below for full list of optional dependencies 👇
 	},
 	opts = {
 		-- A list of workspace names, paths, and configuration overrides.
@@ -29,14 +26,14 @@ return {
 				name = "personal",
 				path = "~/vaults/personal",
 			},
-			{
-				name = "work",
-				path = "~/vaults/work",
-				-- Optional, override certain settings.
-				overrides = {
-					notes_subdir = "notes",
-				},
-			},
+			-- {
+			-- 	name = "work",
+			-- 	path = "~/vaults/work",
+			-- 	-- Optional, override certain settings.
+			-- 	overrides = {
+			-- 		notes_subdir = "notes",
+			-- 	},
+			-- },
 		},
 
 		-- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
@@ -79,21 +76,24 @@ return {
 				action = function()
 					return require("obsidian").util.gf_passthrough()
 				end,
-				opts = { noremap = false, expr = true, buffer = true },
+				opts = { desc = "Obs: go to markdown/wiki", noremap = false, expr = true, buffer = true },
 			},
-			-- Toggle check-boxes.
-			["<leader>ch"] = {
+			-- ["<leader>o"] = {
+			-- 	action = nil,
+			-- 	opts = { desc = "Obsidian", buffer = true },
+			-- },
+			["<leader>oc"] = {
 				action = function()
 					return require("obsidian").util.toggle_checkbox()
 				end,
-				opts = { buffer = true },
+				opts = { desc = "Toggle check-boxes", buffer = true },
 			},
 			-- Smart action depending on context, either follow link or toggle checkbox.
-			["<cr>"] = {
+			["<leader>os"] = {
 				action = function()
 					return require("obsidian").util.smart_action()
 				end,
-				opts = { buffer = true, expr = true },
+				opts = { desc = "Smart action", buffer = true, expr = true },
 			},
 		},
 
@@ -147,11 +147,12 @@ return {
 		end,
 
 		-- Either 'wiki' or 'markdown'.
-		preferred_link_style = "wiki",
+		preferred_link_style = "markdown",
 
 		-- Optional, boolean or a function that takes a filename and returns a boolean.
 		-- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-		disable_frontmatter = false,
+		-- presonaly disable it, because it generate frontmatter on every save!
+		disable_frontmatter = true,
 
 		-- Optional, alternatively you can customize the frontmatter data.
 		---@return table
@@ -188,19 +189,14 @@ return {
 		---@param url string
 		follow_url_func = function(url)
 			-- Open the URL in the default web browser.
-			vim.fn.jobstart({ "open", url }) -- Mac OS
-			-- vim.fn.jobstart({"xdg-open", url})  -- linux
-			-- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-			-- vim.ui.open(url) -- need Neovim 0.10.0+
+			vim.ui.open(url) -- need Neovim 0.10.0+
 		end,
 
 		-- Optional, by default when you use `:ObsidianFollowLink` on a link to an image
 		-- file it will be ignored but you can customize this behavior here.
 		---@param img string
 		follow_img_func = function(img)
-			vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
-			-- vim.fn.jobstart({"xdg-open", url})  -- linux
-			-- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+			vim.fn.jobstart({ "xdg-open", img }) -- linux
 		end,
 
 		-- Optional, set to true if you use the Obsidian Advanced URI plugin.
@@ -212,7 +208,7 @@ return {
 
 		picker = {
 			-- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-			name = "fzf-lua.nvim",
+			name = "fzf-lua",
 			-- Optional, configure key mappings for the picker. These are the defaults.
 			-- Not all pickers support all mappings.
 			note_mappings = {
