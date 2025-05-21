@@ -14,6 +14,8 @@
     retroarch-full # frontend for system emulators
     arx-libertatis # Arx Fatalis
     openmw # TES 3: Morrowind
+    fallout2-ce # Fallout 2: Community Edition
+    SDL2 # Simple DirectMedia Layer
 
     # ML and DataScience
     micromamba
