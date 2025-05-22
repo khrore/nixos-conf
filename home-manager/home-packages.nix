@@ -4,18 +4,9 @@
     # Packages that don't require configuration. If you're looking to configure a program see the /modules dir
 
     # Desktop apps
-    siyuan # open source note manager
-    obsidian # TODO: write app CONFIG
+    obsidian # note manager
     telegram-desktop # messenger
     vesktop # custom Discord app
-
-    # games (need original bin)
-    wine64 # is not emulator for windows apps
-    retroarch-full # frontend for system emulators
-    arx-libertatis # Arx Fatalis
-    openmw # TES 3: Morrowind
-    fallout2-ce # Fallout 2: Community Edition
-    SDL2 # Simple DirectMedia Layer
 
     # ML and DataScience
     micromamba
@@ -38,10 +29,7 @@
     silicon # render your source code into a beautiful image
     ueberzugpp # draw images on terminals
     fd # Simple, fast and user-friendly alternative to find
-
     showmethekey # Show keys you typed on screen
-    bottom # graphical process/system monitor
-    # w3m # text-mode web browser
 
     # archives
     zip
@@ -96,5 +84,12 @@
     nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
     kdePackages.qt6ct # Qt6 Configuration Tool
     nwg-look # GTK3 settings editor
+
+    # games (need original bin)
+    retroarch-full # frontend for system emulators
+    arx-libertatis # Arx Fatalis
+    openmw # TES 3: Morrowind
+    fallout2-ce # Fallout 2: Community Edition
+    SDL2 # Simple DirectMedia Layer
   ];
 }
