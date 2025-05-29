@@ -1,28 +1,28 @@
 # Setuping network for all apps and services
 {
-  config,
   pkgs-unstable,
   ...
 }:
 {
   # Setupping proxy and ipv4 to our network
+  networking.useNetworkd = true;
   networking.interfaces.enp2s0.ipv4.addresses = [
     {
-      address = "130.100.7.83";
+      address = "130.100.7.69";
       prefixLength = 24;
     }
   ];
+  systemd.network.networks.enp2s0.dns = [ "130.100.7.253" ];
 
-  networking.proxy.allProxy = "http://130.100.7.222:1082";
-  services.syncthing.all_proxy = "http://130.100.7.222:1082";
+  networking.proxy.default = "http://130.100.7.222:1082";
   programs.proxychains = {
     enable = true;
     package = pkgs-unstable.proxychains-ng;
     proxies.prx1 = {
       enable = true;
-      type = "http";
+      type = "socks5";
       host = "130.100.7.222";
-      port = 1082;
+      port = 1081;
     };
   };
 
@@ -30,5 +30,7 @@
 
   # Setupping DNS
   networking.nameservers = [ "130.100.7.253" ];
-  networking.resolvconf.enable = true;
+  # networking.search = [ "130.100.7.253" ];
+  # networking.resolvconf.enable = true;
+  services.resolved.enable = true;
 }

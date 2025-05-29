@@ -1,32 +1,48 @@
 { pkgs-unstable, ... }:
 {
   home.packages = with pkgs-unstable; [
-    # lua
+    # Nix
+    nil # lsp with features
+    nixfmt-rfc-style # formatter
+
+    # Lua
     lua-language-server # lsp
     luajit # just-in-time compiler
     stylua # formatter
     luajitPackages.luacheck # linter
 
-    # bash
+    # Python
+    python314 # python exec
+    # pyright # language server
+    ruff # formatter
+    basedpyright # type checker
+    # ruff-lsp # lsp
+
+    # Bash
     bash-language-server # lsp
     shellcheck # Shell script analysis tool
     shfmt # Shell parser and formatter
 
-    # nu
+    # Nushell
     nufmt # formater
 
-    # fish
+    # Fish
     fish-lsp # lsp
 
-    # yaml
+    # Markdown
+    marksman # lsp
+    mdformat # formatter
+    glow # previewer
+    markdownlint-cli2 # command-line interface for linting
+
+    # Yaml
     yaml-language-server # lsp
 
     # HTML/CSS/JSON/ESLint language servers extracted from vscode
     vscode-langservers-extracted
 
-    # nix
-    nil # lsp with features
-    nixfmt-rfc-style # formatter
+    # Hyprland
+    hyprls # lsp
 
     # CMake system generator
     cmake # app
@@ -38,20 +54,5 @@
     gnumake # app
     checkmake # linter
 
-    # Python
-    python314 # python exec
-    # pyright # language server
-    ruff # formatter
-    basedpyright # type checker
-    # ruff-lsp # lsp
-
-    # Markdown
-    marksman # lsp
-    mdformat # formatter
-    glow # previewer
-    markdownlint-cli2 # command-line interface for linting
-
-    # Hyprland
-    hyprls # lsp
   ];
 }
