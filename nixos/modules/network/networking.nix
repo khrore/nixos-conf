@@ -15,6 +15,7 @@
   systemd.network.networks.enp2s0.dns = [ "130.100.7.253" ];
 
   networking.proxy.default = "http://130.100.7.222:1082";
+
   programs.proxychains = {
     enable = true;
     package = pkgs-unstable.proxychains-ng;
@@ -26,11 +27,7 @@
     };
   };
 
-  # networking.wg-quick.interfaces.wg0.configFile = "/home/user/Downloads/v/VPNTYPE-FRA6.conf";
-
   # Setupping DNS
   networking.nameservers = [ "130.100.7.253" ];
-  # networking.search = [ "130.100.7.253" ];
-  # networking.resolvconf.enable = true;
   services.resolved.enable = true;
 }
