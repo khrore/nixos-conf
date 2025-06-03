@@ -30,6 +30,7 @@
     ueberzugpp # draw images on terminals
     fd # Simple, fast and user-friendly alternative to find
     showmethekey # Show keys you typed on screen
+    tldr # colored man pages
 
     # archives
     zip
@@ -50,16 +51,16 @@
     proxychains-ng # tool to set multiple proxis to target app
     wget # Tool for retrieving files using HTTP, HTTPS, and FTP
     mtr # A network diagnostic tool
-    iperf3
+    iperf3 # tool for network performance measurement and tuning
     dnsutils # `dig` + `nslookup`
     ldns # replacement of `dig`, it provide the command `drill`
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
-
-    # Coding stuff
-    vscode # IDE for if others dont work CONFIG
+    openssl # Cryptographic library that implements the SSL and TLS protocols
+    qbittorrent # open source bittorrent client
+    ncdu # disk space usage analyzer
 
     # WM stuff
     libsForQt5.xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications

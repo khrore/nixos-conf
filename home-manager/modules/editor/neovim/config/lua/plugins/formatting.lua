@@ -5,7 +5,8 @@ return {
 		formatters_by_ft = {
 			-- lua, fish bash and nix is already configured
 			python = { "ruff_format" },
-			-- nix = { "alejandra" },
+			javascript = { "prettierd" },
+			typescript = { "prettierd" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			c = { "clang-format" },
 			cpp = { "clang-format" },

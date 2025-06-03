@@ -15,8 +15,13 @@
     python314 # python exec
     # pyright # language server
     ruff # formatter
-    basedpyright # type checker
+    basedpyright # lsp + type checker
     # ruff-lsp # lsp
+
+    # TypeScript and JavaScript
+    vtsls # lsp
+    vscode-js-debug # debugger
+    prettierd # formatter daemon
 
     # Bash
     bash-language-server # lsp
@@ -53,6 +58,5 @@
     # Make build system
     gnumake # app
     checkmake # linter
-
   ];
 }
