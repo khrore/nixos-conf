@@ -6,7 +6,8 @@
     # Desktop apps
     obsidian # note manager
     telegram-desktop # messenger
-    vesktop # custom Discord app
+    spotify # offical client
+    spotify-qt
 
     # ML and DataScience
     micromamba
@@ -20,7 +21,7 @@
     # CLI utils
     innoextract # extract files from windows installer
     cliphist # Wayland clipboard manager
-    ffmpeg # solution to record, convert and stream audio and video
+    ffmpeg-full # solution to record, convert and stream audio and video
     ffmpegthumbnailer # video thumbnailer that can be used by file managers to create thumbnails for video files
     grimblast # Helper for screenshots within Hyprland, based on grimshot
     mediainfo # Supplies technical and tag information about a video or audio file
@@ -85,6 +86,9 @@
     nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
     kdePackages.qt6ct # Qt6 Configuration Tool
     nwg-look # GTK3 settings editor
+    alsa-lib # Advanced Linux Sound Architecture
+    brave
+    widevine-cdm
 
     # games (need original bin)
     retroarch-full # frontend for system emulators

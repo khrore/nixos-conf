@@ -34,6 +34,9 @@ alias hms = nh home switch
 
 alias v = nvim
 
+alias .. = cd ..
+alias ... = cd ../..
+
 def --env y [...args] {
   let tmp = (mktemp -t "yazi-cwd.XXXXX")
   yazi ...$args --cwd-file $tmp
