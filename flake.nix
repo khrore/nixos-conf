@@ -1,25 +1,20 @@
 {
   description = "System configuration by khrore";
 
-  # the nixConfig here only affects the flake itself, not the system configuration!
-  nixConfig = {
-    # will be appended to the system-level substituters
-    extra-substituters = [
-      # nix community's cache server
-      "https://nix-community.cachix.org"
-    ];
-
-    # will be appended to the system-level trusted-public-keys
-    extra-trusted-public-keys = [
-      # nix community's cache server public key
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    yazi.url = "github:sxyazi/yazi";
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =

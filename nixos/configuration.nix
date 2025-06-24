@@ -17,6 +17,8 @@
 
     # Import important packages
     ./nixpkgs-config.nix
+
+    ../home
   ];
 
   networking.hostName = hostname;
