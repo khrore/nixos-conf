@@ -130,7 +130,6 @@
         nh
         yt-dlp
 
-        ghostty
         kitty
 
         fish

@@ -7,6 +7,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     yazi.url = "github:sxyazi/yazi";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     zen-browser = {
