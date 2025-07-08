@@ -14,5 +14,6 @@
     (pkgs-unstable.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
     pkgs.brave # modified chromium
     pkgs.chromium
+    pkgs.clang
   ];
 }

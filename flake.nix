@@ -6,6 +6,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     yazi.url = "github:sxyazi/yazi";
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -46,7 +50,7 @@
       ######################### USER LEVEL ##########################
 
       # Configuration for user settings
-      username = "user";
+      username = "khrore";
       terminalEditor = "nvim";
       shell = "nushell";
 
@@ -65,6 +69,7 @@
 
         modules = [
           ./nixos/configuration.nix
+          inputs.disko.nixosModules.disko
         ];
 
         specialArgs = {

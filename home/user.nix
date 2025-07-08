@@ -105,7 +105,6 @@
         nautilus
 
         # games (need original bin)
-        retroarch-full # frontend for system emulators
         arx-libertatis # Arx Fatalis
         openmw # TES 3: Morrowind
         SDL2 # Simple DirectMedia Layer

@@ -9,6 +9,8 @@
 {
   # You can import other NixOS modules here
   imports = [
+./disko.nix
+
     # You can also split up your configuration and import pieces of it here:
     ./modules
 
