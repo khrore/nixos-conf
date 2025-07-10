@@ -131,7 +131,6 @@
 
         kitty
 
-        fish
         zsh
         nushell
 
@@ -211,6 +210,10 @@
         hyprshot
         clipse # clipboard manager
         wl-clipboard # Command-line copy/paste utilities for Wayland
+
+        steam
+        nekoray
+        conda
       ];
     };
   };

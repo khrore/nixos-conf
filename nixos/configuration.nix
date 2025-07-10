@@ -9,7 +9,7 @@
 {
   # You can import other NixOS modules here
   imports = [
-./disko.nix
+    ./disko.nix
 
     # You can also split up your configuration and import pieces of it here:
     ./modules
@@ -22,6 +22,9 @@
 
     ../home
   ];
+
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.cudaSupport = true;
 
   networking.hostName = hostname;
 

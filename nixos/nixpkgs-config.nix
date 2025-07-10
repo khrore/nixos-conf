@@ -15,5 +15,7 @@
     pkgs.brave # modified chromium
     pkgs.chromium
     pkgs.clang
+    pkgs-unstable.sing-box
+    pkgs.fish
   ];
 }

@@ -29,7 +29,6 @@
     {
       self,
       nixpkgs,
-      home-manager,
       ...
     }@inputs:
     let
@@ -52,12 +51,10 @@
       # Configuration for user settings
       username = "khrore";
       terminalEditor = "nvim";
-      shell = "nushell";
+      shell = "fish";
 
       # System configuration
       hostname = "nixos"; # CHOOSE A HOSTNAME HERE
-      # locale = "en_US.UTF-8"; # CHOOSE YOUR LOCALE (for now do nothing)
-      # timezone = "Europe/Moscow"; # CHOOSE YOUR TIMEZONE (for now do nothing)
 
       configurationLimit = 10;
 
@@ -74,6 +71,7 @@
 
         specialArgs = {
           inherit
+            pkgs-unstable
             inputs
             outputs
             username
@@ -83,7 +81,6 @@
             system
             configurationLimit
             shell
-            pkgs-unstable
             mylib
             ;
         };
