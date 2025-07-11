@@ -211,9 +211,11 @@
         clipse # clipboard manager
         wl-clipboard # Command-line copy/paste utilities for Wayland
 
-        steam
         nekoray
-        conda
+
+        catppuccin-cursors.mochaDark
+        gpustat
+        cudaPackages.cuda_nvml_dev
       ];
     };
   };

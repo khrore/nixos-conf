@@ -10,19 +10,19 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     yazi.url = "github:sxyazi/yazi";
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
