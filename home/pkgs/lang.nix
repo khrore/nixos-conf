@@ -45,8 +45,8 @@
     # Markdown
     pkgs-unstable.marksman # lsp
     pkgs-unstable.mdformat # formatter
-    pkgs-unstable.glow # previewer
     pkgs-unstable.markdownlint-cli2 # command-line interface for linting
+    pkgs-unstable.glow # previewer
 
     # Yaml
     pkgs-unstable.yaml-language-server # lsp

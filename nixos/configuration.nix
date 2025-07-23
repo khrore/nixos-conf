@@ -23,9 +23,6 @@
     ../home
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
-
   networking.hostName = hostname;
 
   system.stateVersion = stateVersion;

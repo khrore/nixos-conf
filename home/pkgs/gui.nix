@@ -13,7 +13,7 @@
     pkgs-unstable.firefox
     pkgs.chromium
     pkgs-unstable.brave # modified chromium
-    #
+
     # terminals
     inputs.ghostty.packages.${pkgs.system}.default # most featurefull terminal
     pkgs-unstable.kitty # stable terminal
@@ -26,6 +26,7 @@
     pkgs-unstable.mpv # media player
     pkgs-unstable.nekoray # proxy app
     pkgs-unstable.nautilus # gnome file manager
+    pkgs-unstable.vesktop
 
     # utils
     pkgs-unstable.waybar # bar

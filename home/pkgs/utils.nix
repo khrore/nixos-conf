@@ -26,7 +26,6 @@
     pkgs-unstable.stow # simlink manager
     pkgs-unstable.nh # nix cli helper
     pkgs-unstable.yt-dlp # download youtube video
-    pkgs-unstable.pandoc # document convernter
 
     # networking tools
     pkgs-unstable.sing-box # connection to proxy server
@@ -41,6 +40,7 @@
     pkgs-unstable.ipcalc # it is a calculator for the IPv4/v6 addresses
     pkgs-unstable.openssl # Cryptographic library that implements the SSL and TLS protocols
     pkgs-unstable.ncdu # disk space usage analyzer
+    pkgs-unstable.nftables # providing filtering and classification of network
 
     # utils for mounting flashdrive with ntfs file system
     pkgs-unstable.fuse # need only for ntfs3g
@@ -63,10 +63,10 @@
     pkgs-unstable.libnotify # Library that sends desktop notifications to a notification daemon
 
     # archives
-    pkgs-unstable.zip
-    pkgs-unstable.unzip
-    pkgs-unstable.xz
-    pkgs-unstable.p7zip
+    pkgs-unstable.zip # standart zip files
+    pkgs-unstable.unzip # standart unzip files
+    pkgs-unstable.xz # alternative to gzip
+    pkgs-unstable.p7zip # 7z zip
 
     # WM stuff
     pkgs-unstable.libsForQt5.xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
@@ -83,5 +83,12 @@
 
     # visual
     pkgs-unstable.catppuccin-cursors.mochaDark # cursor themes
+
+    # docs
+    pkgs-unstable.pandoc # document convernter
+    pkgs-unstable.texliveSmall # small set of texlive software
+
+    # ai
+    pkgs-unstable.ollama-cuda # ollama client with cuda support
   ];
 }
