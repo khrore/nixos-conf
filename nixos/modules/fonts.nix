@@ -1,6 +1,7 @@
 { pkgs-unstable, ... }:
 {
   fonts = {
+    fontDir.enable = true;
     packages = with pkgs-unstable.nerd-fonts; [
       jetbrains-mono
       ubuntu

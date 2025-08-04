@@ -27,6 +27,10 @@
     pkgs-unstable.nekoray # proxy app
     pkgs-unstable.nautilus # gnome file manager
     pkgs-unstable.vesktop
+    pkgs-unstable.qbittorrent
+
+    # IDE
+    pkgs-unstable.zed-editor
 
     # utils
     pkgs-unstable.waybar # bar
@@ -39,5 +43,8 @@
     pkgs-unstable.hyprpicker # Wlroots-compatible Wayland color picker
     pkgs-unstable.hyprshot # screenshots
     pkgs-unstable.clipse # clipboard manager
+
+    # docs
+    pkgs-unstable.libreoffice
   ];
 }

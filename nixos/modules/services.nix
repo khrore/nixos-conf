@@ -4,6 +4,7 @@
     udisks2.enable = true;
     openssh.enable = true;
     upower.enable = true;
+    flatpak.enable = true;
     postgresql = {
       enable = true;
       ensureDatabases = [ "mydatabase" ];
