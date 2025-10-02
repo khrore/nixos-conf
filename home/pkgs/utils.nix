@@ -69,7 +69,6 @@
     pkgs-unstable.p7zip # 7z zip
 
     # WM stuff
-    pkgs-unstable.libsForQt5.xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
     pkgs-unstable.libsForQt5.qt5ct # Qt5 Configuration Tool
     pkgs-unstable.libsForQt5.qt5.qtwayland
     pkgs-unstable.libxkbcommon
@@ -90,5 +89,8 @@
 
     # ai
     pkgs-unstable.ollama-cuda # ollama client with cuda support
+
+    # db
+    pkgs-unstable.sqlite
   ];
 }

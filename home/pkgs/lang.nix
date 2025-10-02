@@ -36,6 +36,9 @@
     pkgs-unstable.shellcheck # Shell script analysis tool
     pkgs-unstable.shfmt # Shell parser and formatter
 
+    # Go
+    pkgs-unstable.delve
+
     # Nushell
     pkgs-unstable.nufmt # formater
 

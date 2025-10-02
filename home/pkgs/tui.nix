@@ -12,13 +12,19 @@
     pkgs-unstable.neovim # the best text editor
     pkgs-unstable.rtorrent # tui torrent client
 
+    # AI
+    pkgs-unstable.claude-code # Anthopics AI assistant
+
     # media
     pkgs-unstable.spotifyd # spotify deamon
     pkgs-unstable.spotify-player # tui spotify
     pkgs-unstable.imv # image viewer
 
     # monitors
-    pkgs-unstable.btop # monitor of resources
+    pkgs-unstable.btop-cuda # monitor of resources with NVidia GPU support
     pkgs-unstable.gpustat # gpu monitor
+
+    # disk
+    pkgs-unstable.ncdu # disk analyzer
   ];
 }

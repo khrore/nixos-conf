@@ -24,10 +24,9 @@
     pkgs-unstable.telegram-desktop # messenger
     pkgs-unstable.spotify # offical client
     pkgs-unstable.mpv # media player
-    pkgs-unstable.nekoray # proxy app
-    pkgs-unstable.nautilus # gnome file manager
-    pkgs-unstable.vesktop
-    pkgs-unstable.qbittorrent
+    pkgs-unstable.natilus # gnome file manager
+    pkgs-unstable.vesktop # custom Discord client
+    pkgs-unstable.qbittorrent # QT torrent client
 
     # IDE
     pkgs-unstable.zed-editor
@@ -35,7 +34,8 @@
     # utils
     pkgs-unstable.waybar # bar
     pkgs-unstable.dunst # notification daemon
-    pkgs-unstable.rofi-wayland # window switcher
+    
+    pkgs-unstable.rofi # window switcher
     pkgs-unstable.wlogout # logout menu
     pkgs-unstable.hyprlock # screen lock
     pkgs-unstable.hyprpaper # wallpaper
@@ -46,5 +46,15 @@
 
     # docs
     pkgs-unstable.libreoffice
+    pkgs-unstable.gimp
   ];
+
+  programs.nekoray = {
+    enable = true;
+    package = pkgs-unstable.nekoray;
+    tunMode = {
+      enable = true;
+      setuid = true;
+  };
+  };
 }
