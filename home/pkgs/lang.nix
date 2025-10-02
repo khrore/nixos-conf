@@ -69,5 +69,8 @@
     # Make build system
     pkgs-unstable.gnumake # app
     pkgs-unstable.checkmake # linter
+
+    # General
+    pkgs-unstable.tree-sitter
   ];
 }

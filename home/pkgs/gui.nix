@@ -24,7 +24,7 @@
     pkgs-unstable.telegram-desktop # messenger
     pkgs-unstable.spotify # offical client
     pkgs-unstable.mpv # media player
-    pkgs-unstable.natilus # gnome file manager
+    pkgs-unstable.nautilus # gnome file manager
     pkgs-unstable.vesktop # custom Discord client
     pkgs-unstable.qbittorrent # QT torrent client
 
@@ -34,7 +34,7 @@
     # utils
     pkgs-unstable.waybar # bar
     pkgs-unstable.dunst # notification daemon
-    
+
     pkgs-unstable.rofi # window switcher
     pkgs-unstable.wlogout # logout menu
     pkgs-unstable.hyprlock # screen lock
@@ -55,6 +55,6 @@
     tunMode = {
       enable = true;
       setuid = true;
-  };
+    };
   };
 }
