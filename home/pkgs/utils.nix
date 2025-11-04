@@ -41,6 +41,7 @@
     pkgs-unstable.openssl # Cryptographic library that implements the SSL and TLS protocols
     pkgs-unstable.ncdu # disk space usage analyzer
     pkgs-unstable.nftables # providing filtering and classification of network
+    pkgs-unstable.spotdl # download spotify tracks
 
     # utils for mounting flashdrive with ntfs file system
     pkgs-unstable.fuse # need only for ntfs3g

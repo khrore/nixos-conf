@@ -14,6 +14,7 @@
 
     # AI
     pkgs-unstable.claude-code # Anthopics AI assistant
+    pkgs-unstable.opencode # Open source AI assistant
 
     # media
     pkgs-unstable.spotifyd # spotify deamon
