@@ -9,7 +9,7 @@
 {
   users.users.${username}.packages = [
     # browser
-    inputs.zen-browser.packages."${pkgs.system}".default # zen browser
+    inputs.zen-browser.packages."${pkgs.system}".twilight # zen browser
     pkgs-unstable.firefox
     pkgs.chromium
     pkgs-unstable.brave # modified chromium

@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+system,
   modulesPath,
   ...
 }:
@@ -33,17 +34,17 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = lib.mkDefault system;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
-    # powerManagement.finegrained = true;
-    open = true;
     nvidiaSettings = true;
+    open = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 }

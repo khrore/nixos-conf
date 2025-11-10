@@ -77,7 +77,6 @@
     # gibs
     pkgs-unstable.bemoji # emoji picker with support for bemenu/wofi/rofi/dmenu and wayland/x11
     pkgs-unstable.nix-prefetch-scripts # collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
-    pkgs-unstable.kdePackages.qt6ct # qt6 configuration tool
     pkgs-unstable.nwg-look # gtk3 settings editor
     pkgs-unstable.alsa-lib # advanced linux sound architecture
 
@@ -87,9 +86,6 @@
     # docs
     pkgs-unstable.pandoc # document convernter
     pkgs-unstable.texliveSmall # small set of texlive software
-
-    # ai
-    pkgs-unstable.ollama-cuda # ollama client with cuda support
 
     # db
     pkgs-unstable.sqlite

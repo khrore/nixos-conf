@@ -43,6 +43,15 @@
         config.allowUnfree = true;
       };
 
+      pkgs = import inputs.nixpkgs {
+        inherit system; # refer the `system` parameter form outer scope recursively
+        # To use chrome, we need to allow the installation of non-free software
+        config = {
+        allowUnfree = true;
+        nvidia.acceptLicense = true;
+        };
+      };
+
       # importing library
       mylib = import ./lib/default.nix { inherit (pkgs-unstable) lib; };
 
@@ -53,30 +62,30 @@
       terminalEditor = "nvim";
       shell = "fish";
 
-      # System configuration
-      hostname = "nixos"; # CHOOSE A HOSTNAME HERE
-
       configurationLimit = 10;
 
       #################################################################
     in
     {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+      nixpkgs.pkgs = pkgs;
+      nixosConfigurations = {
+    "oldix" = let hostname = "oldix";
+          in nixpkgs.lib.nixosSystem {
         inherit system;
 
         modules = [
-          ./nixos/configuration.nix
+          ./hosts/oldix
           inputs.disko.nixosModules.disko
         ];
 
         specialArgs = {
           inherit
+      hostname
             pkgs-unstable
             inputs
             outputs
             username
             terminalEditor
-            hostname
             stateVersion
             system
             configurationLimit
@@ -85,5 +94,31 @@
             ;
         };
       };
+      "nixos" = let hostname = "nixos";
+        in nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        modules = [
+          ./hosts/nixos
+          inputs.disko.nixosModules.disko
+        ];
+
+        specialArgs = {
+          inherit
+      hostname
+            pkgs-unstable
+            inputs
+            outputs
+            username
+            terminalEditor
+            stateVersion
+            system
+            configurationLimit
+            shell
+            mylib
+            ;
+        };
+      };
+    };
     };
 }

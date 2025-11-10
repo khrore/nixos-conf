@@ -20,8 +20,14 @@
     # Import important packages
     ./nixpkgs-config.nix
 
-    ../home
+    ../../home
   ];
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    nvidia.acceptLicense = true;
+  cudaSupport = true;
+  };
 
   networking.hostName = hostname;
 
