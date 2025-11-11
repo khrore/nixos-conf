@@ -2,6 +2,8 @@
   # Creating a user and giving it needed privileges
   username,
   pkgs-unstable,
+  pkgs,
+  inputs,
   ...
 }:
 {
@@ -12,9 +14,9 @@
     pkgs-unstable.nushell
 
     # utils
+    pkgs.atuin # powerfull shell history
     pkgs-unstable.zoxide # smart cd command
     pkgs-unstable.starship # prompt for shell
-    pkgs-unstable.atuin # powerfull shell history
     pkgs-unstable.tmux # terminal multiplexer
     pkgs-unstable.eza # modern ls util
     pkgs-unstable.fzf # cl fuzzy finder

@@ -86,8 +86,5 @@
     # docs
     pkgs-unstable.pandoc # document convernter
     pkgs-unstable.texliveSmall # small set of texlive software
-
-    # db
-    pkgs-unstable.sqlite
   ];
 }

@@ -6,5 +6,5 @@
       enable = true;
     };
 efi.canTouchEfiVariables = true;
-  }
+  };
 }
