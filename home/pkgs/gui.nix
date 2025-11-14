@@ -47,6 +47,9 @@
     # docs
     pkgs-unstable.libreoffice
     pkgs-unstable.gimp
+
+    # VPN
+    pkgs.hiddify-app
   ];
 
   programs.nekoray = {

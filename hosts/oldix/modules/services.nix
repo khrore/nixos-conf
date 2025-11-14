@@ -5,4 +5,5 @@
     openssh.enable = true;
     upower.enable = true;
   };
+  virtualisation.docker.enable = true;
 }

@@ -49,8 +49,8 @@
         inherit system; # refer the `system` parameter form outer scope recursively
         # To use chrome, we need to allow the installation of non-free software
         config = {
-        allowUnfree = true;
-        nvidia.acceptLicense = true;
+          allowUnfree = true;
+          nvidia.acceptLicense = true;
         };
       };
 
@@ -71,56 +71,62 @@
     {
       nixpkgs.pkgs = pkgs;
       nixosConfigurations = {
-    "oldix" = let hostname = "oldix";
-          in nixpkgs.lib.nixosSystem {
-        inherit system;
+        "oldix" =
+          let
+            hostname = "oldix";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
 
-        modules = [
-          ./hosts/oldix
-          inputs.disko.nixosModules.disko
-        ];
+            modules = [
+              ./hosts/oldix
+              inputs.disko.nixosModules.disko
+            ];
 
-        specialArgs = {
-          inherit
-      hostname
-            pkgs-unstable
-            inputs
-            outputs
-            username
-            terminalEditor
-            stateVersion
-            system
-            configurationLimit
-            shell
-            mylib
-            ;
-        };
+            specialArgs = {
+              inherit
+                hostname
+                pkgs-unstable
+                inputs
+                outputs
+                username
+                terminalEditor
+                stateVersion
+                system
+                configurationLimit
+                shell
+                mylib
+                ;
+            };
+          };
+        "nixos" =
+          let
+            hostname = "nixos";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+
+            modules = [
+              ./hosts/nixos
+              inputs.disko.nixosModules.disko
+            ];
+
+            specialArgs = {
+              inherit
+                hostname
+                pkgs-unstable
+                inputs
+                outputs
+                username
+                terminalEditor
+                stateVersion
+                system
+                configurationLimit
+                shell
+                mylib
+                ;
+            };
+          };
       };
-      "nixos" = let hostname = "nixos";
-        in nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
-          ./hosts/nixos
-          inputs.disko.nixosModules.disko
-        ];
-
-        specialArgs = {
-          inherit
-      hostname
-            pkgs-unstable
-            inputs
-            outputs
-            username
-            terminalEditor
-            stateVersion
-            system
-            configurationLimit
-            shell
-            mylib
-            ;
-        };
-      };
-    };
     };
 }

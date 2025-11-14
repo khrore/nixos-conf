@@ -5,7 +5,7 @@
   config,
   lib,
   pkgs,
-system,
+  system,
   modulesPath,
   ...
 }:

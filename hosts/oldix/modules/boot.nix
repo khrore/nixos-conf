@@ -5,6 +5,6 @@
       inherit configurationLimit;
       enable = true;
     };
-efi.canTouchEfiVariables = true;
+    efi.canTouchEfiVariables = true;
   };
 }

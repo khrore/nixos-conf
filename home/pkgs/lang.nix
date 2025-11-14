@@ -12,8 +12,8 @@
 
     # Nix
     pkgs-unstable.nil # lsp with features
-    pkgs-unstable.nixd # yet another nix lsp
-    pkgs-unstable.nixfmt-rfc-style # formatter
+    pkgs-unstable.nixfmt # formatter
+    pkgs-unstable.statix # linter
 
     # Lua
     pkgs-unstable.lua-language-server # lsp
