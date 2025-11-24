@@ -19,6 +19,7 @@
     pkgs-unstable.kitty # stable terminal
 
     # apps
+    pkgs-unstable.bruno
     pkgs-unstable.obs-studio # screencasting app
     pkgs-unstable.obsidian # note manager
     pkgs-unstable.telegram-desktop # messenger
@@ -34,7 +35,6 @@
     # utils
     pkgs-unstable.waybar # bar
     pkgs-unstable.dunst # notification daemon
-
     pkgs-unstable.rofi # window switcher
     pkgs-unstable.wlogout # logout menu
     pkgs-unstable.hyprlock # screen lock
@@ -49,15 +49,6 @@
     pkgs-unstable.gimp
 
     # VPN
-    pkgs.hiddify-app
+    pkgs-unstable.throne
   ];
-
-  programs.nekoray = {
-    enable = true;
-    package = pkgs-unstable.nekoray;
-    tunMode = {
-      enable = true;
-      setuid = true;
-    };
-  };
 }
