@@ -88,4 +88,9 @@
     pkgs-unstable.pandoc # document convernter
     pkgs-unstable.texliveSmall # small set of texlive software
   ];
+  programs.throne = {
+    enable = true;
+    tunMode.enable = true;
+    package = pkgs-unstable.throne;
+  };
 }

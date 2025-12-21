@@ -47,8 +47,5 @@
     # docs
     pkgs-unstable.libreoffice
     pkgs-unstable.gimp
-
-    # VPN
-    pkgs-unstable.throne
   ];
 }

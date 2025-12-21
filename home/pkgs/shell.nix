@@ -9,8 +9,6 @@
 {
   users.users.${username}.packages = [
     # shells
-    pkgs-unstable.fish
-    pkgs-unstable.zsh
     pkgs-unstable.nushell
 
     # utils
