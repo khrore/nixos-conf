@@ -29,6 +29,9 @@
     pkgs-unstable.vesktop # custom Discord client
     pkgs-unstable.qbittorrent # QT torrent client
 
+    # Time management
+    pkgs-unstable.affine # Workspace with fully merged docs, whiteboards and databases
+
     # IDE
     pkgs-unstable.zed-editor
 
