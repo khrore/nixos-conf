@@ -5,7 +5,7 @@
   ...
 }:
 {
-  users.users.${username}.packages = [
+  environment.systemPackages = [
     # git and hub
     pkgs-unstable.git
     pkgs-unstable.gh # GitHub CLI tool
@@ -76,7 +76,7 @@
     pkgs-unstable.libxkbcommon
 
     # gibs
-    pkgs-unstable.bemoji # emoji picker with support for bemenu/wofi/rofi/dmenu and wayland/x11
+    pkgs-unstable.rofimoji # rofi emoji picker
     pkgs-unstable.nix-prefetch-scripts # collection of all the nix-prefetch-* scripts which may be used to obtain source hashes
     pkgs-unstable.nwg-look # gtk3 settings editor
     pkgs-unstable.alsa-lib # advanced linux sound architecture

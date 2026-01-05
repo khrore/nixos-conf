@@ -7,7 +7,7 @@
   ...
 }:
 {
-  users.users.${username}.packages = [
+  environment.systemPackages = [
     # shells
     pkgs-unstable.nushell
 

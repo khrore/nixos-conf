@@ -76,7 +76,7 @@
             hostname = "oldix";
           in
           nixpkgs.lib.nixosSystem {
-            inherit system;
+            system = "x86_64-linux";
 
             modules = [
               ./hosts/oldix
@@ -104,7 +104,7 @@
             hostname = "nixos";
           in
           nixpkgs.lib.nixosSystem {
-            inherit system;
+            system = "x86_64-linux";
 
             modules = [
               ./hosts/nixos

@@ -6,5 +6,10 @@
       enable = true;
       package = pkgs-unstable.fish;
     };
+    localsend = {
+      enable = true;
+      package = pkgs-unstable.localsend;
+      openFirewall = true;
+    };
   };
 }

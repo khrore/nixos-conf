@@ -5,7 +5,7 @@
   ...
 }:
 {
-  users.users.${username}.packages = [
+  environment.systemPackages = [
     # Rust/C/C++
     pkgs-unstable.clang
     pkgs-unstable.lldb

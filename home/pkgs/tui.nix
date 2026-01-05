@@ -7,7 +7,7 @@
   ...
 }:
 {
-  users.users.${username}.packages = [
+  environment.systemPackages = [
     inputs.yazi.packages.${pkgs.system}.default # file manager
     pkgs-unstable.neovim # the best text editor
     pkgs-unstable.rtorrent # tui torrent client

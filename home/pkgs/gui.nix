@@ -7,7 +7,7 @@
   ...
 }:
 {
-  users.users.${username}.packages = [
+  environment.systemPackages = [
     # browser
     inputs.zen-browser.packages."${pkgs.system}".twilight # zen browser
     pkgs-unstable.firefox
