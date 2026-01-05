@@ -45,8 +45,7 @@ lib.mkMerge [
       users.${username} = {
         home.stateVersion = stateVersion;
         home.username = username;
-        home.homeDirectory =
-          if mylib.isDarwin system then "/Users/${username}" else "/home/${username}";
+        home.homeDirectory = if mylib.isDarwin system then "/Users/${username}" else "/home/${username}";
 
         imports = mylib.scanPaths ./pkgs;
 

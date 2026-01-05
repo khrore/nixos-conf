@@ -6,4 +6,3 @@
     systemd-boot.configurationLimit = configurationLimit;
   };
 }
-

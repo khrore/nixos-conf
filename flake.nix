@@ -50,18 +50,22 @@
       stateVersion = "25.11";
 
       # Helper to create pkgs for a system
-      mkPkgs = system: import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          nvidia.acceptLicense = true;
+      mkPkgs =
+        system:
+        import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            nvidia.acceptLicense = true;
+          };
         };
-      };
 
-      mkPkgsUnstable = system: import inputs.nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      mkPkgsUnstable =
+        system:
+        import inputs.nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
 
       # importing library
       mylib = import ./lib/default.nix { inherit (nixpkgs) lib; };
@@ -78,21 +82,23 @@
       #################################################################
 
       # Common special args factory
-      mkSpecialArgs = { hostname, system }: {
-        inherit
-          hostname
-          system
-          inputs
-          outputs
-          username
-          terminalEditor
-          stateVersion
-          configurationLimit
-          shell
-          mylib
-          ;
-        pkgs-unstable = mkPkgsUnstable system;
-      };
+      mkSpecialArgs =
+        { hostname, system }:
+        {
+          inherit
+            hostname
+            system
+            inputs
+            outputs
+            username
+            terminalEditor
+            stateVersion
+            configurationLimit
+            shell
+            mylib
+            ;
+          pkgs-unstable = mkPkgsUnstable system;
+        };
     in
     {
       nixpkgs.pkgs = mkPkgs linuxSystem;

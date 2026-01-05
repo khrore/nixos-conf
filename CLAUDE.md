@@ -4,30 +4,53 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a NixOS flake-based system configuration managing multiple hosts (oldix, nixos) with shared modules and user-level home configuration. The repository uses a custom auto-loading pattern via `mylib.scanPaths` to eliminate manual imports.
+This is a cross-platform Nix flake configuration managing NixOS systems (oldix, nixos) and macOS systems (macix) with shared home-manager configuration. The repository uses platform detection and auto-loading patterns via `mylib.scanPaths` to eliminate manual imports while supporting both Linux and macOS.
 
 ## Common Build and Development Commands
 
-### Building and Switching Configurations
+### NixOS (Linux)
 
 ```bash
 # Build and switch to new configuration (requires sudo)
 sudo nixos-rebuild switch --flake .#<hostname>
 
-# Build and test without switching (no sudo needed)
+# Build and test without switching
 nixos-rebuild build --flake .#<hostname>
 
+# Show configuration differences before switching
+nixos-rebuild build --flake .#<hostname> && nix store diff-closures /run/current-system ./result
+```
+
+Replace `<hostname>` with `oldix` or `nixos`.
+
+### macOS (Darwin)
+
+```bash
+# Initial activation (first time only)
+nix run nix-darwin -- switch --flake .#macix
+
+# Subsequent rebuilds
+darwin-rebuild switch --flake .#macix
+
+# Build without switching
+nix build .#darwinConfigurations.macix.system
+```
+
+### Universal Commands
+
+```bash
 # Update flake inputs to latest versions
 nix flake update
 
 # Check flake configuration for errors
 nix flake check
 
-# Show configuration differences before switching
-nixos-rebuild build --flake .#<hostname> && nix store diff-closures /run/current-system ./result
-```
+# Evaluate darwin configuration
+nix eval .#darwinConfigurations.macix.system --apply 'x: "success"'
 
-Replace `<hostname>` with either `oldix` or `nixos` depending on the target system.
+# Evaluate NixOS configuration
+nix eval .#nixosConfigurations.nixos.config.system.build.toplevel
+```
 
 ### Formatting and Linting
 
@@ -42,141 +65,213 @@ statix check
 statix fix
 ```
 
-### Development Workflow
-
-```bash
-# Enter development shell with all dependencies
-nix develop
-
-# Evaluate specific configuration options
-nix eval .#nixosConfigurations.<hostname>.config.system.build.toplevel
-
-# Show what packages would be installed
-nix eval .#nixosConfigurations.<hostname>.config.environment.systemPackages --apply builtins.length
-```
-
 ## Architecture and Code Organization
 
 ### Directory Structure
 
 ```
-├── flake.nix                 # Entry point - defines hosts and special arguments
-├── lib/default.nix           # Custom library with scanPaths auto-loader
+├── flake.nix                 # Entry point - multi-platform configs
+├── lib/default.nix           # Custom library (scanPaths, isDarwin, isLinux)
 ├── hosts/
-│   ├── common/              # Shared system configuration
-│   │   ├── default.nix      # Imports all common modules
+│   ├── common/              # Shared cross-platform configuration
+│   │   ├── default.nix      # Platform-aware common config
 │   │   ├── nixpkgs-config.nix  # Cachix binary cache setup
-│   │   └── modules/         # Individual system feature modules
-│   ├── oldix/               # Intel-based host (SATA storage)
-│   └── nixos/               # AMD/NVIDIA host (NVMe storage, CUDA)
-└── home/                    # User-level configuration
-    ├── default.nix          # User setup and group membership
-    ├── programs.nix         # System programs (shells, etc.)
-    └── pkgs/                # Categorized package lists
+│   │   └── modules/         # Platform-specific and shared modules
+│   │       ├── nixos/       # Linux-only modules (boot, audio, hyprland, etc.)
+│   │       ├── darwin/      # macOS-only modules (currently empty)
+│   │       ├── shared/      # Cross-platform modules (nix, timezone)
+│   │       └── default.nix  # Conditional platform loading
+│   ├── oldix/               # Intel NixOS host (SATA storage)
+│   ├── nixos/               # AMD/NVIDIA NixOS host (NVMe, CUDA)
+│   └── macix/               # Apple Silicon macOS host (M1/M2/M3)
+└── home/                    # User-level home-manager configuration
+    ├── default.nix          # Platform-aware user setup
+    ├── programs.nix         # System programs (NixOS only)
+    └── pkgs/                # Categorized packages with platform filtering
 ```
+
+### Cross-Platform Architecture
+
+The configuration supports both NixOS and nix-darwin through:
+
+1. **Platform Detection** (`lib/default.nix`):
+   - `mylib.isDarwin system` - Checks if running on macOS
+   - `mylib.isLinux system` - Checks if running on Linux
+
+2. **Conditional Module Loading** (`hosts/common/modules/default.nix`):
+   ```nix
+   imports = [
+     ./shared  # Always loaded
+   ] ++ (if mylib.isLinux system then [ ./nixos ] else [])
+     ++ (if mylib.isDarwin system then [ ./darwin ] else []);
+   ```
+
+3. **Home-Manager Integration**:
+   - Shared user environment across all platforms
+   - Packages filtered by platform using `lib.optionals`
+   - Different home directories: `/home/${username}` (Linux) vs `/Users/${username}` (macOS)
 
 ### Auto-Loading Module Pattern
 
-This configuration uses a custom `mylib.scanPaths` function that automatically imports all `.nix` files in a directory (except `default.nix`). Any directory with `imports = mylib.scanPaths ./.;` will auto-discover and load all modules.
+Uses `mylib.scanPaths` to automatically import all `.nix` files in a directory (except `default.nix`).
 
 **When adding new functionality:**
-- System features: Create a new `.nix` file in `hosts/common/modules/` - it will be auto-loaded
-- User packages: Add to the appropriate category in `home/pkgs/` (gui.nix, lang.nix, shell.nix, tui.nix, utils.nix)
-- Host-specific config: Add directly to `hosts/{hostname}/`
+- **Linux-only features**: Create in `hosts/common/modules/nixos/` - auto-loaded on Linux
+- **macOS-only features**: Create in `hosts/common/modules/darwin/` - auto-loaded on macOS
+- **Cross-platform features**: Create in `hosts/common/modules/shared/` - auto-loaded everywhere
+- **User packages**: Add to appropriate category in `home/pkgs/` with platform filtering
+- **Host-specific config**: Add directly to `hosts/{hostname}/`
 
-### Package Organization Categories
+### Package Organization with Platform Filtering
 
-- **gui.nix**: Desktop applications (browsers, terminals, media players)
-- **lang.nix**: Development tools (LSPs, formatters, linters, build tools)
-- **shell.nix**: Shell utilities (modern CLI replacements, enhancements)
-- **tui.nix**: Terminal UI applications (editors, file managers, monitoring)
-- **utils.nix**: General utilities (git, network tools, archives, media tools)
+All package files in `home/pkgs/` use platform filtering:
+
+- **gui.nix**: Desktop applications
+  - Cross-platform: firefox, chromium, kitty, spotify, mpv, etc.
+  - Linux-only: waybar, dunst, rofi, hyprland tools, zen-browser
+
+- **lang.nix**: Development tools (cross-platform except hyprls)
+  - LSPs, formatters, linters for Nix, Lua, Python, TypeScript, Bash, etc.
+  - Linux-only: hyprls (Hyprland LSP)
+
+- **shell.nix**: Shell utilities (fully cross-platform)
+  - eza, fzf, bat, ripgrep, fd, starship, tmux, zoxide, etc.
+
+- **tui.nix**: Terminal UI applications
+  - Cross-platform: yazi, neovim, claude-code, spotify-player
+  - Linux-only: btop-cuda, gpustat (NVIDIA tools)
+
+- **utils.nix**: General utilities
+  - Cross-platform: git tools, ffmpeg, network tools, archives
+  - Linux-only: Wayland tools, brightnessctl, Qt/Wayland libs
 
 ### Special Arguments Flow
 
-The flake passes these special arguments to all modules:
-- `pkgs`: Stable nixpkgs (nixos-25.11)
-- `pkgs-unstable`: Unstable channel for latest packages
-- `inputs`: Access to flake inputs (disko, hyprland, ghostty, zen-browser, yazi)
-- `hostname`: Current host identifier
+The flake passes these special arguments via `mkSpecialArgs`:
+- `pkgs-unstable`: Unstable nixpkgs (used for most packages)
+- `inputs`: Access to flake inputs (disko, hyprland, ghostty, zen-browser, yazi, home-manager, darwin)
+- `hostname`: Current host identifier (oldix, nixos, or macix)
 - `username`: User name (khrore)
 - `shell`: Preferred shell (fish)
 - `terminalEditor`: Editor choice (nvim)
-- `mylib`: Custom library functions (scanPaths)
-- `stateVersion`: NixOS state version (25.11)
+- `mylib`: Custom library functions (scanPaths, isDarwin, isLinux)
+- `system`: Target system (x86_64-linux or aarch64-darwin)
+- `stateVersion`: Version (25.11)
 - `configurationLimit`: Boot entry limit (10)
 
 When creating new modules, destructure only the arguments you need:
 ```nix
-{ pkgs, pkgs-unstable, ... }: {
-  # your configuration
+{ lib, pkgs-unstable, mylib, system, ... }: {
+  # Use lib.optionals for platform filtering
+  home.packages = lib.optionals (mylib.isLinux system) [
+    # Linux-specific packages
+  ] ++ [
+    # Cross-platform packages
+  ];
 }
 ```
 
-### Host Configuration Pattern
+### Platform-Specific Modules
 
-Both hosts share ~90% configuration through `hosts/common/`. Host-specific differences are isolated to:
-1. **hardware-configuration.nix** - Auto-generated, do not manually edit
-2. **disko.nix** - Disk layout (SATA for oldix, NVMe for nixos)
-3. **Host-specific configs** - Optional files like `nixpkgs-config.nix` for CUDA support on nixos
+**NixOS-only** (`hosts/common/modules/nixos/`):
+- `audio.nix` - Pipewire audio stack
+- `boot.nix` - Systemd-boot with UEFI
+- `fonts.nix` - JetBrains Mono Nerd Font (macOS uses system fonts)
+- `hyprland.nix` - Wayland compositor with UWSM
+- `location.nix` - i18n locale settings
+- `nix-ld.nix` - Linux dynamic linker
+- `services.nix` - Docker, SSH, udisks2
+
+**macOS-only** (`hosts/common/modules/darwin/`):
+- Currently empty, ready for future macOS-specific modules (e.g., yabai, skhd)
+
+**Cross-platform** (`hosts/common/modules/shared/`):
+- `nix.nix` - Flakes and nix-command experimental features
+- `timezone.nix` - Europe/Moscow timezone
 
 ### Dual Nixpkgs Strategy
 
-- Use `pkgs` (stable) for critical system components
-- Use `pkgs-unstable` for user packages and development tools
-- Most packages prefer unstable for latest features
-- Reduces rebuild frequency while staying current
+- **Stable** (`nixpkgs`) - System-level components
+- **Unstable** (`nixpkgs-unstable`) - User packages and development tools
+- Both darwin and home-manager follow unstable for latest features
+- Per-system pkgs instantiation via `mkPkgs` and `mkPkgsUnstable` functions
 
-## Key Modules
+## Platform-Specific Notes
 
-### System Modules (hosts/common/modules/)
-- **audio.nix**: Pipewire audio (no PulseAudio)
-- **boot.nix**: Systemd-boot with UEFI
-- **fonts.nix**: JetBrains Mono Nerd Font as default monospace
-- **hyprland.nix**: Wayland compositor with UWSM and portal support
-- **location.nix**: Locale settings (en_US with ru_RU numeric/telephone)
-- **nix.nix**: Enables flakes and nix-command experimental features
-- **services.nix**: Core system services (Docker, SSH, udisks2)
-- **timezone.nix**: Europe/Moscow timezone
+### macOS (Darwin) Configuration
 
-### Home Configuration (home/)
-User "khrore" is configured with:
-- Groups: wheel (sudo), networkmanager, docker
-- Shell: fish
-- Editor: nvim
-- Complete polyglot development environment (10+ languages with LSPs)
+- **Primary User**: Set via `system.primaryUser` (required for homebrew and system defaults)
+- **Touch ID**: `security.pam.services.sudo_local.touchIdAuth = true`
+- **Homebrew**: Configured in `hosts/macix/homebrew.nix` for macOS-native apps
+- **System Defaults**: Dock, Finder, keyboard settings in `hosts/macix/default.nix`
+- **Fonts**: Uses macOS system fonts (no custom font configuration)
+- **State Version**: Uses `5` (nix-darwin versioning, different from NixOS)
+
+### NixOS Configuration
+
+- **User Creation**: Managed in `home/default.nix` with Linux conditional
+- **Groups**: wheel (sudo), networkmanager, docker
+- **Hardware Config**: Auto-generated, regenerate with `nixos-generate-config`
+- **Disko**: Declarative disk layouts (SATA for oldix, NVMe for nixos)
+- **NVIDIA** (nixos host): CUDA support with open-source driver
 
 ## Important Notes
 
-### Hardware Configuration
-- Never manually edit `hardware-configuration.nix` - it's auto-generated by nixos-generate-config
-- Regenerate with: `sudo nixos-generate-config --show-hardware-config > hosts/<hostname>/hardware-configuration.nix`
+### Adding Cross-Platform Packages
 
-### Disk Management
-- Uses disko for declarative disk layouts
-- Each host has its own `disko.nix` with disk-specific paths
-- Be cautious when modifying - can affect data integrity
+1. Add to appropriate `home/pkgs/*.nix` file
+2. Use platform filtering if needed:
+   ```nix
+   let
+     linuxPkgs = lib.optionals (mylib.isLinux system) [ ... ];
+     darwinPkgs = lib.optionals (mylib.isDarwin system) [ ... ];
+     sharedPkgs = [ ... ];
+   in
+   { home.packages = sharedPkgs ++ linuxPkgs ++ darwinPkgs; }
+   ```
 
-### Adding New Packages
-1. Identify the correct category in `home/pkgs/`
-2. Add to the appropriate list (preferring `pkgs-unstable` for latest versions)
-3. Rebuild to apply changes
+### Verifying Platform Compatibility
 
-### Adding New System Modules
-1. Create `hosts/common/modules/feature-name.nix`
-2. Define configuration using special arguments as needed
-3. Module is auto-loaded via scanPaths - no manual import needed
+Check if a package supports your target platform:
+```nix
+# Use conditional loading for platform-specific inputs
+lib.optionals (builtins.hasAttr system inputs.package.packages) [
+  inputs.package.packages.${system}.default
+]
+```
+
+### Home-Manager vs System Packages
+
+- **Use home-manager** (`home.packages`) for user-level packages
+- **Use system packages** (`environment.systemPackages`) sparingly for NixOS-only system tools
+- Home-manager provides cross-platform compatibility
+
+### Dotfiles Management
+
+The configuration uses home-manager for packages but dotfiles are managed separately:
+- GNU Stow is installed for manual dotfile symlinking
+- Store dotfiles in a separate git repository
+- Use stow to symlink dotfiles to home directory
+- Future: Can use home-manager's file management if desired
 
 ### Binary Caches
-Cachix binary caches are configured in `hosts/common/nixpkgs-config.nix` to speed up builds:
+
+Configured in `hosts/common/nixpkgs-config.nix`:
 - hyprland.cachix.org
 - nix-community.cachix.org
 
-### NVIDIA Configuration (nixos host only)
-The nixos host includes CUDA support with:
-- Open source NVIDIA driver
-- Power management enabled
-- Latest kernel packages
-- Modesetting enabled
+### Host Overview
 
-Configuration in `hosts/nixos/nixpkgs-config.nix`
+| Host | Platform | CPU | GPU | Storage | Special Features |
+|------|----------|-----|-----|---------|------------------|
+| oldix | NixOS | Intel | - | SATA (sda) | - |
+| nixos | NixOS | AMD | NVIDIA | NVMe | CUDA support |
+| macix | Darwin | Apple Silicon | - | - | Touch ID, Homebrew |
+
+### Common Pitfalls
+
+1. **Forgetting platform conditionals**: Always check if a module/package is Linux-specific before adding
+2. **Using wrong state version**: NixOS uses "25.11", nix-darwin uses `5`
+3. **Not setting system.primaryUser**: Required on macOS for homebrew and system defaults
+4. **Editing hardware-configuration.nix**: This file is auto-generated, don't manually edit
+5. **Missing lib parameter**: When using `lib.optionals`, ensure `lib` is in function arguments

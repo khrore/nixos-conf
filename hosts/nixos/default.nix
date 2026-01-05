@@ -6,4 +6,3 @@
     ./nixpkgs-config.nix
   ];
 }
-

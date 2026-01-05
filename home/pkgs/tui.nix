@@ -28,5 +28,6 @@ in
 
     # disk
     pkgs-unstable.ncdu
-  ] ++ nvidiaPackages;
+  ]
+  ++ nvidiaPackages;
 }

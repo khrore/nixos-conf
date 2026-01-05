@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   # Homebrew for macOS-native apps
   homebrew = {

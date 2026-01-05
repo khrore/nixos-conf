@@ -73,5 +73,6 @@ in
 
     # General
     pkgs-unstable.tree-sitter
-  ] ++ hyprlandTools;
+  ]
+  ++ hyprlandTools;
 }
