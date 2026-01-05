@@ -13,6 +13,10 @@ let
 in
 {
   home.packages = [
+    # C/C++ stuff
+    pkgs-unstable.clang
+    pkgs-unstable.lldb
+
     # Nix
     pkgs-unstable.nil
     pkgs-unstable.nixfmt
