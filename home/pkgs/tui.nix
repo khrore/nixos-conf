@@ -8,9 +8,8 @@
 }:
 {
   environment.systemPackages = [
-    inputs.yazi.packages.${pkgs.system}.default # file manager
+    pkgs-unstable.yazi # file manager
     pkgs-unstable.neovim # the best text editor
-    pkgs-unstable.rtorrent # tui torrent client
 
     # AI
     pkgs-unstable.claude-code # Anthopics AI assistant

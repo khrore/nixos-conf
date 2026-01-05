@@ -1,4 +1,9 @@
-{ mylib, ... }:
+{ mylib, system, ... }:
 {
-  imports = mylib.scanPaths ./.;
+  imports =
+    [
+      ./shared
+    ]
+    ++ (if mylib.isLinux system then [ ./nixos ] else [ ])
+    ++ (if mylib.isDarwin system then [ ./darwin ] else [ ]);
 }

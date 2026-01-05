@@ -14,4 +14,8 @@
         ) (builtins.readDir path)
       )
     );
+
+  # Platform detection helpers
+  isDarwin = system: (builtins.match ".*-darwin" system) != null;
+  isLinux = system: (builtins.match ".*-linux" system) != null;
 }

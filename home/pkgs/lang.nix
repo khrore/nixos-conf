@@ -6,10 +6,6 @@
 }:
 {
   environment.systemPackages = [
-    # Rust/C/C++
-    pkgs-unstable.clang
-    pkgs-unstable.lldb
-
     # Nix
     pkgs-unstable.nil # lsp with features
     pkgs-unstable.nixfmt # formatter
@@ -22,7 +18,7 @@
     pkgs-unstable.luajitPackages.luacheck # linter
 
     # Python
-    pkgs-unstable.python314 # python exec
+    pkgs-unstable.python313 # python exec
     pkgs-unstable.ruff # formatter
     pkgs-unstable.basedpyright # lsp + type checker
     pkgs-unstable.python313Packages.debugpy

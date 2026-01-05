@@ -12,21 +12,18 @@
     inputs.zen-browser.packages."${pkgs.system}".twilight # zen browser
     pkgs-unstable.firefox
     pkgs.chromium
-    pkgs-unstable.brave # modified chromium
 
     # terminals
-    inputs.ghostty.packages.${pkgs.system}.default # most featurefull terminal
+    pkgs-unstable.ghostty # most featurefull terminal
     pkgs-unstable.kitty # stable terminal
 
     # apps
-    pkgs-unstable.bruno
     pkgs-unstable.obs-studio # screencasting app
     pkgs-unstable.obsidian # note manager
     pkgs-unstable.telegram-desktop # messenger
     pkgs-unstable.spotify # offical client
     pkgs-unstable.mpv # media player
     pkgs-unstable.nautilus # gnome file manager
-    pkgs-unstable.vesktop # custom Discord client
     pkgs-unstable.qbittorrent # QT torrent client
 
     # Time management
@@ -46,9 +43,5 @@
     pkgs-unstable.hyprpicker # Wlroots-compatible Wayland color picker
     pkgs-unstable.hyprshot # screenshots
     pkgs-unstable.clipse # clipboard manager
-
-    # docs
-    pkgs-unstable.libreoffice
-    pkgs-unstable.gimp
   ];
 }

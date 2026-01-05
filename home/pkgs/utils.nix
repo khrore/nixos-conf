@@ -15,12 +15,9 @@
 
     # CLI utils
     pkgs-unstable.cliphist # Wayland clipboard manager
-    pkgs-unstable.ffmpeg-full # solution to record, convert and stream audio and video
-    pkgs-unstable.ffmpegthumbnailer # video thumbnailer that can be used by file managers to create thumbnails for video files
+    pkgs-unstable.ffmpeg # solution to record, convert and stream audio and video
     pkgs-unstable.grimblast # Helper for screenshots within Hyprland, based on grimshot
     pkgs-unstable.mediainfo # Supplies technical and tag information about a video or audio file
-    pkgs-unstable.silicon # render your source code into a beautiful image
-    pkgs-unstable.ueberzugpp # draw images on terminals
     pkgs-unstable.wl-clipboard # command-line copy/paste utilities for Wayland
     pkgs-unstable.showmethekey # Show keys you typed on screen
     pkgs-unstable.stow # simlink manager
@@ -42,7 +39,6 @@
     pkgs-unstable.ncdu # disk space usage analyzer
     pkgs-unstable.nftables # providing filtering and classification of network
     pkgs-unstable.spotdl # download spotify tracks
-    pkgs-unstable.bruno-cli # CLI of the open-source IDE For exploring and testing APIs
 
     # utils for mounting flashdrive with ntfs file system
     pkgs-unstable.fuse # need only for ntfs3g
