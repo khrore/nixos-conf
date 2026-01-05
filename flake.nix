@@ -6,6 +6,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # nix-darwin for macOS
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    # home-manager for user environment
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,31 +37,34 @@
     {
       self,
       nixpkgs,
+      darwin,
+      home-manager,
       ...
     }@inputs:
     let
       inherit (self) outputs;
 
-      system = "x86_64-linux";
+      # System architectures
+      linuxSystem = "x86_64-linux";
+      darwinSystem = "aarch64-darwin";
       stateVersion = "25.11";
 
-      pkgs-unstable = import inputs.nixpkgs-unstable {
-        inherit system; # refer the `system` parameter form outer scope recursively
-        # To use chrome, we need to allow the installation of non-free software
-        config.allowUnfree = true;
-      };
-
-      pkgs = import inputs.nixpkgs {
-        inherit system; # refer the `system` parameter form outer scope recursively
-        # To use chrome, we need to allow the installation of non-free software
+      # Helper to create pkgs for a system
+      mkPkgs = system: import nixpkgs {
+        inherit system;
         config = {
           allowUnfree = true;
           nvidia.acceptLicense = true;
         };
       };
 
+      mkPkgsUnstable = system: import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
       # importing library
-      mylib = import ./lib/default.nix { inherit (pkgs-unstable) lib; };
+      mylib = import ./lib/default.nix { inherit (nixpkgs) lib; };
 
       ######################### USER LEVEL ##########################
 
@@ -61,66 +76,69 @@
       configurationLimit = 10;
 
       #################################################################
+
+      # Common special args factory
+      mkSpecialArgs = { hostname, system }: {
+        inherit
+          hostname
+          system
+          inputs
+          outputs
+          username
+          terminalEditor
+          stateVersion
+          configurationLimit
+          shell
+          mylib
+          ;
+        pkgs-unstable = mkPkgsUnstable system;
+      };
     in
     {
-      nixpkgs.pkgs = pkgs;
+      nixpkgs.pkgs = mkPkgs linuxSystem;
+
+      # NixOS configurations
       nixosConfigurations = {
-        "oldix" =
-          let
+        "oldix" = nixpkgs.lib.nixosSystem {
+          system = linuxSystem;
+          modules = [
+            ./hosts/oldix
+            inputs.disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+          ];
+          specialArgs = mkSpecialArgs {
             hostname = "oldix";
-          in
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-
-            modules = [
-              ./hosts/oldix
-              inputs.disko.nixosModules.disko
-            ];
-
-            specialArgs = {
-              inherit
-                hostname
-                pkgs-unstable
-                inputs
-                outputs
-                username
-                terminalEditor
-                stateVersion
-                system
-                configurationLimit
-                shell
-                mylib
-                ;
-            };
+            system = linuxSystem;
           };
-        "nixos" =
-          let
+        };
+
+        "nixos" = nixpkgs.lib.nixosSystem {
+          system = linuxSystem;
+          modules = [
+            ./hosts/nixos
+            inputs.disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+          ];
+          specialArgs = mkSpecialArgs {
             hostname = "nixos";
-          in
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-
-            modules = [
-              ./hosts/nixos
-              inputs.disko.nixosModules.disko
-            ];
-
-            specialArgs = {
-              inherit
-                hostname
-                pkgs-unstable
-                inputs
-                outputs
-                username
-                terminalEditor
-                stateVersion
-                system
-                configurationLimit
-                shell
-                mylib
-                ;
-            };
+            system = linuxSystem;
           };
+        };
+      };
+
+      # Darwin configurations
+      darwinConfigurations = {
+        "macix" = darwin.lib.darwinSystem {
+          system = darwinSystem;
+          modules = [
+            ./hosts/macix
+            home-manager.darwinModules.home-manager
+          ];
+          specialArgs = mkSpecialArgs {
+            hostname = "macix";
+            system = darwinSystem;
+          };
+        };
       };
     };
 }

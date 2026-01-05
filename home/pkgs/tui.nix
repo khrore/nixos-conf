@@ -1,30 +1,32 @@
 {
-  # Creating a user and giving it needed privileges
-  inputs,
-  username,
-  pkgs,
+  lib,
   pkgs-unstable,
+  mylib,
+  system,
   ...
 }:
+let
+  # NVIDIA-specific packages (only for Linux systems with NVIDIA GPU)
+  nvidiaPackages = lib.optionals (mylib.isLinux system) [
+    pkgs-unstable.btop-cuda
+    pkgs-unstable.gpustat
+  ];
+in
 {
-  environment.systemPackages = [
-    pkgs-unstable.yazi # file manager
-    pkgs-unstable.neovim # the best text editor
+  home.packages = [
+    pkgs-unstable.yazi
+    pkgs-unstable.neovim
 
     # AI
-    pkgs-unstable.claude-code # Anthopics AI assistant
-    pkgs-unstable.opencode # Open source AI assistant
+    pkgs-unstable.claude-code
+    pkgs-unstable.opencode
 
     # media
-    pkgs-unstable.spotifyd # spotify deamon
-    pkgs-unstable.spotify-player # tui spotify
-    pkgs-unstable.imv # image viewer
-
-    # monitors
-    pkgs-unstable.btop-cuda # monitor of resources with NVidia GPU support
-    pkgs-unstable.gpustat # gpu monitor
+    pkgs-unstable.spotifyd
+    pkgs-unstable.spotify-player
+    pkgs-unstable.imv
 
     # disk
-    pkgs-unstable.ncdu # disk analyzer
-  ];
+    pkgs-unstable.ncdu
+  ] ++ nvidiaPackages;
 }

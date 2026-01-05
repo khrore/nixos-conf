@@ -1,73 +1,77 @@
 {
-  # Creating a user and giving it needed privileges
-  username,
+  lib,
   pkgs-unstable,
+  mylib,
+  system,
   ...
 }:
+let
+  # Hyprland-specific tools (Linux only)
+  hyprlandTools = lib.optionals (mylib.isLinux system) [
+    pkgs-unstable.hyprls
+  ];
+in
 {
-  environment.systemPackages = [
+  home.packages = [
     # Nix
-    pkgs-unstable.nil # lsp with features
-    pkgs-unstable.nixfmt # formatter
-    pkgs-unstable.statix # linter
+    pkgs-unstable.nil
+    pkgs-unstable.nixfmt
+    pkgs-unstable.statix
 
     # Lua
-    pkgs-unstable.lua-language-server # lsp
-    pkgs-unstable.luajit # just-in-time compiler
-    pkgs-unstable.stylua # formatter
-    pkgs-unstable.luajitPackages.luacheck # linter
+    pkgs-unstable.lua-language-server
+    pkgs-unstable.luajit
+    pkgs-unstable.stylua
+    pkgs-unstable.luajitPackages.luacheck
 
     # Python
-    pkgs-unstable.python313 # python exec
-    pkgs-unstable.ruff # formatter
-    pkgs-unstable.basedpyright # lsp + type checker
+    pkgs-unstable.python313
+    pkgs-unstable.ruff
+    pkgs-unstable.basedpyright
     pkgs-unstable.python313Packages.debugpy
 
     # TypeScript and JavaScript
-    pkgs-unstable.vtsls # lsp
-    pkgs-unstable.vscode-js-debug # debugger
-    pkgs-unstable.prettierd # formatter daemon
+    pkgs-unstable.vtsls
+    pkgs-unstable.vscode-js-debug
+    pkgs-unstable.prettierd
 
     # Bash
-    pkgs-unstable.bash-language-server # lsp
-    pkgs-unstable.shellcheck # Shell script analysis tool
-    pkgs-unstable.shfmt # Shell parser and formatter
+    pkgs-unstable.bash-language-server
+    pkgs-unstable.shellcheck
+    pkgs-unstable.shfmt
 
     # Go
     pkgs-unstable.delve
 
     # Nushell
-    pkgs-unstable.nufmt # formater
+    pkgs-unstable.nufmt
 
     # Fish
-    pkgs-unstable.fish-lsp # lsp
+    pkgs-unstable.fish-lsp
 
     # Markdown
-    pkgs-unstable.marksman # lsp
-    pkgs-unstable.mdformat # formatter
-    pkgs-unstable.markdownlint-cli2 # command-line interface for linting
-    pkgs-unstable.glow # previewer
+    pkgs-unstable.marksman
+    pkgs-unstable.mdformat
+    pkgs-unstable.markdownlint-cli2
+    pkgs-unstable.glow
 
     # Yaml
-    pkgs-unstable.yaml-language-server # lsp
+    pkgs-unstable.yaml-language-server
 
-    # HTML/CSS/JSON/ESLint language servers extracted from vscode
+    # HTML/CSS/JSON/ESLint
     pkgs-unstable.vscode-langservers-extracted
 
-    # Hyprland
-    pkgs-unstable.hyprls # lsp
+    # CMake
+    pkgs-unstable.cmake
+    pkgs-unstable.neocmakelsp
+    pkgs-unstable.cmake-format
+    pkgs-unstable.cmake-lint
 
-    # CMake system generator
-    pkgs-unstable.cmake # app
-    pkgs-unstable.neocmakelsp # lsp
-    pkgs-unstable.cmake-format # formater
-    pkgs-unstable.cmake-lint # linter
-
-    # Make build system
-    pkgs-unstable.gnumake # app
-    pkgs-unstable.checkmake # linter
+    # Make
+    pkgs-unstable.gnumake
+    pkgs-unstable.checkmake
 
     # General
     pkgs-unstable.tree-sitter
-  ];
+  ] ++ hyprlandTools;
 }

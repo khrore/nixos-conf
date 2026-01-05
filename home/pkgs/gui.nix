@@ -1,47 +1,53 @@
 {
-  # Creating a user and giving it needed privileges
+  lib,
   inputs,
-  username,
   pkgs,
   pkgs-unstable,
+  mylib,
+  system,
   ...
 }:
-{
-  environment.systemPackages = [
-    # browser
-    inputs.zen-browser.packages."${pkgs.system}".twilight # zen browser
+let
+  # Linux-specific GUI packages
+  linuxGuiPkgs = lib.optionals (mylib.isLinux system) [
+    # Wayland/Hyprland tools (Linux only)
+    pkgs-unstable.waybar
+    pkgs-unstable.dunst
+    pkgs-unstable.rofi
+    pkgs-unstable.wlogout
+    pkgs-unstable.hyprlock
+    pkgs-unstable.hyprpaper
+    pkgs-unstable.hypridle
+    pkgs-unstable.hyprpicker
+    pkgs-unstable.hyprshot
+    pkgs-unstable.clipse
+    pkgs-unstable.nautilus
+  ] ++ lib.optionals (mylib.isLinux system && builtins.hasAttr system inputs.zen-browser.packages) [
+    inputs.zen-browser.packages."${system}".twilight
+  ];
+
+  # Cross-platform GUI packages
+  sharedGuiPkgs = [
+    # Browsers
     pkgs-unstable.firefox
     pkgs.chromium
 
-    # terminals
-    pkgs-unstable.ghostty # most featurefull terminal
-    pkgs-unstable.kitty # stable terminal
-
-    # apps
-    pkgs-unstable.obs-studio # screencasting app
-    pkgs-unstable.obsidian # note manager
-    pkgs-unstable.telegram-desktop # messenger
-    pkgs-unstable.spotify # offical client
-    pkgs-unstable.mpv # media player
-    pkgs-unstable.nautilus # gnome file manager
-    pkgs-unstable.qbittorrent # QT torrent client
-
-    # Time management
-    pkgs-unstable.affine # Workspace with fully merged docs, whiteboards and databases
-
-    # IDE
+    # Terminals
+    pkgs-unstable.kitty
+  ] ++ lib.optionals (builtins.hasAttr system (inputs.ghostty.packages or {})) [
+    pkgs-unstable.ghostty
+  ] ++ [
+    # Applications
+    pkgs-unstable.obs-studio
+    pkgs-unstable.obsidian
+    pkgs-unstable.telegram-desktop
+    pkgs-unstable.spotify
+    pkgs-unstable.mpv
+    pkgs-unstable.qbittorrent
+    pkgs-unstable.affine
     pkgs-unstable.zed-editor
-
-    # utils
-    pkgs-unstable.waybar # bar
-    pkgs-unstable.dunst # notification daemon
-    pkgs-unstable.rofi # window switcher
-    pkgs-unstable.wlogout # logout menu
-    pkgs-unstable.hyprlock # screen lock
-    pkgs-unstable.hyprpaper # wallpaper
-    pkgs-unstable.hypridle # idle daemon
-    pkgs-unstable.hyprpicker # Wlroots-compatible Wayland color picker
-    pkgs-unstable.hyprshot # screenshots
-    pkgs-unstable.clipse # clipboard manager
   ];
+in
+{
+  home.packages = sharedGuiPkgs ++ linuxGuiPkgs;
 }
