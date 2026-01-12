@@ -1,5 +1,5 @@
 {
-  description = "System configuration by khrore";
+  description = "System configuration by khorev";
 
   inputs = {
     # Nixpkgs
@@ -22,6 +22,11 @@
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     zen-browser = {
@@ -74,7 +79,7 @@
       ######################### USER LEVEL ##########################
 
       # Configuration for user settings
-      username = "khorer";
+      # username = "khorev";
       terminalEditor = "nvim";
       shell = "fish";
 
@@ -114,6 +119,7 @@
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
+            username = "khrore";
             hostname = "oldix";
             system = linuxSystem;
           };
@@ -127,6 +133,7 @@
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
+            username = "khorer";
             hostname = "nixos";
             system = linuxSystem;
           };
@@ -142,6 +149,7 @@
             home-manager.darwinModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
+            username = "khorev";
             hostname = "macix";
             system = darwinSystem;
           };

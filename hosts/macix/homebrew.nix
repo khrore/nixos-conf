@@ -1,4 +1,3 @@
-{ ... }:
 {
   # Homebrew for macOS-native apps
   homebrew = {
@@ -10,12 +9,6 @@
       upgrade = true;
     };
 
-    # Taps (repositories)
-    taps = [
-      "homebrew/bundle"
-      "homebrew/services"
-    ];
-
     # CLI tools not available or better via Homebrew
     brews = [
       # Add any Mac-specific brews here if needed
@@ -26,6 +19,7 @@
       # Optional: macOS-native apps that aren't in nixpkgs
       # or are better installed via Homebrew
       # Examples:
+      "zen@twilight"
       # "raycast"
       # "karabiner-elements"
       # "rectangle"

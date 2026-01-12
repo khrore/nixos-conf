@@ -34,8 +34,6 @@ let
     pkgs-unstable.git
     pkgs-unstable.gh
     pkgs-unstable.git-credential-manager
-    pkgs-unstable.git-lfs
-    pkgs-unstable.git-graph
 
     # Media tools
     pkgs-unstable.ffmpeg
@@ -63,19 +61,16 @@ let
     pkgs-unstable.ipcalc
     pkgs-unstable.openssl
     pkgs-unstable.ncdu
-    pkgs-unstable.nftables
     pkgs-unstable.spotdl
 
     # Filesystem
     pkgs-unstable.fuse
-    pkgs-unstable.ntfs3g
-    pkgs-unstable.cifs-utils
     pkgs-unstable.smbclient-ng
 
     # Nix tools
     pkgs-unstable.nix-eval-jobs
     pkgs-unstable.nix-fast-build
-    pkgs-unstable.microfetch
+    # pkgs-unstable.microfetch
     pkgs-unstable.nix-prefetch-scripts
 
     # Archives

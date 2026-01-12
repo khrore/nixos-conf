@@ -11,6 +11,9 @@ let
     pkgs-unstable.btop-cuda
     pkgs-unstable.gpustat
   ];
+darwin = lib.optionals (mylib.isDarwin system) [
+    # pkgs-unstable.imv
+];
 in
 {
   home.packages = [
@@ -24,10 +27,10 @@ in
     # media
     pkgs-unstable.spotifyd
     pkgs-unstable.spotify-player
-    pkgs-unstable.imv
 
     # disk
     pkgs-unstable.ncdu
   ]
+++ darwin
   ++ nvidiaPackages;
 }

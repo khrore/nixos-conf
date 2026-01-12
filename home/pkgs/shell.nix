@@ -9,7 +9,7 @@
     pkgs-unstable.nushell
 
     # utils
-    pkgs.atuin
+    pkgs-unstable.atuin
     pkgs-unstable.zoxide
     pkgs-unstable.starship
     pkgs-unstable.tmux
