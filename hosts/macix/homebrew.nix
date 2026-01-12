@@ -19,6 +19,7 @@
       # Optional: macOS-native apps that aren't in nixpkgs
       # or are better installed via Homebrew
       # Examples:
+      "localsend"
       "zen@twilight"
       # "raycast"
       # "karabiner-elements"

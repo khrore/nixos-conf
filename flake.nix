@@ -89,14 +89,18 @@
 
       # Common special args factory
       mkSpecialArgs =
-        { hostname, system }:
+        {
+          hostname,
+          username,
+          system,
+        }:
         {
           inherit
             hostname
+            username
             system
             inputs
             outputs
-            username
             terminalEditor
             stateVersion
             configurationLimit
