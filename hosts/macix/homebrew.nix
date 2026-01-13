@@ -21,6 +21,8 @@
       # Examples:
       "localsend"
       "zen@twilight"
+      "docker-desktop"
+      "nikitabobko/tap/aerospace"
       # "raycast"
       # "karabiner-elements"
       # "rectangle"

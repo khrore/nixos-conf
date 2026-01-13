@@ -47,6 +47,7 @@ let
     pkgs-unstable.file
     pkgs-unstable.jd-diff-patch
     pkgs-unstable.libnotify
+    pkgs-unstable.jq
 
     # Networking
     pkgs-unstable.sing-box
