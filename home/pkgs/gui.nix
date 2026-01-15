@@ -32,7 +32,6 @@ let
 
   # MacOS-specific GUI packages
   darwinGuiPkgs = lib.optionals (mylib.isDarwin system) [
-    pkgs-unstable.ghostty-bin
   ];
 
   # Cross-platform GUI packages
@@ -50,7 +49,7 @@ let
     pkgs-unstable.mpv
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
-    pkgs-unstable.zed-editor
+    pkgs-unstable.vesktop
   ];
 in
 {

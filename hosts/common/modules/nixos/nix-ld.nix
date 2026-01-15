@@ -4,6 +4,7 @@
     enable = true;
     libraries = [
       pkgs-unstable.neovim
+      pkgs-unstable.zed-editor
     ];
   };
 }

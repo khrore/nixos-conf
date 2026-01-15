@@ -23,9 +23,8 @@
       "zen@twilight"
       "docker-desktop"
       "nikitabobko/tap/aerospace"
-      # "raycast"
-      # "karabiner-elements"
-      # "rectangle"
+      "zed"
+      "ghostty"
     ];
 
     # Mac App Store apps (requires mas-cli)
