@@ -25,6 +25,7 @@
       "nikitabobko/tap/aerospace"
       "zed"
       "ghostty"
+      "ollama"
     ];
 
     # Mac App Store apps (requires mas-cli)
