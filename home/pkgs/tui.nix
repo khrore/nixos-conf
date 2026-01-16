@@ -11,9 +11,10 @@ let
     pkgs-unstable.btop-cuda
     pkgs-unstable.gpustat
   ];
-darwin = lib.optionals (mylib.isDarwin system) [
+  darwin = lib.optionals (mylib.isDarwin system) [
+    pkgs-unstable.btop
     # pkgs-unstable.imv
-];
+  ];
 in
 {
   home.packages = [
@@ -31,6 +32,6 @@ in
     # disk
     pkgs-unstable.ncdu
   ]
-++ darwin
+  ++ darwin
   ++ nvidiaPackages;
 }
