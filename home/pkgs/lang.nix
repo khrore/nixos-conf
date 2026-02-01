@@ -7,8 +7,9 @@
 }:
 let
   # Hyprland-specific tools (Linux only)
-  hyprlandTools = lib.optionals (mylib.isLinux system) [
+  linuxTools = lib.optionals (mylib.isLinux system) [
     pkgs-unstable.hyprls
+    pkgs-unstable.marksman
   ];
 in
 {
@@ -54,7 +55,6 @@ in
     pkgs-unstable.fish-lsp
 
     # Markdown
-    pkgs-unstable.marksman
     pkgs-unstable.mdformat
     pkgs-unstable.markdownlint-cli2
     pkgs-unstable.glow
@@ -78,5 +78,5 @@ in
     # General
     pkgs-unstable.tree-sitter
   ]
-  ++ hyprlandTools;
+  ++ linuxTools;
 }
