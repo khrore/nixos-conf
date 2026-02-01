@@ -46,13 +46,15 @@ rec {
     if builtins.pathExists dir then go "" dir else { };
 
   # Merge common/ and <hostname>/ under baseDir. Host files override common.
-  # Returns attrset ready for direct assignment to home.file.
+  # Returns a list of { target, subdir } for direct symlink creation via activation.
   linkDotfiles =
     { baseDir, hostname }:
     let
       common = scanFiles (baseDir + "/common");
       host = scanFiles (baseDir + "/${hostname}");
-      merged = common // host;
+      commonOnly = lib.filterAttrs (name: _: !(lib.hasAttr name host)) common;
+      commonEntries = lib.mapAttrsToList (name: _: { target = name; subdir = "common"; }) commonOnly;
+      hostEntries = lib.mapAttrsToList (name: _: { target = name; subdir = hostname; }) host;
     in
-    lib.mapAttrs (_: src: { source = src; }) merged;
+    commonEntries ++ hostEntries;
 }
