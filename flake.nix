@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
@@ -53,7 +53,7 @@
       # System architectures
       linuxSystem = "x86_64-linux";
       darwinSystem = "aarch64-darwin";
-      stateVersion = "25.11";
+      stateVersion = "26.05";
 
       # Helper to create pkgs for a system
       mkPkgs =
@@ -79,9 +79,8 @@
       ######################### USER LEVEL ##########################
 
       # Configuration for user settings
-      # username = "khorev";
       terminalEditor = "nvim";
-      shell = "fish";
+      shell = "nushell";
 
       configurationLimit = 10;
 

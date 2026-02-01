@@ -2,6 +2,7 @@
   lib,
   mylib,
   username,
+  hostname,
   pkgs-unstable,
   shell,
   system,
@@ -36,6 +37,7 @@ lib.mkMerge [
           pkgs-unstable
           inputs
           username
+          hostname
           shell
           mylib
           system
@@ -43,9 +45,27 @@ lib.mkMerge [
       };
 
       users.${username} = {
-        home.stateVersion = stateVersion;
-        home.username = username;
-        home.homeDirectory = if mylib.isDarwin system then "/Users/${username}" else "/home/${username}";
+        home = {
+          inherit stateVersion;
+          inherit username;
+          homeDirectory = if mylib.isDarwin system then "/Users/${username}" else "/home/${username}";
+        };
+
+        home.activation.linkDotfiles =
+          let
+            entries = mylib.linkDotfiles {
+              baseDir = ../dotfiles;
+              inherit hostname;
+            };
+          in
+          {
+            after = [ "writeBoundary" ];
+            before = [ ];
+            data = lib.concatMapStrings (entry: ''
+              mkdir -p "$HOME/$(dirname '${entry.target}')"
+              ln -sf "$HOME/nixos/dotfiles/${entry.subdir}/${entry.target}" "$HOME/${entry.target}"
+            '') entries;
+          };
 
         imports = mylib.scanPaths ./pkgs;
 
