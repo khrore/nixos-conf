@@ -37,7 +37,7 @@ let
   # Cross-platform GUI packages
   sharedGuiPkgs = [
     # Browsers
-    pkgs-unstable.firefox
+    # pkgs-unstable.firefox
 
     # Terminals
     pkgs-unstable.kitty
@@ -49,7 +49,7 @@ let
     pkgs-unstable.mpv
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
-    pkgs-unstable.vesktop
+    # pkgs-unstable.vesktop
   ];
 in
 {
