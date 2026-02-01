@@ -20,6 +20,7 @@ in
   home.packages = [
     pkgs-unstable.yazi
     pkgs-unstable.neovim
+    pkgs-unstable.zed-editor
 
     # AI
     pkgs-unstable.claude-code
