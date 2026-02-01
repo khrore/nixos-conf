@@ -1,12 +1,18 @@
 {
-  pkgs,
   pkgs-unstable,
+  mylib,
+  lib,
+  system,
   ...
 }:
+let
+  linuxTools = lib.optionals (mylib.isLinux system) [
+    pkgs-unstable.nushell
+  ];
+in
 {
   home.packages = [
     # shells
-    pkgs-unstable.nushell
 
     # utils
     pkgs-unstable.atuin
@@ -19,5 +25,6 @@
     pkgs-unstable.ripgrep
     pkgs-unstable.fd
     pkgs-unstable.tldr
-  ];
+  ]
+  ++ linuxTools;
 }

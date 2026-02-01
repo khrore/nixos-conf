@@ -9,7 +9,7 @@ let
   # Hyprland-specific tools (Linux only)
   linuxTools = lib.optionals (mylib.isLinux system) [
     pkgs-unstable.hyprls
-    pkgs-unstable.marksman
+    # pkgs-unstable.marksman
   ];
 in
 {

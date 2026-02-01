@@ -58,10 +58,5 @@
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
-    shell = pkgs.fish;
   };
-
-  # Enable shells
-  programs.fish.enable = true;
-  programs.zsh.enable = true;
 }
