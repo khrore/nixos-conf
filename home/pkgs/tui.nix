@@ -24,6 +24,7 @@ in
     # AI
     pkgs-unstable.claude-code
     pkgs-unstable.opencode
+    pkgs-unstable.qwen-code
 
     # media
     pkgs-unstable.spotifyd
