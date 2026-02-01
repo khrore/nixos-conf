@@ -26,6 +26,7 @@ in
     pkgs-unstable.claude-code
     pkgs-unstable.opencode
     pkgs-unstable.qwen-code
+    pkgs-unstable.gemini-cli
 
     # media
     pkgs-unstable.spotifyd

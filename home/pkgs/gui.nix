@@ -50,6 +50,9 @@ let
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
     # pkgs-unstable.vesktop
+
+    # AI
+    pkgs-unstable.antigravity
   ];
 in
 {
