@@ -33,7 +33,6 @@ let
     # Git
     pkgs-unstable.git
     pkgs-unstable.gh
-    pkgs-unstable.git-credential-manager
 
     # Media tools
     pkgs-unstable.ffmpeg

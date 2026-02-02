@@ -24,9 +24,11 @@ let
     pkgs-unstable.nautilus
 
     # Other
+    pkgs-unstable.antigravity
     inputs.zen-browser.packages."${system}".twilight
     pkgs-unstable.ghostty
     pkgs-unstable.obs-studio
+    pkgs-unstable.mpv
     pkgs.chromium
   ];
 
@@ -46,13 +48,9 @@ let
     pkgs-unstable.obsidian
     pkgs-unstable.telegram-desktop
     pkgs-unstable.spotify
-    pkgs-unstable.mpv
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
     # pkgs-unstable.vesktop
-
-    # AI
-    pkgs-unstable.antigravity
   ];
 in
 {

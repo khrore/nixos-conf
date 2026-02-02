@@ -12,6 +12,7 @@
     # CLI tools not available or better via Homebrew
     brews = [
       # Add any Mac-specific brews here if needed
+      "nushell"
     ];
 
     # GUI applications
@@ -25,7 +26,7 @@
       "nikitabobko/tap/aerospace"
       "zed"
       "ghostty"
-      "ollama"
+      "ollama-app"
     ];
 
     # Mac App Store apps (requires mas-cli)

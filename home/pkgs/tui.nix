@@ -10,6 +10,7 @@ let
   nvidiaPackages = lib.optionals (mylib.isLinux system) [
     pkgs-unstable.btop-cuda
     pkgs-unstable.gpustat
+    pkgs-unstable.zed-editor
   ];
   darwin = lib.optionals (mylib.isDarwin system) [
     pkgs-unstable.btop
@@ -20,7 +21,6 @@ in
   home.packages = [
     pkgs-unstable.yazi
     pkgs-unstable.neovim
-    pkgs-unstable.zed-editor
 
     # AI
     pkgs-unstable.claude-code
