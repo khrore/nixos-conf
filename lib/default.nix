@@ -45,16 +45,16 @@ rec {
     dir:
     if builtins.pathExists dir then go "" dir else { };
 
-  # Merge common/ and <hostname>/ under baseDir. Host files override common.
+  # Merge common/ and <platform>/ under baseDir. Platform files override common.
   # Returns a list of { target, subdir } for direct symlink creation via activation.
   linkDotfiles =
-    { baseDir, hostname }:
+    { baseDir, platform }:
     let
       common = scanFiles (baseDir + "/common");
-      host = scanFiles (baseDir + "/${hostname}");
-      commonOnly = lib.filterAttrs (name: _: !(lib.hasAttr name host)) common;
+      platformDir = scanFiles (baseDir + "/${platform}");
+      commonOnly = lib.filterAttrs (name: _: !(lib.hasAttr name platformDir)) common;
       commonEntries = lib.mapAttrsToList (name: _: { target = name; subdir = "common"; }) commonOnly;
-      hostEntries = lib.mapAttrsToList (name: _: { target = name; subdir = hostname; }) host;
+      platformEntries = lib.mapAttrsToList (name: _: { target = name; subdir = platform; }) platformDir;
     in
-    commonEntries ++ hostEntries;
+    commonEntries ++ platformEntries;
 }

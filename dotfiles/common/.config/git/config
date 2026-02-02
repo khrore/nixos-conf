@@ -1,0 +1,10 @@
+[alias]
+	a = "add"
+	c = "commit"
+	l = "log"
+	p = "push"
+	s = "status"
+
+[user]
+	email = "super.stas.0978@gmail.com"
+	name = "khrore"

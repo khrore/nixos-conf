@@ -1,0 +1,191 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "gpt-oss:20b",
+    },
+    "default_model": {
+      "provider": "ollama",
+      "model": "gpt-oss:20b",
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "vim_mode": true,
+  "ui_font_size": 17,
+  "buffer_font_size": 17,
+  "relative_line_numbers": "enabled",
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark",
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        // Check all targets (tests, benches, examples)
+        "check": {
+          "command": "clippy",
+        },
+        "cargo": {
+          "allTargets": true,
+          "allFeatures": true,
+          "buildScripts": {
+            "enable": true,
+          },
+        },
+        // Enable comprehensive diagnostics
+        "diagnostics": {
+          "enable": true,
+          "experimental": {
+            "enable": true,
+          },
+          "disabled": [],
+          "warningsAsInfo": [],
+          "warningsAsHint": [],
+        },
+        // Comprehensive inlay hints
+        "inlayHints": {
+          "maxLength": null,
+          // Show parameter names
+          "parameterHints": {
+            "enable": true,
+          },
+          // Show type hints
+          "typeHints": {
+            "enable": true,
+            "hideNamedConstructor": false,
+            "hideClosureInitialization": false,
+          },
+          // Show chaining hints
+          "chainingHints": {
+            "enable": true,
+          },
+          // Show closure return types
+          "closureReturnTypeHints": {
+            "enable": "always",
+          },
+          // Show lifetime elision hints
+          "lifetimeElisionHints": {
+            "enable": "always",
+            "useParameterNames": true,
+          },
+          // Show binding mode hints
+          "bindingModeHints": {
+            "enable": true,
+          },
+          // Show closure capture hints
+          "closureCaptureHints": {
+            "enable": true,
+          },
+          // Show implicit drops
+          "implicitDrops": {
+            "enable": true,
+          },
+          // Show discriminant hints for enums
+          "discriminantHints": {
+            "enable": "always",
+          },
+          // Show expression adjustment hints
+          "expressionAdjustmentHints": {
+            "enable": "always",
+            "hideOutsideUnsafe": false,
+            "mode": "prefer_prefix",
+          },
+          // Show range exclusive hints
+          "rangeExclusiveHints": {
+            "enable": true,
+          },
+        },
+        // Proc macro support
+        "procMacro": {
+          "enable": true,
+          "attributes": {
+            "enable": true,
+          },
+        },
+        // Completion settings
+        "completion": {
+          "callable": {
+            "snippets": "fill_arguments",
+          },
+          "fullFunctionSignatures": {
+            "enable": true,
+          },
+        },
+        // Lens settings
+        "lens": {
+          "enable": true,
+          "implementations": {
+            "enable": true,
+          },
+          "references": {
+            "adt": {
+              "enable": true,
+            },
+            "enumVariant": {
+              "enable": true,
+            },
+            "method": {
+              "enable": true,
+            },
+            "trait": {
+              "enable": true,
+            },
+          },
+          "run": {
+            "enable": true,
+          },
+        },
+        // Hover actions
+        "hover": {
+          "actions": {
+            "enable": true,
+            "references": {
+              "enable": true,
+            },
+            "implementations": {
+              "enable": true,
+            },
+            "run": {
+              "enable": true,
+            },
+            "debug": {
+              "enable": true,
+            },
+          },
+          "documentation": {
+            "enable": true,
+            "keywords": {
+              "enable": true,
+            },
+          },
+          "links": {
+            "enable": true,
+          },
+        },
+        // Import settings
+        "imports": {
+          "granularity": {
+            "group": "module",
+          },
+          "prefix": "crate",
+        },
+      },
+    },
+  },
+}
