@@ -128,8 +128,6 @@
       "space t s": "agent::ToggleProfileSelector",
       "space t n": "agent::ToggleNavigationMenu",
       "space t o": "agent::ToggleOptionsMenu",
-      "space b": "agent::ToggleBurnMode",
-      "space shift-b": "agent::ContinueWithBurnMode",
       "space ,": "agent::OpenSettings",
       "space l": "agent::OpenRulesLibrary",
       "space f": "agent::Follow",

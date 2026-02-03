@@ -22,6 +22,7 @@ in
     pkgs-unstable.nil
     pkgs-unstable.nixfmt
     pkgs-unstable.statix
+    pkgs-unstable.nixd
 
     # Lua
     pkgs-unstable.lua-language-server

@@ -27,6 +27,7 @@ in
     pkgs-unstable.opencode
     pkgs-unstable.qwen-code
     pkgs-unstable.gemini-cli
+    pkgs-unstable.github-copilot-cli
 
     # media
     pkgs-unstable.spotifyd
