@@ -11,6 +11,9 @@
     "edit_prediction_provider": "copilot"
   },
   "edit_predictions": {
+    "copilot": {
+      "enable_next_edit_suggestions": false
+    },
     "codestral": {
       "max_tokens": 160,
     },

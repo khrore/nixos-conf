@@ -10,7 +10,7 @@ gtk-tabs-location = top
 maximize = true
 mouse-hide-while-typing = true
 theme = Gruvbox Dark
-command = "/bin/zsh -l -c nu"
+command = "/run/current-system/sw/bin/fish --login --interactive"
 keybind = super+r=reload_config
 keybind = cmd+r=reload_config
 keybind = shift+enter=text:\x1b\r

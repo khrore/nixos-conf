@@ -59,4 +59,8 @@
   users.users.${username} = {
     home = "/Users/${username}";
   };
+
+  # Enable shells
+  programs.fish.enable = true;
+  programs.zsh.enable = true;
 }

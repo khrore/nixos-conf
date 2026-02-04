@@ -80,7 +80,7 @@
 
       # Configuration for user settings
       terminalEditor = "nvim";
-      shell = "nushell";
+      shell = "fish";
 
       configurationLimit = 10;
 
