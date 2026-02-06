@@ -6,8 +6,7 @@
   ...
 }:
 {
-  # System-level programs (NixOS only)
-  programs = lib.mkIf (mylib.isLinux system) {
+  programs = {
     zsh.enable = true;
     fish = {
       enable = true;
