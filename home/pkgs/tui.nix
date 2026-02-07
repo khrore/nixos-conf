@@ -10,24 +10,18 @@ let
   nvidiaPackages = lib.optionals (mylib.isLinux system) [
     pkgs-unstable.btop-cuda
     pkgs-unstable.gpustat
-    pkgs-unstable.zed-editor
+
+    # image
+    pkgs-unstable.imv
   ];
   darwin = lib.optionals (mylib.isDarwin system) [
     pkgs-unstable.btop
-    # pkgs-unstable.imv
   ];
 in
 {
   home.packages = [
     pkgs-unstable.yazi
     pkgs-unstable.neovim
-
-    # AI
-    pkgs-unstable.claude-code
-    pkgs-unstable.opencode
-    pkgs-unstable.qwen-code
-    pkgs-unstable.gemini-cli
-    pkgs-unstable.github-copilot-cli
 
     # media
     pkgs-unstable.spotifyd

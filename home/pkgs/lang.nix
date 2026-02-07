@@ -76,6 +76,9 @@ in
     pkgs-unstable.gnumake
     pkgs-unstable.checkmake
 
+    # JSON
+    pkgs-unstable.formatjson5
+
     # General
     pkgs-unstable.tree-sitter
   ]

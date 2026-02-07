@@ -24,8 +24,8 @@ let
     pkgs-unstable.nautilus
 
     # Other
-    pkgs-unstable.antigravity
     inputs.zen-browser.packages."${system}".twilight
+    pkgs-unstable.zed-editor
     pkgs-unstable.ghostty
     pkgs-unstable.obs-studio
     pkgs-unstable.mpv
@@ -38,9 +38,6 @@ let
 
   # Cross-platform GUI packages
   sharedGuiPkgs = [
-    # Browsers
-    # pkgs-unstable.firefox
-
     # Terminals
     pkgs-unstable.kitty
 
