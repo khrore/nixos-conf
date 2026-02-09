@@ -17,5 +17,10 @@
       package = pkgs-unstable.localsend;
       openFirewall = true;
     };
+    throne = {
+      enable = true;
+      package = pkgs-unstable.throne;
+      tunMode.enable = true;
+    };
   };
 }

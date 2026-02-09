@@ -25,7 +25,6 @@ let
     pkgs-unstable.nwg-look
     pkgs-unstable.alsa-lib
     pkgs-unstable.catppuccin-cursors.mochaDark
-    pkgs-unstable.throne
   ];
 
   # Cross-platform utilities
