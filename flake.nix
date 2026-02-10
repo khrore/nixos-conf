@@ -114,7 +114,7 @@
 
       # NixOS configurations
       nixosConfigurations = {
-        "oldix" = nixpkgs.lib.nixosSystem {
+        "dev-4" = nixpkgs.lib.nixosSystem {
           system = linuxSystem;
           modules = [
             ./hosts/oldix
@@ -123,7 +123,7 @@
           ];
           specialArgs = mkSpecialArgs {
             username = "khrore";
-            hostname = "dev-4.3130.gosniias.lan";
+            hostname = "dev-4";
             system = linuxSystem;
           };
         };
