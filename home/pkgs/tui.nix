@@ -28,6 +28,8 @@ in
     pkgs-unstable.qwen-code
     pkgs-unstable.gemini-cli
     pkgs-unstable.github-copilot-cli
+    pkgs-unstable.codex
+    pkgs-unstable.codex-acp
 
     # media
     pkgs-unstable.spotifyd
