@@ -1,13 +1,4 @@
+{ mylib, ... }:
 {
-  stateVersion,
-  hostname,
-  hostConfig,
-  ...
-}:
-{
-  imports = [
-    ../common/default.nix
-    ./disko.nix
-    ./hardware-configuration.nix
-  ];
+  imports = mylib.scanPaths ./. ++ [ ../common/default.nix ];
 }

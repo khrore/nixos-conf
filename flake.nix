@@ -123,7 +123,7 @@
           ];
           specialArgs = mkSpecialArgs {
             username = "khrore";
-            hostname = "oldix";
+            hostname = "dev-4.3130.gosniias.lan";
             system = linuxSystem;
           };
         };

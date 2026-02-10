@@ -20,12 +20,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # NixOS-specific networking configuration
-  networking = lib.mkIf (mylib.isLinux system) {
-    hostName = hostname;
-  };
-
-  # System state version (different for NixOS vs darwin)
   system.stateVersion =
     if mylib.isDarwin system then
       5 # nix-darwin uses different versioning
