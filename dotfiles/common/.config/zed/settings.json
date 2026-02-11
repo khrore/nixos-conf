@@ -7,10 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
   "edit_predictions": {
+    "provider": "zed",
     "copilot": {
       "enable_next_edit_suggestions": false
     },

@@ -46,6 +46,7 @@ alias rsw 'nixos-rebuild switch'
 export NH_OS_FLAKE="$HOME/nixos"
 export NIXOS_CONFIG="$HOME/nixos"
 export PATH="$PATH:/usr/local/go/bin:/usr/local/nvim-linux-x86_64/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.venv/bin"
+export EDITOR="nvim"
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")

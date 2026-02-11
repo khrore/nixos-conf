@@ -26,6 +26,7 @@
       "nikitabobko/tap/aerospace"
       "zed"
       "ghostty"
+      "codex"
     ];
 
     # Mac App Store apps (requires mas-cli)

@@ -78,6 +78,9 @@ in
 
     # General
     pkgs-unstable.tree-sitter
+
+    # Rust
+    pkgs-unstable.bacon
   ]
   ++ linuxTools;
 }

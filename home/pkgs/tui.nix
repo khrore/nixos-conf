@@ -10,11 +10,10 @@ let
   nvidiaPackages = lib.optionals (mylib.isLinux system) [
     pkgs-unstable.btop-cuda
     pkgs-unstable.gpustat
-    pkgs-unstable.zed-editor
+    pkgs-unstable.zed-editor # moved to brew
   ];
   darwin = lib.optionals (mylib.isDarwin system) [
     pkgs-unstable.btop
-    # pkgs-unstable.imv
   ];
 in
 {
