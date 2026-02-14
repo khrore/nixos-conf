@@ -1,4 +1,6 @@
-# CLAUDE.md - Rust Backend Development Standards
+# AGENTS.md - Rust Backend Development Standards
+
+- **Audience**: All coding agents and language models (model-agnostic memory file).
 
 - **Philosophy**: Make illegal states unrepresentable. Type safety > Runtime checks > Tests > Documentation
 - **Last Updated**: 2026-02-12

@@ -60,7 +60,6 @@ let
     pkgs-unstable.ipcalc
     pkgs-unstable.openssl
     pkgs-unstable.ncdu
-    pkgs-unstable.spotdl
 
     # Filesystem
     pkgs-unstable.fuse

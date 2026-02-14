@@ -66,8 +66,8 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 10
-inner.vertical = 10
+inner.horizontal = 5
+inner.vertical = 5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -149,8 +149,8 @@ alt-shift-semicolon = 'mode service'
 
 # Custom commands
 alt-w = 'close'
-alt-f = 'macos-native-fullscreen'
-alt-shift-f = 'fullscreen'
+alt-shift-f = 'macos-native-fullscreen'
+alt-f = 'fullscreen'
 alt-r = 'reload-config'
 
 # Fixing problems with Ghostty
