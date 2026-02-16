@@ -47,6 +47,7 @@ let
     pkgs-unstable.spotify
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
+    pkgs-unstable.anydesk
     # pkgs-unstable.vesktop
   ];
 in
