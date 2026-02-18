@@ -29,6 +29,7 @@ let
     pkgs-unstable.ghostty
     pkgs-unstable.obs-studio
     pkgs-unstable.mpv
+    pkgs-unstable.anydesk
     pkgs.chromium
   ];
 
@@ -47,7 +48,6 @@ let
     pkgs-unstable.spotify
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
-    pkgs-unstable.anydesk
     # pkgs-unstable.vesktop
   ];
 in

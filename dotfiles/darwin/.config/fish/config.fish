@@ -76,3 +76,6 @@ end
 
 # Auto-attach to tmux session in graphical environments
 set SESSION_NAME dev
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Applications/Codex.app/Contents/MacOS:$PATH"
