@@ -266,7 +266,6 @@ ______________________________________________________________________
 
 - MUST NOT use `.unwrap()` in production/runtime business logic.
 - MUST NOT use `.expect()` in runtime business logic.
-- MAY use `.expect("reason")` only at startup/bootstrap boundaries before main business logic begins, and only with explicit actionable context.
 - Tests and examples MAY use `.unwrap()` / `.expect()`.
 
 ### 10.4 Async and Concurrency
@@ -436,4 +435,3 @@ Use this template for future updates:
 - Changed Sections:
 - Reason:
 - Migration Notes:
-
