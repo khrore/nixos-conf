@@ -1,17 +1,18 @@
-# AGENTS.md - Rust Backend Development Standards
+# AGENTS.md - Software Development Standards
 
 - **Audience**: All coding agents and language models (model-agnostic memory file).
 
-- **Philosophy**: Make illegal states unrepresentable. Type safety > Runtime checks > Tests > Documentation
+- **Philosophy**: Make illegal states unrepresentable. Type safety > Compile-time checks > Tests > Documentation
+
 - **Last Updated**: 2026-02-12
 
 ______________________________________________________________________
 
 ## 1. Priority Hierarchy
 
-**Tier 1 — Correctness**: Type-driven design, make illegal states unrepresentable, explicit over implicit
+**Tier 1 — Maintainability**: SOLID, DRY (not at cost of coupling), RAII
 **Tier 2 — Simplicity**: YAGNI, KISS, Rule of Three (don't abstract before 3rd use)
-**Tier 3 — Maintainability**: SOLID, DRY (not at cost of coupling), RAII
+**Tier 3 — Correctness**: Type-driven design, make illegal states unrepresentable, explicit over implicit
 
 ## 2. Golden Rules
 
@@ -77,7 +78,7 @@ ______________________________________________________________________
 
 ## 4. Pattern Catalog
 
-### Newtype — ALWAYS use for domain primitives
+### Newtype — Use for domain primitives
 
 IDs, emails, money, coordinates, passwords, connection strings, bucket names.
 Validate in constructor, return `Result`. Type exists = value is valid.
@@ -297,24 +298,29 @@ ______________________________________________________________________
 ## 13. Execution Protocol (Global)
 
 ### Priority
+
 1. Correctness
-2. Safety
-3. Clarity
-4. Speed
+1. Safety
+1. Clarity
+1. Speed
 
 ### Default Mode: Analyze First
+
 For every non-trivial request, follow this sequence:
 
 1. Understand
+
 - Restate the request in concrete terms.
 - List assumptions and unknowns.
 - If blocked by missing requirements, ask focused questions first.
 
 2. Inspect
+
 - Read relevant code/config/tests before proposing edits.
 - Prefer read-only commands first (`rg`, `git status`, `sed`, `cat`).
 
 3. Plan
+
 - Provide a short implementation plan with:
   - files to touch
   - behavior changes
@@ -322,15 +328,18 @@ For every non-trivial request, follow this sequence:
   - risks/regression points
 
 4. Gate Before Writes
+
 - Do not edit files, run migrations, or perform destructive actions until user confirms (`proceed`).
 - Exception: user explicitly asked for direct implementation without planning.
 
 5. Implement
+
 - Make minimal, reversible changes.
 - Keep architecture and style consistent with repository conventions.
 - Do not fix unrelated code unless it blocks the task.
 
 6. Validate
+
 - Run the smallest useful checks first, then full required checks.
 - For Rust repos, default validation:
   - `cargo fmt`
@@ -339,6 +348,7 @@ For every non-trivial request, follow this sequence:
 - If checks cannot run, state exactly what was skipped and why.
 
 7. Report
+
 - Summarize:
   - what changed
   - why
@@ -346,18 +356,21 @@ For every non-trivial request, follow this sequence:
   - remaining risks / next steps
 
 ### Hard Safety Rules
+
 - Never use `git reset --hard`, `git checkout --`, or delete operations unless explicitly requested.
 - Never silently swallow errors.
 - Never use `.unwrap()` / `.expect()` in production Rust code (tests only, unless repo rules say otherwise).
 - Stop and ask if unexpected external changes appear in touched files.
 
 ### Communication Contract
+
 - Be concise and technical.
 - Distinguish facts vs assumptions.
 - Include exact file paths when referring to code.
 - When uncertain, say so explicitly and reduce risk before proceeding.
 
 ### Decision Heuristic
+
 - If cost of wrong change is high: ask first.
 - If confidence < 90%: inspect more before editing.
 - If task affects concurrency, persistence, security, or public interfaces: require explicit confirmation before write.
