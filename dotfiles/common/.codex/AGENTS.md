@@ -291,3 +291,73 @@ ______________________________________________________________________
 **Patterns**: Newtype, Typestate (only when disjoint ops), RAII, Builder, Factory, Iterator
 
 **Remember**: If it compiles and the types are right, it's probably correct.
+
+______________________________________________________________________
+
+## 13. Execution Protocol (Global)
+
+### Priority
+1. Correctness
+2. Safety
+3. Clarity
+4. Speed
+
+### Default Mode: Analyze First
+For every non-trivial request, follow this sequence:
+
+1. Understand
+- Restate the request in concrete terms.
+- List assumptions and unknowns.
+- If blocked by missing requirements, ask focused questions first.
+
+2. Inspect
+- Read relevant code/config/tests before proposing edits.
+- Prefer read-only commands first (`rg`, `git status`, `sed`, `cat`).
+
+3. Plan
+- Provide a short implementation plan with:
+  - files to touch
+  - behavior changes
+  - validation steps
+  - risks/regression points
+
+4. Gate Before Writes
+- Do not edit files, run migrations, or perform destructive actions until user confirms (`proceed`).
+- Exception: user explicitly asked for direct implementation without planning.
+
+5. Implement
+- Make minimal, reversible changes.
+- Keep architecture and style consistent with repository conventions.
+- Do not fix unrelated code unless it blocks the task.
+
+6. Validate
+- Run the smallest useful checks first, then full required checks.
+- For Rust repos, default validation:
+  - `cargo fmt`
+  - `cargo clippy --all-targets --locked -- -D warnings`
+  - targeted tests, then broader tests if risk is medium/high
+- If checks cannot run, state exactly what was skipped and why.
+
+7. Report
+- Summarize:
+  - what changed
+  - why
+  - verification results
+  - remaining risks / next steps
+
+### Hard Safety Rules
+- Never use `git reset --hard`, `git checkout --`, or delete operations unless explicitly requested.
+- Never silently swallow errors.
+- Never use `.unwrap()` / `.expect()` in production Rust code (tests only, unless repo rules say otherwise).
+- Stop and ask if unexpected external changes appear in touched files.
+
+### Communication Contract
+- Be concise and technical.
+- Distinguish facts vs assumptions.
+- Include exact file paths when referring to code.
+- When uncertain, say so explicitly and reduce risk before proceeding.
+
+### Decision Heuristic
+- If cost of wrong change is high: ask first.
+- If confidence < 90%: inspect more before editing.
+- If task affects concurrency, persistence, security, or public interfaces: require explicit confirmation before write.
