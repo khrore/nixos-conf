@@ -77,7 +77,6 @@ end
 # Auto-attach to tmux session in graphical environments
 set SESSION_NAME dev
 
-export SHELL="fish"
 export EDITOR="nvim"
 
 export PATH="/opt/homebrew/bin:/Applications/Codex.app/Contents/MacOS:$PATH"
