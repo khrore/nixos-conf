@@ -29,6 +29,9 @@ in
 
     # disk
     pkgs-unstable.ncdu
+
+    # encription
+    pkgs-unstable.pinentry-tty
   ]
   ++ darwin
   ++ nvidiaPackages;

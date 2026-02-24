@@ -71,6 +71,9 @@ let
     # pkgs-unstable.microfetch
     pkgs-unstable.nix-prefetch-scripts
 
+    # Encription
+    pkgs-unstable.gnupg
+
     # Archives
     pkgs-unstable.zip
     pkgs-unstable.unzip

@@ -42,6 +42,8 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    # secrets.url = "github:khrore/nixrets";
   };
 
   outputs =
