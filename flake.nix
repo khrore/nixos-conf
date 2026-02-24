@@ -1,5 +1,5 @@
 {
-  description = "System configuration by khorev";
+  description = "System configuration by khrore";
 
   inputs = {
     # Nixpkgs
@@ -33,6 +33,11 @@
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
@@ -119,6 +124,7 @@
           modules = [
             ./hosts/oldix
             inputs.disko.nixosModules.disko
+            inputs.agenix.nixosModules.age
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
