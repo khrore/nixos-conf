@@ -57,9 +57,6 @@
     "speed_test_mode": 0,
     "speed_test_timeout_ms": 5000,
     "splitter_state": "AAAA/wAAAAEAAAACAAAA4AAAAOAB/////wEAAAACAA==",
-    "spmode2": [
-        "vpn"
-    ],
     "start_minimal": false,
     "stats_tab": 0,
     "sub_auto_update": -30,

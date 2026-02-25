@@ -130,6 +130,7 @@
             ./hosts/dev-4
             inputs.disko.nixosModules.disko
             inputs.agenix.nixosModules.age
+            inputs.secrets.nixosModules.default
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
