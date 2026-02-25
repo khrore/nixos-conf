@@ -3,8 +3,12 @@
   stateVersion,
   hostname,
   username,
+  inputs,
   ...
 }:
+let
+  secretsMeta = import (inputs.secrets + "/secrets.nix");
+in
 {
   # Import common configuration
   imports = [
@@ -58,6 +62,18 @@
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
+    openssh.authorizedKeys.keys = secretsMeta."keys/macix_ssh_key.age".publicKeys;
+  };
+
+  # Allow SSH access to macix via public key auth.
+  services.openssh = {
+    enable = true;
+    extraConfig = ''
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      PermitRootLogin no
+      PubkeyAuthentication yes
+    '';
   };
 
   # Enable shells

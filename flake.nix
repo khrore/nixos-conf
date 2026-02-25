@@ -43,7 +43,10 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    # secrets.url = "git+ssh://git@github.com:khrore/nixrets.git";
+    secrets = {
+      # Private repo over SSH (requires working SSH agent/key access for nix).
+      url = "git+ssh://git@github.com/khrore/nixrets.git";
+    };
   };
 
   outputs =
@@ -127,6 +130,7 @@
             ./hosts/oldix
             inputs.disko.nixosModules.disko
             inputs.agenix.nixosModules.age
+            inputs.secrets.nixosModules.default
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
@@ -157,6 +161,8 @@
           system = darwinSystem;
           modules = [
             ./hosts/macix
+            inputs.agenix.darwinModules.default
+            inputs.secrets.nixosModules.default
             home-manager.darwinModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
