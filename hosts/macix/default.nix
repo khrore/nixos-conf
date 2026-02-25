@@ -62,7 +62,7 @@ in
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
-    # openssh.authorizedKeys.keys = secretsMeta."keys/macix_ssh_key.age".publicKeys;
+    openssh.authorizedKeys.keys = secretsMeta."keys/macix_ssh_key.age".publicKeys;
   };
 
   # Allow SSH access to macix via public key auth.

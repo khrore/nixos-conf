@@ -3,6 +3,7 @@
   pkgs-unstable,
   mylib,
   system,
+  inputs,
   ...
 }:
 let
@@ -70,6 +71,8 @@ let
     # Docs
     pkgs-unstable.pandoc
     pkgs-unstable.texliveSmall
+
+    inputs.agenix.packages.${system}.default
   ];
 in
 {
