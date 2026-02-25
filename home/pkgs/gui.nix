@@ -25,7 +25,6 @@ let
 
     # Other
     inputs.zen-browser.packages."${system}".twilight
-    pkgs-unstable.zed-editor
     pkgs-unstable.ghostty
     pkgs-unstable.obs-studio
     pkgs-unstable.mpv
@@ -48,7 +47,6 @@ let
     pkgs-unstable.spotify
     pkgs-unstable.qbittorrent
     pkgs-unstable.affine
-    # pkgs-unstable.vesktop
   ];
 in
 {

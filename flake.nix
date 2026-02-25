@@ -43,7 +43,7 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    # secrets.url = "github:khrore/nixrets";
+    # secrets.url = "git+ssh://git@github.com:khrore/nixrets.git";
   };
 
   outputs =

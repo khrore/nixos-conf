@@ -5,14 +5,6 @@
   system,
   ...
 }:
-let
-  # in Macos moved to brew
-  linux = lib.optionals (mylib.isLinux system) [
-    # Open AI
-    pkgs-unstable.codex
-    pkgs-unstable.codex-acp
-  ];
-in
 {
   home.packages = [
     # Anthropic
@@ -29,6 +21,5 @@ in
 
     # Open source
     pkgs-unstable.opencode
-  ]
-  ++ linux;
+  ];
 }

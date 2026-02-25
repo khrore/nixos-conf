@@ -31,7 +31,7 @@ in
     pkgs-unstable.ncdu
 
     # encription
-    pkgs-unstable.pinentry-tty
+    # pkgs-unstable.pinentry-curses
   ]
   ++ darwin
   ++ nvidiaPackages;

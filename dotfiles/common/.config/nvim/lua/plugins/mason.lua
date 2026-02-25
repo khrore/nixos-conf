@@ -5,7 +5,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-		enable = false,
+		enabled = false,
 	},
 	{
 		"jay-babu/mason-nvim-dap.nvim",
