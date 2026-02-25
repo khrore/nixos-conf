@@ -38,7 +38,7 @@ let
 
     # CLI utilities
     pkgs-unstable.nh
-    pkgs-unstable.yt-dlp
+    # pkgs-unstable.yt-dlp
     pkgs-unstable.file
     pkgs-unstable.jd-diff-patch
     pkgs-unstable.libnotify
