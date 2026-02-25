@@ -41,7 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
 
     secrets = {
       # Private repo over SSH (requires working SSH agent/key access for nix).
@@ -127,10 +127,9 @@
         "dev-4" = nixpkgs.lib.nixosSystem {
           system = linuxSystem;
           modules = [
-            ./hosts/oldix
+            ./hosts/dev-4
             inputs.disko.nixosModules.disko
             inputs.agenix.nixosModules.age
-            inputs.secrets.nixosModules.default
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
