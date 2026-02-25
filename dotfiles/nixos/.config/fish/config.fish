@@ -45,7 +45,7 @@ alias rsw 'nixos-rebuild switch'
 # enviroment variables
 export NH_OS_FLAKE="$HOME/nixos"
 export NIXOS_CONFIG="$HOME/nixos"
-export PATH="$PATH:/usr/local/go/bin:/usr/local/nvim-linux-x86_64/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.venv/bin"
+export PATH="$PATH:/usr/local/go/bin:/usr/local/nvim-linux-x86_64/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.venv/bin:$HOME/.npm-packages/bin"
 export EDITOR="nvim"
 
 function y

@@ -26,6 +26,7 @@ let
     # Other
     inputs.zen-browser.packages."${system}".twilight
     pkgs-unstable.ghostty
+    pkgs-unstable.zed-editor
     pkgs-unstable.obs-studio
     pkgs-unstable.mpv
     pkgs-unstable.anydesk
