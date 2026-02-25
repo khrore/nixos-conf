@@ -59,6 +59,12 @@ in
   # Enable Touch ID for sudo (updated option name)
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Decrypt dev-4 private key for macix -> dev-4 SSH access.
+  age.secrets.dev-4_ssh_key = {
+    owner = username;
+    mode = "0400";
+  };
+
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
