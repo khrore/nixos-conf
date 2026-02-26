@@ -311,11 +311,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1772098086,
-        "narHash": "sha256-y49z6lMu+sfNAsmLWNJO1ExppAzZIYizV2zDGIdyrK4=",
+        "lastModified": 1772110776,
+        "narHash": "sha256-cN23+IOKFFPMhXMgQQTVeXlGPmeyRQlbTTrnRLN8ic0=",
         "ref": "refs/heads/main",
-        "rev": "fc4bdae48ebe291d15baa3f4be04ef36f70a929a",
-        "revCount": 25,
+        "rev": "7674543293f190f7f6602aaa84017b910138cc31",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@github.com/khrore/nixrets.git"
       },
