@@ -59,23 +59,10 @@ in
   # Enable Touch ID for sudo (updated option name)
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  # if you changed this key, you need to regenerate all encrypt files from the decrypt contents!
-  age.identityPaths = [
-    # Generate manually via `sudo ssh-keygen -A`
-    "/etc/ssh/ssh_host_ed25519_key" # macOS, using the host key for decryption
-  ];
-
-  # Decrypt dev-4 private key for macix -> dev-4 SSH access.
-  age.secrets.macix_atuin_key = {
-    owner = username;
-    mode = "0400";
-    path = "~/.local/share/atuin/saved_key";
-  };
-
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
-    openssh.authorizedKeys.keys = secretsMeta."keys/macix_ssh_key.age".publicKeys;
+    # openssh.authorizedKeys.keys = secretsMeta."keys/macix_ssh_key.age".publicKeys;
   };
 
   # Allow SSH access to macix via public key auth.
