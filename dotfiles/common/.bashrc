@@ -11,8 +11,8 @@ eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
 
-# Add this line at the end of .bashrc:
-[[ ! ${BLE_VERSION-} ]] || ble-attach
-
 . "$HOME/.atuin/bin/env"
 . "$HOME/.cargo/env"
+
+# Add this line at the end of .bashrc:
+[[ ! ${BLE_VERSION-} ]] || ble-attach

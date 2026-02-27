@@ -39,6 +39,10 @@ in
     path = "${userHome}/.local/share/atuin/shared_key";
   };
 
+  services.openssh = {
+    enable = true;
+  };
+
   system.stateVersion =
     if mylib.isDarwin system then
       5 # nix-darwin uses different versioning

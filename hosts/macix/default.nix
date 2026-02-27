@@ -3,12 +3,8 @@
   stateVersion,
   hostname,
   username,
-  inputs,
   ...
 }:
-let
-  secretsMeta = import (inputs.secrets + "/secrets.nix");
-in
 {
   # Import common configuration
   imports = [
@@ -25,7 +21,7 @@ in
 
   system = {
     # Basic nix-darwin settings
-    stateVersion = 5; # nix-darwin uses different versioning
+    inherit stateVersion; # nix-darwin uses different versioning
 
     # Set primary user (required for homebrew and system defaults)
     primaryUser = username;
@@ -62,12 +58,10 @@ in
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
-    # openssh.authorizedKeys.keys = secretsMeta."keys/macix_ssh_key.age".publicKeys;
   };
 
   # Allow SSH access to macix via public key auth.
   services.openssh = {
-    enable = true;
     extraConfig = ''
       PasswordAuthentication no
       KbdInteractiveAuthentication no
