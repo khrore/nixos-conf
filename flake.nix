@@ -1,5 +1,5 @@
 {
-  description = "System configuration by khorev";
+  description = "System configuration by khrore";
 
   inputs = {
     # Nixpkgs
@@ -36,7 +36,17 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    # hyprland.url = "github:hyprwm/Hyprland";
+
+    secrets = {
+      # Private repo over SSH (requires working SSH agent/key access for nix).
+      url = "git+ssh://git@github.com/khrore/nixrets.git";
+    };
   };
 
   outputs =
@@ -117,8 +127,10 @@
         "dev-4" = nixpkgs.lib.nixosSystem {
           system = linuxSystem;
           modules = [
-            ./hosts/oldix
+            ./hosts/dev-4
             inputs.disko.nixosModules.disko
+            inputs.agenix.nixosModules.age
+            inputs.secrets.nixosModules.default
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
@@ -149,6 +161,8 @@
           system = darwinSystem;
           modules = [
             ./hosts/macix
+            inputs.agenix.darwinModules.default
+            inputs.secrets.nixosModules.default
             home-manager.darwinModules.home-manager
           ];
           specialArgs = mkSpecialArgs {

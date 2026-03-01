@@ -157,3 +157,11 @@ alt-r = 'reload-config'
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = ['layout floating']
+
+# Second monitor (1-based left-to-right index)
+[workspace-to-monitor-force-assignment]
+1 = 2
+2 = 2
+3 = 2
+4 = 2
+5 = 2

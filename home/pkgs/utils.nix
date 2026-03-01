@@ -3,6 +3,7 @@
   pkgs-unstable,
   mylib,
   system,
+  inputs,
   ...
 }:
 let
@@ -35,13 +36,10 @@ let
 
     # Media tools
     pkgs-unstable.ffmpeg
-    pkgs-unstable.mediainfo
-    pkgs-unstable.imagemagick
 
     # CLI utilities
-    pkgs-unstable.stow
     pkgs-unstable.nh
-    pkgs-unstable.yt-dlp
+    # pkgs-unstable.yt-dlp
     pkgs-unstable.file
     pkgs-unstable.jd-diff-patch
     pkgs-unstable.libnotify
@@ -52,24 +50,17 @@ let
     pkgs-unstable.wget
     pkgs-unstable.mtr
     pkgs-unstable.iperf3
-    pkgs-unstable.dnsutils
-    pkgs-unstable.ldns
-    pkgs-unstable.aria2
     pkgs-unstable.socat
     pkgs-unstable.nmap
     pkgs-unstable.ipcalc
     pkgs-unstable.openssl
-    pkgs-unstable.ncdu
 
     # Filesystem
     pkgs-unstable.fuse
     pkgs-unstable.smbclient-ng
 
-    # Nix tools
-    pkgs-unstable.nix-eval-jobs
-    pkgs-unstable.nix-fast-build
-    # pkgs-unstable.microfetch
-    pkgs-unstable.nix-prefetch-scripts
+    # Encription
+    pkgs-unstable.gnupg
 
     # Archives
     pkgs-unstable.zip
@@ -80,6 +71,8 @@ let
     # Docs
     pkgs-unstable.pandoc
     pkgs-unstable.texliveSmall
+
+    inputs.agenix.packages.${system}.default
   ];
 in
 {

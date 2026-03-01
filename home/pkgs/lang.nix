@@ -40,6 +40,7 @@ in
     pkgs-unstable.vtsls
     pkgs-unstable.vscode-js-debug
     pkgs-unstable.prettierd
+    pkgs-unstable.nodejs
 
     # Bash
     pkgs-unstable.bash-language-server

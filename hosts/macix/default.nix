@@ -21,7 +21,7 @@
 
   system = {
     # Basic nix-darwin settings
-    stateVersion = 5; # nix-darwin uses different versioning
+    inherit stateVersion; # nix-darwin uses different versioning
 
     # Set primary user (required for homebrew and system defaults)
     primaryUser = username;
@@ -58,6 +58,16 @@
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
+  };
+
+  # Allow SSH access to macix via public key auth.
+  services.openssh = {
+    extraConfig = ''
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      PermitRootLogin no
+      PubkeyAuthentication yes
+    '';
   };
 
   # Enable shells

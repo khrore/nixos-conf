@@ -27,6 +27,8 @@
       "zed"
       "ghostty"
       "codex"
+      "codex-app"
+      "anydesk"
     ];
 
     # Mac App Store apps (requires mas-cli)

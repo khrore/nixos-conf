@@ -11,7 +11,8 @@ let
     pkgs-unstable.btop-cuda
     pkgs-unstable.gpustat
     pkgs-unstable.imv
-    pkgs-unstable.zed-editor # moved to brew
+    # Moved to brew
+    pkgs-unstable.zed-editor
   ];
   darwin = lib.optionals (mylib.isDarwin system) [
     pkgs-unstable.btop
@@ -22,21 +23,15 @@ in
     pkgs-unstable.yazi
     pkgs-unstable.neovim
 
-    # AI
-    pkgs-unstable.claude-code
-    pkgs-unstable.opencode
-    pkgs-unstable.qwen-code
-    pkgs-unstable.gemini-cli
-    pkgs-unstable.github-copilot-cli
-    pkgs-unstable.codex
-    pkgs-unstable.codex-acp
-
     # media
     pkgs-unstable.spotifyd
     pkgs-unstable.spotify-player
 
     # disk
     pkgs-unstable.ncdu
+
+    # encription
+    # pkgs-unstable.pinentry-curses
   ]
   ++ darwin
   ++ nvidiaPackages;
