@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
@@ -40,8 +35,6 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    # hyprland.url = "github:hyprwm/Hyprland";
 
     secrets = {
       # Private repo over SSH (requires working SSH agent/key access for nix).
@@ -90,7 +83,7 @@
 
       # Configuration for user settings
       terminalEditor = "nvim";
-      shell = "fish";
+      shell = "bash";
 
       configurationLimit = 10;
 

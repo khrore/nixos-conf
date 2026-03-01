@@ -1,6 +1,4 @@
 {
-  pkgs,
-  stateVersion,
   hostname,
   username,
   ...
@@ -21,7 +19,7 @@
 
   system = {
     # Basic nix-darwin settings
-    inherit stateVersion; # nix-darwin uses different versioning
+    stateVersion = 5;
 
     # Set primary user (required for homebrew and system defaults)
     primaryUser = username;
