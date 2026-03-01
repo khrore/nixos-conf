@@ -145,6 +145,8 @@
           modules = [
             ./hosts/nixos
             inputs.disko.nixosModules.disko
+            inputs.agenix.nixosModules.default
+            inputs.secrets.nixosModules.default
             home-manager.nixosModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
@@ -162,7 +164,7 @@
           modules = [
             ./hosts/macix
             inputs.agenix.darwinModules.default
-            inputs.secrets.nixosModules.default
+            inputs.secrets.darwinModules.default
             home-manager.darwinModules.home-manager
           ];
           specialArgs = mkSpecialArgs {

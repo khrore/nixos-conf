@@ -31,6 +31,7 @@ let
     pkgs-unstable.mpv
     pkgs-unstable.anydesk
     pkgs.chromium
+    pkgs-unstable.tor
   ];
 
   # MacOS-specific GUI packages
