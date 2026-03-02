@@ -1,7 +1,7 @@
 # bashrc
 
 # Add this lines at the top of .bashrc:
-[[ $- == *i* ]] && source "$HOME/.local/share/blesh/ble.sh" --noattach
+source -- "$(blesh-share)"/ble.sh --noattach
 
 # Vi mode
 set -o vi

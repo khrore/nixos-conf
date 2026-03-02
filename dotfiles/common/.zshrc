@@ -54,10 +54,10 @@ function y() {
 
 # Plugins
 fpath=(~/.config/zsh/completions/src $fpath)
-source ~/.config/zsh/autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.config/zsh/autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 # Gruvbox colors are now handled by ZSH_HIGHLIGHT_STYLES below
-source ~/.config/zsh/vi-mode/zsh-vi-mode.zsh
+# source ~/.config/zsh/vi-mode/zsh-vi-mode.zsh
 
 # Gruvbox Dark colors for zsh-syntax-highlighting
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -86,10 +86,10 @@ ZSH_HIGHLIGHT_STYLES[assign]='fg=#ebdbb2'
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh )"
 eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
 
 # TODO: find how configure atuin in vi insert and cmd mode in zsh
 export ATUIN_NOBIND="true"
-eval "$(atuin init zsh)"
 bindkey '^R' atuin-search-viins -i atuin
 bindkey '^R' atuin-search-vicmd -i atuin
 

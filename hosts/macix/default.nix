@@ -1,4 +1,6 @@
 {
+  pkgs,
+  shell,
   hostname,
   username,
   ...
@@ -56,6 +58,7 @@
   # User configuration
   users.users.${username} = {
     home = "/Users/${username}";
+    shell = pkgs.${shell};
   };
 
   # Allow SSH access to macix via public key auth.
@@ -69,6 +72,9 @@
   };
 
   # Enable shells
-  programs.fish.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    fish.enable = true;
+    zsh.enable = true;
+    bash.enable = true;
+  };
 }

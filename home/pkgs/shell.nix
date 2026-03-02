@@ -16,8 +16,13 @@ in
   home.packages =
     with pkgs-unstable;
     [
-      # shells
+      # bash
       blesh
+
+      # zsh
+      zsh-vi-mode
+      zsh-syntax-highlighting
+      zsh-autosuggestions
 
       # utils
       atuin
