@@ -29,6 +29,7 @@
       "codex"
       "codex-app"
       "anydesk"
+      "chatgpt-atlas"
     ];
 
     # Mac App Store apps (requires mas-cli)
