@@ -161,7 +161,7 @@
             home-manager.darwinModules.home-manager
           ];
           specialArgs = mkSpecialArgs {
-            username = "khorev";
+            username = "khrore";
             hostname = "macix";
             system = darwinSystem;
           };

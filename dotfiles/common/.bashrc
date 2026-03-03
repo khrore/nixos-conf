@@ -47,5 +47,9 @@ function y() {
   rm -f -- "$tmp"
 }
 
+export PATH="/opt/homebrew/bin:$PATH"
+
+export EDITOR="nvim"
+
 # Add this line at the end of .bashrc:
 [[ ! ${BLE_VERSION-} ]] || ble-attach

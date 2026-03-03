@@ -37,6 +37,7 @@
 
       finder = {
         AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
         FXEnableExtensionChangeWarning = false;
         ShowPathbar = true;
         ShowStatusBar = true;
