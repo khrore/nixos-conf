@@ -30,27 +30,25 @@ let
     pkgs-unstable.obs-studio
     pkgs-unstable.mpv
     pkgs-unstable.anydesk
-    pkgs.chromium
+
+    # Browser
+    pkgs-unstable.ungoogled-chromium
     pkgs-unstable.tor
   ];
 
-  # MacOS-specific GUI packages
-  darwinGuiPkgs = lib.optionals (mylib.isDarwin system) [
-  ];
-
   # Cross-platform GUI packages
-  sharedGuiPkgs = [
+  sharedGuiPkgs = with pkgs-unstable; [
     # Terminals
-    pkgs-unstable.kitty
+    kitty
 
     # Applications
-    pkgs-unstable.obsidian
-    pkgs-unstable.telegram-desktop
-    pkgs-unstable.spotify
-    pkgs-unstable.qbittorrent
-    pkgs-unstable.affine
+    obsidian
+    telegram-desktop
+    spotify
+    qbittorrent
+    affine
   ];
 in
 {
-  home.packages = sharedGuiPkgs ++ linuxGuiPkgs ++ darwinGuiPkgs;
+  home.packages = sharedGuiPkgs ++ linuxGuiPkgs;
 }

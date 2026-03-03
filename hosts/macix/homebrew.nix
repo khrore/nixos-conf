@@ -30,6 +30,7 @@
       "codex-app"
       "anydesk"
       "chatgpt-atlas"
+      "ungoogled-chromium"
     ];
 
     # Mac App Store apps (requires mas-cli)
