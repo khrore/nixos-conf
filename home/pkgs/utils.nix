@@ -16,8 +16,7 @@ let
     pkgs-unstable.showmethekey
     pkgs-unstable.wtype
 
-    # Linux-specific tools
-    pkgs-unstable.brightnessctl
+    # Linux-specific tools pkgs-unstable.brightnessctl
     pkgs-unstable.playerctl
     pkgs-unstable.libsForQt5.qt5ct
     pkgs-unstable.libsForQt5.qt5.qtwayland
@@ -54,6 +53,7 @@ let
     pkgs-unstable.nmap
     pkgs-unstable.ipcalc
     pkgs-unstable.openssl
+    pkgs-unstable.prettyping
 
     # Filesystem
     pkgs-unstable.fuse
