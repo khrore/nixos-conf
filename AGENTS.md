@@ -112,6 +112,10 @@ If a command is unavailable, report it and state resulting risk.
 - OpenCode implementation files are:
   - `dotfiles/common/.config/opencode/opencode.json`
   - `dotfiles/common/.config/opencode/agents/`
+- Codex implementation files are:
+  - `dotfiles/common/.codex/AGENTS.md`
+  - `dotfiles/common/.codex/agents/AGENTS.md`
+  - `dotfiles/common/.codex/agents/`
 - Queue order is fixed:
   - `analyzer -> researcher -> planner -> coder -> reviewer -> tester -> technical-writer -> summarizer`
 - Reviewer may require coder fixes via structured `fix_instructions` and loop-back.

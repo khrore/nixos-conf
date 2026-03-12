@@ -435,3 +435,17 @@ Use this template for future updates:
 - Changed Sections:
 - Reason:
 - Migration Notes:
+
+______________________________________________________________________
+
+## 16. Codex Multiagent Layout
+
+This file remains the shared standards memory for all Codex workflow agents under this directory.
+
+Workflow coordination is split into dedicated files:
+
+- `./agents/AGENTS.md`: lightweight multiagent playbook for handoff quality and routing hygiene
+- `./agents/workflow-orchestrator.md`: queue control, escalation handling, and reviewer loop routing
+- `./agents/*.md`: stage-specific prompts for analyzer, researcher, planner, coder, reviewer, tester, technical-writer, and summarizer roles
+
+Workflow policy, schema, and adapter contracts remain canonical in `docs/workflow/`.
