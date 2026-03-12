@@ -47,6 +47,10 @@ let
     spotify
     qbittorrent
     affine
+
+    # DB
+    dbeaver-bin
+    plantuml
   ];
 in
 {
