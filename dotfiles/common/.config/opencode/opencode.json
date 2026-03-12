@@ -35,7 +35,6 @@
   "agent": {
     "workflow-orchestrator": {
       "mode": "subagent",
-      "hidden": true,
       "permission": {
         "task": {
           "*": "deny",

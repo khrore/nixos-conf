@@ -16,11 +16,32 @@ Focus:
 - avoid unwrap/expect in runtime logic
 - preserve architecture and module boundaries
 
+Quality tooling (required before handoff):
+
+- formatter: `cargo fmt --check`
+- linter: `cargo clippy --all-targets -- -D warnings`
+- type/LSP-equivalent check: `cargo check`
+- tests: run targeted `cargo test` for touched behavior
+- if a check cannot run, report skip reason and confidence impact
+
+Execution order:
+
+1. `cargo fmt --check`
+2. `cargo check`
+3. `cargo clippy --all-targets -- -D warnings`
+4. targeted `cargo test`
+5. broader test matrix when risk tier or scope requires
+
 Escalate when requested behavior creates unsafe or high-risk outcomes.
 
 Output must include:
 
 - `change_log`
 - `implementation_notes`
+- `quality_checks` with:
+  - `commands_run`
+  - `results`
+  - `skipped_checks`
+  - `confidence_impact`
 
 Handoff target: `rust-reviewer`.
