@@ -104,3 +104,17 @@ If a command is unavailable, report it and state resulting risk.
 - Preserve platform guards around Linux/Darwin-only options.
 - Prefer updating shared modules only when behavior is truly cross-host.
 - Do not introduce secrets into tracked files or logs.
+
+## Multiagent Workflow Governance
+
+- Canonical workflow docs live under `docs/workflow/`.
+- Workflow is context-driven and adapter-based to avoid lock-in to one runtime.
+- OpenCode implementation files are:
+  - `dotfiles/common/.config/opencode/opencode.json`
+  - `dotfiles/common/.config/opencode/agents/`
+- Queue order is fixed:
+  - `analyzer -> researcher -> planner -> coder -> reviewer -> tester -> technical-writer -> summarizer`
+- Reviewer may require coder fixes via structured `fix_instructions` and loop-back.
+- Max reviewer loops are controlled by workflow setting `max_review_cycles` (default `3`).
+- Escalation strictness is user-selected at workflow creation with `escalation_policy`.
+- External read-only requests are allowed; external write/mutation remains policy-gated.
